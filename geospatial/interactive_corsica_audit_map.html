@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSUCIETÀ 2.0 — Carte Interactive d'Audit Territorial</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { margin: 0; padding: 0; background-color: #0b0f19; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; }
+        #header { background: #111827; padding: 15px 20px; border-bottom: 2px solid #fbbf24; display: flex; justify-content: space-between; align-items: center; }
+        #header h1 { margin: 0; font-size: 1.4rem; color: #fbbf24; letter-spacing: 1px; }
+        #header p { margin: 0; font-size: 0.9rem; color: #9ca3af; }
+        #map { height: calc(100vh - 70px); width: 100%; }
+        .leaflet-popup-content-wrapper { background: #1f2937; color: #fff; border: 1px solid #fbbf24; border-radius: 8px; }
+        .leaflet-popup-tip { background: #1f2937; }
+        .popup-title { color: #fbbf24; font-weight: bold; font-size: 1.1rem; margin-bottom: 5px; }
+        .popup-badge { background: #d97706; color: #fff; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+        .popup-link { display: inline-block; margin-top: 8px; color: #38bdf8; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div>
+            <h1>🛡️ FSUCIETÀ 2.0 — CARTE D'AUDIT TERRITORIAL INTERACTIVE</h1>
+            <p>Données Cadastre DVF, Registres INPI & Imagerie Satellite Copernicus ESA</p>
+        </div>
+        <div>
+            <a href="https://bufitonu.fr" target="_blank" style="color: #fbbf24; font-weight: bold; text-decoration: none; border: 1px solid #fbbf24; padding: 6px 12px; border-radius: 6px;">⚙️ Outil Bufitonu.fr</a>
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([42.15, 9.15], 9);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap &copy; CARTO &copy; FSUCIETÀ 2.0',
+            maxZoom: 18
+        }).addTo(map);
+
+        // Repères d'investigation
+        var locations = [
+            { lat: 41.9267, lng: 8.7369, title: "Axe 01: Arbitrage Taxe CIIC (Ajaccio)", badge: "DVF / Impôts", text: "Prix moyen foncier: 5 000 €/m². Inflation +120%. Réf CGI Art. 244 quater E." },
+            { lat: 42.7028, lng: 9.4500, title: "Axe 02: Fuite Capitaux Bancaires (Bastia)", badge: "Banque / CMF", text: "Surveillance des flux de capitalisation et refinancement offshore." },
+            { lat: 41.3872, lng: 9.1594, title: "Axe 31: Seizure DPM & AOT Littoral (Bonifacio)", badge: "Satellites / DPM", text: "Privatisation du maquis et concessions de paillotes non conformes." },
+            { lat: 41.5911, lng: 9.2794, title: "Axe 19: Capture Ressource en Eau (Porto-Vecchio)", badge: "Golfs / Resorts", text: "Pression hydrique et contournement des restrictions de sécheresse." },
+            { lat: 42.3060, lng: 9.1500, title: "Axe 13: Racket TGAP & Crise Déchets (Corte)", badge: "Environnement", text: "Centres de tri et surcoûts d'exportation de déchets vers le continent." }
+        ];
+
+        locations.forEach(function(loc) {
+            var marker = L.marker([loc.lat, loc.lng]).addTo(map);
+            var popupContent = `
+                <div class="popup-title">${loc.title}</div>
+                <div class="popup-badge">${loc.badge}</div>
+                <div>${loc.text}</div>
+                <a class="popup-link" href="https://bufitonu.fr" target="_blank">Explorer l'analyse sur Bufitonu.fr &rarr;</a>
+            `;
+            marker.bindPopup(popupContent);
+        });
+    </script>
+</body>
+</html>

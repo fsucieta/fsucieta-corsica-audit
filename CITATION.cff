@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "FSUCIETÀ 2.0: Open-Source Data-Driven Territorial Audit Framework"
+message: "If you use this repository or dataset in academic research, please cite it as below."
+authors:
+  - family-names: "FSUCIETÀ"
+    given-names: "Initiative 2.0"
+date-released: 2026-07-27
+url: "https://github.com/fsucieta/fsucieta-corsica-audit"
+repository-code: "https://github.com/fsucieta/fsucieta-corsica-audit"
+keywords:
+  - "Open Data"
+  - "OSINT"
+  - "GIS"
+  - "Territorial Audit"
+  - "Beneficial Ownership"
+  - "Corsica"
+license: "CC-BY-4.0"

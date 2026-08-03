@@ -1,0 +1,15 @@
+¿Qué pasaría si hiciéramos lo que nunca se ha hecho antes?
+¿Y si usáramos datos públicos abiertos para exponer, metro cuadrado por metro cuadrado, los mecanismos ocultos de todo un territorio?
+En Córcega, la inflación inmobiliaria, el acaparamiento de tierras y el cercamiento de espacios públicos afectan a miles de familias.
+Pero por primera vez, no dejamos esto en la oscuridad.
+En 1755, Córcega creó la primera democracia moderna del mundo. Hoy inauguramos la Iniciativa Democrática 2.0: la primera experiencia de auditoría territorial abierta.
+Sin rumores, sin ataques personales: un diagnóstico completo impulsado por Open Data.
+Cruzamos miles de transacciones inmobiliarias oficiales, registros corporativos e imágenes de satélite para crear una base de inteligencia auténtica y verificable.
+Juntos, hacemos que el sistema sea transparente.
+Miren: rastreamos la inflación inmobiliaria parcela por parcela utilizando datos del Ministerio de Hacienda.
+Revelamos quién posee realmente las empresas inmobiliarias a través de los registros públicos de beneficiarios reales.
+Y monitoreamos las transformaciones costeras año tras año directamente desde el espacio.
+Esta es una invitación abierta al mundo. Por la supervivencia y la dignidad del pueblo corso en su tierra, y para cualquier comunidad que enfrente el borrado territorial: únete a esta experiencia única.
+Accede al repositorio abierto completo en GitHub. Toma los datos, analiza las pruebas, aporta tus habilidades.
+Sus pantallas son herramientas de liberación.
+Juntos, defendamos el derecho de un pueblo a existir y sentemos un precedente para el mundo.

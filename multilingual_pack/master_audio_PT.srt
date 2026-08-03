@@ -1,0 +1,71 @@
+1
+00:00:05,100 --> 00:00:07,762
+E se fizéssemos o que nunca foi feito antes?
+
+2
+00:00:07,712 --> 00:00:14,925
+E se usássemos dados públicos abertos para expor, metro quadrado por metro quadrado, os mecanismos ocultos de todo um território?
+
+3
+00:00:14,925 --> 00:00:22,187
+Em Córsega, a inflação imobiliária, a apropriação de terras e o cercamento de espaços públicos afetam milhares de famílias.
+
+4
+00:00:22,187 --> 00:00:25,900
+Mas, pela primeira vez, não deixamos isso nas sombras.
+
+5
+00:00:25,900 --> 00:00:31,087
+Em 1755, a Córsega criou a primeira democracia moderna do mundo.
+
+6
+00:00:31,087 --> 00:00:37,237
+Hoje lançamos a Iniciativa Democrática 2.0: a primeira experiência de auditoria territorial aberta.
+
+7
+00:00:37,237 --> 00:00:43,012
+Sem boatos, sem ataques pessoais: um diagnóstico completo alimentado por Open Data.
+
+8
+00:00:43,012 --> 00:00:51,562
+Cruzamos milhares de transações imobiliárias oficiais, registros corporativos e imagens de satélite para criar uma base de inteligência autêntica e verificável.
+
+9
+00:00:51,562 --> 00:00:54,600
+Juntos, tornamos o sistema transparente.
+
+10
+00:00:54,600 --> 00:01:00,475
+Vejam: rastreamos a inflação imobiliária parcela por parcela usando dados do Ministério das Finanças.
+
+11
+00:01:00,475 --> 00:01:06,662
+Revelamos quem realmente possui as empresas imobiliárias por meio dos registros públicos de beneficiários efetivos.
+
+12
+00:01:06,662 --> 00:01:11,100
+E monitoramos as transformações costeiras ano após ano diretamente do espaço.
+
+13
+00:01:11,100 --> 00:01:13,512
+Este é um convite aberto ao mundo.
+
+14
+00:01:13,512 --> 00:01:21,900
+Pela sobrevivência e dignidade do povo corso em sua terra, e para qualquer comunidade que enfrente o apagamento territorial: junte-se a esta experiência única.
+
+15
+00:01:21,900 --> 00:01:24,962
+Aceda ao repositório aberto completo no GitHub.
+
+16
+00:01:24,962 --> 00:01:29,262
+Pegue nos dados, analise as provas, traga as suas competências.
+
+17
+00:01:29,262 --> 00:01:32,512
+Os vossos ecrãs são ferramentas de libertação.
+
+18
+00:01:32,512 --> 00:01:37,362
+Juntos, vamos defender o direito de um povo a existir e criar um precedente para o mundo.

@@ -1,0 +1,71 @@
+1
+00:00:05,100 --> 00:00:09,962
+Was wäre, wenn wir tun würden, was noch nie zuvor getan wurde?
+
+2
+00:00:09,912 --> 00:00:19,600
+Was wäre, wenn wir offene öffentliche Daten nutzen würden, um Quadratmeter für Quadratmeter die verborgenen Mechanismen eines gesamten Territoriums aufzudecken?
+
+3
+00:00:19,600 --> 00:00:27,162
+Auf Korsika betreffen Immobilienpreisinflation, Landraub und die Einzäunung öffentlicher Räume Tausende von Familien.
+
+4
+00:00:27,162 --> 00:00:30,600
+Aber zum ersten Mal lassen wir dies nicht im Dunkeln.
+
+5
+00:00:30,600 --> 00:00:36,250
+Im Jahr 1755 schuf Korsika die erste moderne Demokratie der Welt.
+
+6
+00:00:36,250 --> 00:00:43,575
+Heute starten wir die Demokratische Initiative 2.0: die weltweit erste offene territoriale Audit-Erfahrung.
+
+7
+00:00:43,575 --> 00:00:50,375
+Keine Gerüchte, keine persönlichen Angriffe: eine vollständige Diagnose auf Basis von Open Data.
+
+8
+00:00:50,375 --> 00:01:00,662
+Wir haben Tausende offizielle Grundstückstransaktionen, Unternehmensregister und Satellitenbilder abgeglichen, um eine authentische, überprüfbare Datenbank zu erstellen.
+
+9
+00:01:00,662 --> 00:01:03,837
+Gemeinsam machen wir das System transparent.
+
+10
+00:01:03,837 --> 00:01:11,575
+Sehen Sie: Wir verfolgen die Immobilienpreisinflation Parzelle für Parzelle mithilfe von Daten des Finanzministeriums.
+
+11
+00:01:11,575 --> 00:01:17,950
+Wir enthüllen über öffentliche wirtschaftliche Eigentümerregister, wer Immobilienunternehmen wirklich besitzt.
+
+12
+00:01:17,950 --> 00:01:22,725
+Und wir überwachen Küstenveränderungen Jahr für Jahr direkt aus dem Weltraum.
+
+13
+00:01:22,725 --> 00:01:25,850
+Dies ist eine offene Einladung an die Welt.
+
+14
+00:01:25,850 --> 00:01:37,100
+Für das Überleben und die Würde des korsischen Volkes auf seinem Land und für jede Gemeinschaft, die vor der Auslöschung ihres Territoriums steht: Schließen Sie sich dieser einzigartigen Erfahrung an.
+
+15
+00:01:37,100 --> 00:01:41,662
+Greifen Sie auf das vollständige offene Repository auf GitHub zu.
+
+16
+00:01:41,662 --> 00:01:47,287
+Nehmen Sie die Daten, analysieren Sie die Beweise, bringen Sie Ihre Fähigkeiten ein.
+
+17
+00:01:47,287 --> 00:01:50,737
+Ihre Bildschirme sind Werkzeuge der Befreiung.
+
+18
+00:01:50,737 --> 00:01:57,937
+Lassen Sie uns gemeinsam das Recht eines Volkes auf Existenz verteidigen und einen Präzedenzfall für die Welt schaffen.

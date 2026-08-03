@@ -1,0 +1,15 @@
+Que se passerait-il si nous faisions ce qui n'a jamais été fait auparavant ?
+Et si nous utilisions les données publiques ouvertes pour exposer, mètre carré par mètre carré, les mécanismes cachés d'un territoire entier ?
+En Corse, l'inflation immobilière, l'accaparement des terres et l'enclosure de l'espace public touchent des milliers de familles.
+Mais pour la première fois, nous ne laissons pas cela dans l'ombre.
+En 1755, la Corse a créé la première démocratie moderne au monde. Aujourd'hui, nous lançons l'Initiative Démocratique 2.0 : la première expérience d'audit territorial ouvert.
+Ni rumeurs, ni attaques personnelles : un diagnostic complet alimenté par l'Open Data.
+Nous avons croisé des milliers de transactions foncières officielles, de registres d'entreprises et d'imageries satellites pour créer une base de renseignements authentique et vérifiable.
+Ensemble, nous rendons le système transparent.
+Regardez : nous traçons l'inflation immobilière parcelle par parcelle grâce aux données du Ministère des Finances.
+Nous révélons qui possède réellement les sociétés immobilières grâce aux registres publics des bénéficiaires effectifs.
+Et nous surveillons les transformations littorales année après année directement depuis l'espace.
+C'est une invitation ouverte adressée au monde. Pour la survie et la dignité du peuple corse sur sa terre, et pour toute communauté confrontée à l'effacement territorial : rejoignez cette expérience unique.
+Accédez au dépôt ouvert complet sur GitHub. Prenez les données, analysez les preuves, apportez vos compétences.
+Vos écrans sont des outils de libération.
+Ensemble, défendons le droit d'un peuple à exister et créons un précédent pour le monde.
