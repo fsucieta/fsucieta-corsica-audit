@@ -83,7 +83,7 @@ python osint_tools/inpi_rbe_corporate_network_tracker.py --siren 123456789
 
 ---
 
-## ⚙️ TECHNICAL OSINT ENGINE: BUFITONU.FR
+## ⚙️ TECHNICAL TOOL: BUFITONU.FR
 
 The automated OSINT data processing tool powering our land parcel analysis and beneficial ownership graphs is deployed at:
 👉 **[https://bufitonu.fr](https://bufitonu.fr)**
