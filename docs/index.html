@@ -149,7 +149,7 @@
         }
 
         .map-container {
-            height: 550px;
+            height: 500px;
             border-radius: 16px;
             border: 1px solid var(--border-glow);
             overflow: hidden;
@@ -235,15 +235,15 @@
             font-weight: 600;
         }
 
-        /* Modal Détaillée */
+        /* Modal Détaillée Totale */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
             z-index: 2000;
             display: none;
             justify-content: center;
@@ -255,20 +255,20 @@
             background: var(--bg-card);
             border: 1px solid var(--accent-gold);
             border-radius: 16px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
-            max-height: 85vh;
+            max-height: 90vh;
             overflow-y: auto;
-            padding: 2.5rem;
+            padding: 3rem;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9);
         }
 
         .close-btn {
             position: absolute;
             top: 1.5rem;
             right: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-muted);
             cursor: pointer;
             transition: color 0.2s;
@@ -279,24 +279,49 @@
         }
 
         .modal-body h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--accent-gold);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .modal-body h4 {
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
             color: #fff;
+            font-size: 1.2rem;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+
+        .modal-body p {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
 
         .equation-box {
-            background: rgba(0, 0, 0, 0.4);
-            border-left: 3px solid var(--accent-gold);
-            padding: 1rem;
-            margin: 1rem 0;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin: 1.2rem 0;
             font-family: monospace;
+            font-size: 1.1rem;
             color: var(--accent-cyan);
+        }
+
+        .sources-list {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .sources-list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         footer {
@@ -306,11 +331,6 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent-gold);
-            text-decoration: none;
         }
     </style>
 </head>
@@ -323,10 +343,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#map">Carte SIG 3D</a></li>
+                <li><a href="#map">Carte SIG Neutre</a></li>
                 <li><a href="#fiches">Les 24 Fiches d'Audit</a></li>
-                <li><a href="https://github.com/fsucieta/fsucieta-corsica-audit/tree/main/data_corpus" target="_blank">Corpus Open Data (3750)</a></li>
-                <li><a href="https://github.com/fsucieta/fsucieta-corsica-audit" target="_blank">GitHub Repository</a></li>
+                <li><a href="#opendata">Corpus Open Data (3750)</a></li>
             </ul>
         </nav>
     </header>
@@ -360,8 +379,8 @@
     <section id="map" class="map-section">
         <div class="section-header">
             <div>
-                <h2>🗺️ Cartographie SIG & Pression Foncier-Territoire</h2>
-                <p style="color: var(--text-muted);">Cliquez sur les repères pour consulter les constats d'audit sur le terrain.</p>
+                <h2>🗺️ Cartographie SIG Neutre du Territoire</h2>
+                <p style="color: var(--text-muted);">Vue relief et spatiale épurée de la région insulaire sans biais d'orientation.</p>
             </div>
         </div>
         <div id="leaflet-map" class="map-container"></div>
@@ -371,10 +390,10 @@
     <section id="fiches" class="audit-section">
         <div class="section-header">
             <div>
-                <h2>📚 Les 24 Fiches d'Audit Systémique</h2>
-                <p style="color: var(--text-muted);">Cliquez sur une fiche pour ouvrir le dossier complet et la formule de preuve.</p>
+                <h2>📚 Les 24 Fiches d'Audit Systémique Exposées</h2>
+                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle fiche pour consulter l'intégralité du dossier et des preuves.</p>
             </div>
-            <input type="text" id="searchInput" class="search-box" placeholder="Rechercher (ex: DVF, TVA, EDF, Permis)..." onkeyup="filterFiches()">
+            <input type="text" id="searchInput" class="search-box" placeholder="Rechercher dans les 24 fiches..." onkeyup="filterFiches()">
         </div>
 
         <div class="grid-24" id="fichesGrid">
@@ -382,12 +401,12 @@
         </div>
     </section>
 
-    <!-- Modal Détaillée -->
+    <!-- Modal Détaillée Intégrale -->
     <div id="ficheModal" class="modal-overlay" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModalForce()">&times;</span>
             <div class="modal-body" id="modalBody">
-                <!-- Contenu injecté dynamiquement -->
+                <!-- Contenu intégral injecté dynamiquement -->
             </div>
         </div>
     </div>
@@ -395,14 +414,14 @@
     <!-- Footer -->
     <footer>
         <p><strong>FSUCIETÀ 2.0</strong> — Portail d'Open Data Territorial & Souveraineté Numérique Corse.</p>
-        <p style="margin-top: 0.5rem;">Licence Open Source MIT / CC BY 4.0 | Clé PGP anonyme active sur <a href="https://github.com/fsucieta/fsucieta-corsica-audit" target="_blank">GitHub</a></p>
+        <p style="margin-top: 0.5rem;">Licence Open Source MIT / CC BY 4.0 | Clé PGP anonyme active sur GitHub</p>
     </footer>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <script>
-        // 1. Initialisation Carte Leaflet 3D Dark Theme Neutre (Sans marqueurs orientés)
+        // 1. Initialisation Carte Leaflet 3D Dark Theme Neutre
         const map = L.map('leaflet-map').setView([42.15, 9.05], 9);
         
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -411,33 +430,32 @@
             maxZoom: 19
         }).addTo(map);
 
-        // 2. Base de données des 24 Fiches d'Audit Complètes
-
+        // 2. Base de données INTÉGRALE des 24 Fiches d'Audit
         const fichesData = [
-            { id: 1, title: "Contribution Fiscale Nette & TVA", desc: "La TVA collectée (3M+ visiteurs) alimente l'État central, compensation figée.", details: "L'audit de la Cour des Comptes (Juin 2023) établit que le PEI n'a pas permis de rattraper les retards structurels. Les recettes de TVA alimentent le budget d'État sans rétrocession dynamique.", math: "Balance Fiscale Nette = (TVA + IS) - (DGF + DETR + DSI)", tool: "Cour des Comptes 2023" },
-            { id: 2, title: "Gestion et Marchandisation de l'Eau", desc: "Captage des bassins versants par concessions privées continentales.", details: "Transfert de concession des bassins versants vers des groupes continentaux. Tarification élevée et coupures estivales orchestrées par le surdéveloppement touristique.", math: "Taux d'Évasion = (Volume x Prix) / Investissement Réseau", tool: "OFB / PNRC" },
-            { id: 3, title: "Accaparement Foncier & SCI Non-Résidentes", desc: "Taux de résidences secondaires à 40%, effondrement du parc social.", details: "Explosion du taux de résidences secondaires (40% littoral vs 10% national). Éviction des ménages corses modestes par des SCI non-résidentes.", math: "Croisement SIREN SCI x INPI RBE x DVF", tool: "DVF / INPI RBE" },
-            { id: 4, title: "Quotas de Pêche & ZEE Maritime", desc: "90% des quotas thoniers attribués aux navires continentaux.", details: "Attribution prioritaire des quotas de pêche dans la ZEE corse aux armements industriels continentaux au détriment des prud'homies artisanales insulaires.", math: "Ratio Captation = Tonnage Hors-Corse / Tonnage Débarqué Insulaire", tool: "IFREMER / DPMA" },
-            { id: 5, title: "Cadastre Minier & Permis EXCLUSIFS PER", desc: "400 gisements répertoriés, relance du programme IRM 2024.", details: "Inventaire du BRGM répertoriant 400 gisements (antimoine, cuivre, zinc). Relance des Permis Exclusifs de Recherche (PER) au profit d'entités extérieures.", math: "Superposition PER / Cadastre Communal", tool: "BRGM InfoTerre" },
-            { id: 6, title: "Gestion Forestière & Bois Brut", desc: "Exportation des grumes de Pin Laricio sans transformation locale.", details: "Déclin des scieries corses et exportation de la ressource forestière publique sous forme de grumes brutes sans valorisation locale.", math: "Perte Valeur = (Volume x Prix Transformé) - Prix Grume Brut", tool: "ONF / Agreste" },
-            { id: 7, title: "Évasion des Capitaux Touristiques", desc: "Évasion de 90% des flux financiers vers des sièges continentaux.", details: "Évasion de 90% des recettes touristiques en raison du contrôle des chaînes hôtelières et des agences de réservation par des groupes continentaux.", math: "Taux Évasion = (Dépense Totale - Masse Salariale Locale) / Dépense Totale", tool: "Insee / Banque de France" },
-            { id: 8, title: "Tutelle de la Haute Fonction Publique", desc: "Nomination du corps préfectoral et directeurs régionaux par Paris.", details: "Nomination directe du corps préfectoral et des directeurs régionaux (DREAL, ARS, Rectorat) instaurant une administration de tutelle.", math: "Ratio Décisionnaires d'État / Cadres Régionaux CdC", tool: "JORF / Budget État" },
-            { id: 9, title: "Emprise & Servitudes Militaires", desc: "20% du territoire neutralisé sans retombées directes.", details: "Neutralisation de 20% du territoire insulaire (air, mer, terre) par les emprises militaires sans compensation de développement économique.", math: "Manque à Gagner = Surface Neutralisée (ha) x Valeur Adjacente", tool: "Défense / Cadastre" },
-            { id: 10, title: "Dépendance Sanitaire & EVASAN", desc: "Absence de CHU, fuite des crédits MIG vers Marseille/Nice.", details: "Malgré l'hôpital Stiletto, absence de CHU de plein exercice. Flux d'Évacuations Sanitaires transférant les crédits vers le continent.", math: "Déficit Santé = Budget EVASAN - Équipement Insulaire", tool: "ARS / PLFSS 2024-2026" },
-            { id: 11, title: "Orientation Éducative & Université", desc: "Sous-investissements chroniques Université Pasquale Paoli.", details: "Dotation d'État par étudiant à l'Université de Corse inférieure à la moyenne nationale et programmes scolaires marginalisant la culture corse.", math: "Déficit Étudiant = Dotation Moyenne Nationale - Dotation Effective", tool: "Rectorat / MESR" },
-            { id: 12, title: "Dépaysement Judiciaire & JIRS Marseille", desc: "Dessaisissement des parquets de Bastia/Ajaccio.", details: "Dessaisissement quasi-systématique des tribunaux de Bastia/Ajaccio au profit de la JIRS de Marseille pour les affaires financières et économiques.", math: "Taux Dépaysement = Dossiers Transférés JIRS / Total Instructions", tool: "CPP / Rapports Sénat" },
-            { id: 13, title: "Contrôle de Légalité & Art. 72", desc: "Annulation de l'usage de la langue corse et veto préfectoral.", details: "Arrêt CAA Marseille (19 nov. 2024) annulant l'usage de la langue corse à l'Assemblée. Déféré préfectoral d'avril 2026 sur les transports.", math: "Taux Invalidation = Délibérations Annulées / Délibérations Votées", tool: "Conseil d'État / CAA 2024" },
-            { id: 14, title: "Continuité des Archives (1970-1999)", desc: "Dysfonctionnements d'État documentés dès les rapports de 1999.", details: "Permanence des mécanismes d'accaparement foncier dénoncés par l'ARC en 1975 et confirmés par les Commissions d'Enquête de 1999.", math: "Corrélation Spatiale Mitage 1975 x SCI 2026", tool: "Commissions 1999 / ARC" },
-            { id: 15, title: "Non-ratification Charte Européenne", desc: "Refus de co-officialité de la langue corse par le Conseil Constitutionnel.", details: "Refus d'État de ratifier la Charte européenne des langues régionales du Conseil de l'Europe pour faire obstacle à la co-officialité.", math: "Superposition Chronologique Revendications x Décrets JORF", tool: "Conseil de l'Europe" },
-            { id: 16, title: "Dépendance Énergétique & EDF-SEI", desc: "Centrales fioul et captation des charges de SPE par EDF.", details: "Dépendance aux centrales thermiques au fioul lourd (Vazzio/Lucciana). La péréquation tarifaire réinjecte 180M+€ de SPE chez EDF.", math: "Taux Évasion Énergie = Compensations SPE / Investissement EnR", tool: "CRE 2026 / PPE" },
-            { id: 17, title: "Souveraineté Numérique & Câbles", desc: "Contrôle des câbles sous-marins et données déportées.", details: "Atterrissement des câbles sous-marins (BlueMed Bastia) sous contrôle d'opérateurs extérieurs. Data centers stratégiques déportés hors-île.", math: "Dépendance Numérique = Flux Extérieurs / Stockage Souverain Local", tool: "ARCEP / RIP Fibra" },
-            { id: 18, title: "Accaparement Primes PAC & ODARC", desc: "Captation des aides pastorales et éviction des jeunes agriculteurs.", details: "Captation disproportionnée des aides pastorales PAC par des chasseurs de primes déconnectés de la production, évincant les jeunes installés.", math: "Ratio Captation PAC = Aides >100ha / Aides Jeunes Agriculteurs", tool: "ASP / ODARC / RGA" },
-            { id: 19, title: "Gestion des Déchets & SYVADEC", desc: "Saturation des enfouissements et coûts d'exportation cargo.", details: "Saturation des centres d'enfouissement (Viggianello, Tallone). Coût financier élevé de l'exportation maritime des déchets par cargo.", math: "Coût Sur-Traitement = Dépense Exportation Cargo / Investissement Circulaire", tool: "SYVADEC / CRC" },
-            { id: 20, title: "Captation Bancaire & Épargne Private", desc: "Évasion des dépôts collectés réinvestis hors du territoire.", details: "Les dépôts d'épargne collectés en Corse par les grandes banques sont réinvestis hors de l'île sur le marché monétaire central.", math: "Fuite Financière = (Dépôts Collectés - Crédits Locaux) / Dépôts", tool: "Banque de France / ACPR" },
-            { id: 21, title: "Sécurité Civile & Risques Incendies", desc: "Sous-dotation SDIS et dépendance aux Canadairs continentaux.", details: "Dépendance absolue aux moyens aériens de la Sécurité Civile basée à Nîmes. Sous-dotation des SDIS corses face à la pression estivale.", math: "Déficit Protection = Budget SDIS Saison / Dotations Aériennes Île", tool: "DGSCGC / DREAL" },
-            { id: 22, title: "Radar Urbanisme & Permis Tacites", desc: "Morcellement parcellaires et permis délivrés par dépassement.", details: "Contournement des études d'impact par morcellement des parcelles littorales en Déclarations Préalables et permis obtenus de manière tacite.", math: "Bâtissabilité Tacite = Permis par Dépassement / Total Déposés", tool: "⚙️ Tool: Bufitonu.fr" },
-            { id: 23, title: "Transparence Pétitionnaires & RGPD", desc: "Caviardage des personnes physiques et démasquage des SCI.", details: "Application du caviardage RGPD des personnes physiques pour isoler les sociétés écrans (SCI/SAS) dépendant de holdings extérieures.", math: "Croisement Dossiers Urbanisme x INPI RBE", tool: "⚙️ Tool: Bufitonu.fr" },
-            { id: 24, title: "Spéculation sur le Bâti Agricole", desc: "Reconversion du bâti traditionnel en résidences de luxe.", details: "Détournement de la vocation agricole du bâti traditionnel (bergeries, granges) reconverti en résidences de luxe par dérogation d'urbanisme.", math: "Perte Patrimoine Agricole = Bergeries Reconverties / Total CVI", tool: "⚙️ Tool: Bufitonu.fr" }
+            { id: 1, title: "Contribution Fiscale Nette & TVA", desc: "La TVA collectée (3M+ visiteurs) alimente l'État central, compensation figée.", details: "L'audit de la Cour des Comptes (Juin 2023) établit que le PEI n'a pas permis de rattraper les retards structurels. Les recettes de TVA collectées sur la consommation des résidents et des 3M+ de touristes alimentent directement le budget d'État, alors que la Collectivité de Corse subit des dotations figées et inertielles.", math: "Balance Fiscale Nette = (TVA Collectée + IS Local) - (DGF + DETR + DSI + Subventions)", sources: ["Cour des Comptes (Juin 2023)", "DGFiP REPAD", "Insee CER Corse"], tool: "Cour des Comptes 2023" },
+            { id: 2, title: "Gestion et Marchandisation de l'Eau", desc: "Captage des bassins versants par concessions privées continentales.", details: "Transfert de concession des bassins versants insulaires vers des filiales de groupes continentaux. Tarification élevée payée par les résidents et pénuries estivales orchestrées par le surdéveloppement touristique littoral.", math: "Taux d'Évasion = (Volume d'eau prélevé x Prix m³) / Investissement Réseau Réel", sources: ["OFB BNPE", "SDAGE de Corse", "PNRC"], tool: "OFB / PNRC" },
+            { id: 3, title: "Accaparement Foncier & SCI Non-Résidentes", desc: "Taux de résidences secondaires à 40%, effondrement du parc social.", details: "Explosion du taux de résidences secondaires (39% à 40% sur le littoral corse vs 10% national), provoquant l'effondrement du parc social (10% vs 17.5% national) et l'éviction des ménages corses par des SCI à capital extérieur.", math: "Croisement Registre DVF x INPI RBE (Bénéficiaires Effectifs) x Cadastre MAJIC", sources: ["DVF 2014-2025", "INPI RBE", "Cerema / Insee", "Rapport AN Loi 2021-1756"], tool: "DVF / INPI RBE" },
+            { id: 4, title: "Quotas de Pêche & ZEE Maritime", desc: "90% des quotas thoniers attribués aux navires continentaux.", details: "Attribution prioritaire des quotas de capture d'espèces régulées (thon rouge, espadon) dans la ZEE corse aux armements industriels continentaux au détriment des prud'homies de pêcheurs artisanaux corses.", math: "Ratio Captation = Tonnage Navires Hors-Corse / Tonnage Débarqué Pêcheurs Corses", sources: ["IFREMER Mer Tyrrhénienne", "DPMA / OPAM", "Prud'homies de Pêche de Corse"], tool: "IFREMER / DPMA" },
+            { id: 5, title: "Cadastre Minier & Permis EXCLUSIFS PER", desc: "400 gisements répertoriés, relance du programme IRM 2024.", details: "Recensement de 400 gisements et indices minéraux (antimoine, cuivre, zinc). Relance par le BRGM du programme IRM (Critical Raw Material Act) pour octroyer des PER à des entités d'exploration extérieures.", math: "Superposition Périmètres PER x Cadastre Communal", sources: ["BRGM InfoTerre", "Programme IRM 2024", "Code Minier / DREAL"], tool: "BRGM InfoTerre" },
+            { id: 6, title: "Gestion Forestière & Bois Brut", desc: "Exportation des grumes de Pin Laricio sans transformation locale.", details: "Déclin des scieries locales et exportation de la ressource forestière publique sous forme de grumes brutes sans valorisation sur place, détruisant la chaîne de valeur locale.", math: "Perte Valeur = (Volume Exporté x Prix Bois Transformé) - Valeur Grume Brut", sources: ["ONF Forêts Domaniales", "Agreste / Insee Corse", "DRAAF / CdC"], tool: "ONF / Agreste" },
+            { id: 7, title: "Évasion des Capitaux Touristiques", desc: "Évasion de 90% des flux financiers vers des sièges continentaux.", details: "Évasion de 90% des recettes touristiques en raison du contrôle des compagnies de transport, des chaînes hôtelières et des agences de réservation par des groupes continentaux.", math: "Taux Évasion = (Dépense Totale - Masse Salariale Locale) / Dépense Totale", sources: ["Insee Corse CER", "Banque de France", "CCI de Corse"], tool: "Insee / Banque de France" },
+            { id: 8, title: "Tutelle de la Haute Fonction Publique", desc: "Nomination du corps préfectoral et directeurs régionaux par Paris.", details: "Nomination directe du corps préfectoral et des directeurs régionaux (DREAL, ARS, Rectorat, DGFiP) par l'État central, instaurant un modèle de décision et tutelle exogène.", math: "Ratio Décisionnaires sous Tutelle / Cadres Exécutifs CdC", sources: ["JORF Décrets de Nomination", "Budget Général État"], tool: "JORF / Budget État" },
+            { id: 9, title: "Emprise & Servitudes Militaires", desc: "20% du territoire neutralisé sans retombées directes.", details: "Servitudes et occupations militaires (bases aériennes, terrains de tir, zones d'essais) neutralisant près de 20% du territoire insulaire sans compensation économique direct.", math: "Manque à Gagner = Surface Neutralisée (ha) x Rendement Adjacents", sources: ["Ministère des Armées Cadastre", "DGAC Zones P/R/D", "Cadastre Municipal"], tool: "Défense / Cadastre" },
+            { id: 10, title: "Dépendance Sanitaire & EVASAN", desc: "Absence de CHU, fuite des crédits MIG vers Marseille/Nice.", details: "Malgré l'ouverture de l'hôpital Stiletto à Ajaccio, absence de CHU de plein exercice. Flux d'Évacuations Sanitaires (EVASAN) transférant les crédits de santé insulaires vers le continent.", math: "Déficit Santé = Budget Cumulé EVASAN - Équipement Insulaire", sources: ["ARS Corse ROB", "Rapports PLFSS 2024-2026", "Projet CHRU CdC"], tool: "ARS / PLFSS 2024-2026" },
+            { id: 11, title: "Orientation Éducative & Université", desc: "Sous-investissements chroniques Université Pasquale Paoli.", details: "Dotation d'État par étudiant à l'Université de Corse Pasquale Paoli inférieure à la moyenne nationale et programmes scolaires gérés par le Rectorat marginalisant la culture corse.", math: "Déficit Étudiant = Dotation Moyenne Nationale - Dotation Effective", sources: ["Rectorat Académie de Corse", "MESR Budget Étudiant"], tool: "Rectorat / MESR" },
+            { id: 12, title: "Dépaysement Judiciaire & JIRS Marseille", desc: "Dessaisissement des parquets de Bastia/Ajaccio.", details: "Dessaisissement quasi-systématique des parquets de Bastia et Ajaccio au profit de la JIRS de Marseille pour l'ensemble des affaires financières, économiques et sensibles.", math: "Taux Dépaysement = Dossiers Économiques JIRS / Total Instructions", sources: ["CPP Art. 706-75", "Rapports Parlementaires Sénat/AN", "CdC Résolutions"], tool: "CPP / Rapports Sénat" },
+            { id: 13, title: "Contrôle de Légalité & Art. 72", desc: "Annulation de l'usage de la langue corse et veto préfectoral.", details: "Arrêt CAA Marseille (19 nov. 2024) annulant l'usage de la langue corse à l'Assemblée sur déféré préfectoral. Déféré d'avril 2026 bloquant les concessions de transport aérien.", math: "Taux Invalidation = Délibérations Annulées / Total Délibérations Votées", sources: ["Article 72 Constitution", "Avis Conseil d'État 2024", "Arrêt CAA Marseille 19 nov 2024"], tool: "Conseil d'État / CAA 2024" },
+            { id: 14, title: "Continuité des Archives (1970-1999)", desc: "Dysfonctionnements d'État documentés dès les rapports de 1999.", details: "Démonstration de la permanence cinquantenaire des mécanismes d'accaparement foncier et de tutelle, des manifestes de l'ARC (1975) aux rapports de la Commission d'Enquête de 1999.", math: "Corrélation Spatiale Périmètres ARC 1975 x Fichiers DVF 2026", sources: ["Commission Enquête AN Nov 1999", "Commission Enquête Sénat Mai 1999", "Archives Dép. 1970-1980"], tool: "Commissions 1999 / ARC" },
+            { id: 15, title: "Non-ratification Charte Européenne", desc: "Refus de co-officialité de la langue corse par le Conseil Constitutionnel.", details: "Refus d'État de ratifier la Charte européenne des langues régionales du Conseil de l'Europe pour faire obstacle à la co-officialité et légitimer la censure administrative.", math: "Superposition Chronologique Revendications x Décrets JORF", sources: ["Conseil de l'Europe Experts", "Débats Constitutionnels AN/Sénat", "JORF Décrets Secrétariat d'État"], tool: "Conseil de l'Europe" },
+            { id: 16, title: "Dépendance Énergétique & EDF-SEI", desc: "Centrales fioul et captation des charges de SPE par EDF.", details: "Dépendance aux centrales thermiques au fioul lourd (Vazzio/Lucciana) et monopole d'EDF-SEI. La péréquation tarifaire compense les surcoûts en injectant des 180M+€ chez l'opérateur national.", math: "Taux Évasion Énergie = Compensations SPE versées EDF / Investissement EnR", sources: ["CRE Délibérations 2026", "PPE de Corse AUE", "Code de l'Énergie L121-1"], tool: "CRE 2026 / PPE" },
+            { id: 17, title: "Souveraineté Numérique & Câbles", desc: "Contrôle des câbles sous-marins et données déportées.", details: "Le réseau Très Haut Débit et l'atterrissement des câbles sous-marins (BlueMed Bastia) sont contrôlés par des consortiums extérieurs. Les data centers stratégiques demeurent déportés.", math: "Indice Dépendance = Flux Données Extérieurs / Stockage Souverain Local", sources: ["ARCEP Cartographie", "Arrêtés DPM Atterrage", "RIP Corsica Fibra CdC"], tool: "ARCEP / RIP Fibra" },
+            { id: 18, title: "Accaparement Primes PAC & ODARC", desc: "Captation des aides pastorales et éviction des jeunes agriculteurs.", details: "Gestion du 2ème pilier de la PAC par l'ODARC/ASP. Captation disproportionnée des aides pastorales par des chasseurs de primes déconnectés de la production, provoquant l'éviction des jeunes.", math: "Ratio Captation PAC = Aides Exploit >100ha / Aides Jeunes Agriculteurs", sources: ["ASP / ODARC FEADER", "Agreste RGA Corse", "Safer de Corse Bilans"], tool: "ASP / ODARC / RGA" },
+            { id: 19, title: "Gestion des Déchets & SYVADEC", desc: "Saturation des enfouissements et coûts d'exportation cargo.", details: "Saturation des centres d'enfouissement (Viggianello, Tallone) et sur-tarification TEOM. Coût financier exhorbitant de l'exportation maritime par cargos vers des incinérateurs continentaux.", math: "Coût Sur-Traitement = Dépense Exportation Cargo / Budget Économie Circulaire", sources: ["SYVADEC RPQS 2025", "OEC PRPGD", "CRC Rapports d'Observation"], tool: "SYVADEC / CRC" },
+            { id: 20, title: "Captation Bancaire & Épargne Private", desc: "Évasion des dépôts collectés réinvestis hors du territoire.", details: "Captation de l'épargne privée des ménages et PME par les grands réseaux bancaires nationaux. Les dépôts collectés en Corse sont réinvestis hors de l'île sur le marché monétaire central.", math: "Ratio Fuite Financière = (Dépôts Collectés - Crédits Locaux) / Dépôts", sources: ["Banque de France / IEDOM", "ACPR Encours Crédits", "Bpifrance Corse"], tool: "Banque de France / ACPR" },
+            { id: 21, title: "Sécurité Civile & Risques Incendies", desc: "Sous-dotation SDIS et dépendance aux Canadairs continentaux.", details: "Dépendance absolue aux moyens aériens de la Sécurité Civile basée à Nîmes. Sous-dotation structurelle des SDIS corses face à la pression estivale et vulnérabilité du littoral.", math: "Déficit Protection = Budget SDIS Saison / Dotations Aériennes Île", sources: ["DGSCGC Ministère Intérieur", "SDIS 2A / SDIS 2B Budgets", "DREAL / BRGM ORRN"], tool: "DGSCGC / DREAL" },
+            { id: 22, title: "Radar Urbanisme & Permis Tacites", desc: "Morcellement parcellaires et permis délivrés par dépassement.", details: "Contournement des études d'impact par morcellement des parcelles littorales en Déclarations Préalables et permis obtenus de manière tacite par dépassement des délais d'instruction.", math: "Bâtissabilité Tacite = Permis par Dépassement / Total Permis Déposés", sources: ["⚙️ Tool: Bufitonu.fr (Radar Urbanisme)", "Code Urbanisme R.424-1", "Services Urbanisme Littoraux"], tool: "⚙️ Tool: Bufitonu.fr" },
+            { id: 23, title: "Transparence Pétitionnaires & RGPD", desc: "Caviardage des personnes physiques et démasquage des SCI.", details: "Application du caviardage RGPD des personnes physiques promu par Bufitonu.fr pour isoler les sociétés écrans (SCI/SAS) dépendant de holdings extérieures continentales.", math: "Croisement N° Dossier Urbanisme x INPI RBE Personnes Morales", sources: ["⚙️ Tool: Bufitonu.fr (Caviardage RGPD)", "INPI RBE", "Arrêtés Affichés en Mairie"], tool: "⚙️ Tool: Bufitonu.fr" },
+            { id: 24, title: "Spéculation sur le Bâti Agricole", desc: "Reconversion du bâti traditionnel en résidences de luxe.", details: "Détournement de la vocation agricole du bâti traditionnel (bergeries, granges) reconverti en résidences de grand luxe par dérogations d'urbanisme (changement de destination).", math: "Perte Patrimoine = Bergeries Reconverties / Total Bâtiments RGA", sources: ["⚙️ Tool: Bufitonu.fr (Radar Travaux Bâti)", "Safer / ODARC", "Code Urbanisme L.151-11"], tool: "⚙️ Tool: Bufitonu.fr" }
         ];
 
         // 3. Rendu dynamique des fiches
@@ -459,26 +477,26 @@
             });
         }
 
-        // 4. Modal d'affichage intégral
+        // 4. Modal d'affichage INTÉGRAL
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
             
+            let sourcesListHTML = item.sources.map(s => `<li>📜 ${s}</li>`).join('');
+
             body.innerHTML = `
-                <div class="fiche-number">FICHE TECHNIQUE D'AUDIT #${item.id < 10 ? '0' + item.id : item.id}</div>
+                <div class="fiche-number">FICHE TECHNIQUE D'AUDIT COMPLÈTE #${item.id < 10 ? '0' + item.id : item.id}</div>
                 <h3>${item.title}</h3>
-                <h4>🔍 Constat Factuel & Juridique :</h4>
-                <p style="font-size: 1rem; color: var(--text-main); margin-bottom: 1rem;">${item.details}</p>
                 
-                <h4>📐 Preuve Mathématique / Formule d'Audit :</h4>
+                <h4>🔬 Constat Factuel & Analyse Juridico-Financière :</h4>
+                <p>${item.details}</p>
+                
+                <h4>📐 Formule Mathématique & Preuve d'Audit :</h4>
                 <div class="equation-box">${item.math}</div>
                 
-                <h4>📚 Sources Officielles d'État & Outils :</h4>
-                <p style="font-size: 0.9rem; color: var(--accent-gold); font-weight: 600;">${item.tool}</p>
-                
-                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                    <a href="https://github.com/fsucieta/fsucieta-corsica-audit/blob/main/SYSTEMIC_AUDIT_21_AXES.md" target="_blank" style="background: var(--accent-gold); color: #000; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem;">Consulter l'Encyclopédie sur GitHub</a>
-                </div>
+                <h4>📚 Sources Officielles d'État & Documents Associés :</h4>
+                <ul class="sources-list">${sourcesListHTML}</ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-gold); font-weight: 600;">Outil / Référent : ${item.tool}</p>
             `;
             
             modal.style.display = 'flex';
