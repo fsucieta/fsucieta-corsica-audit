@@ -402,7 +402,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <script>
-        // 1. Initialisation Carte Leaflet 3D Dark Theme
+        // 1. Initialisation Carte Leaflet 3D Dark Theme Neutre (Sans marqueurs orientés)
         const map = L.map('leaflet-map').setView([42.15, 9.05], 9);
         
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -411,20 +411,8 @@
             maxZoom: 19
         }).addTo(map);
 
-        // Repères Cartographiques Foransiques
-        const pointsOfInterest = [
-            { lat: 41.9267, lng: 8.7369, title: "Ajaccio / Stiletto", text: "<b>Hôpital Stiletto & Centrale Vazzio</b><br>Dépendance sanitaire EVASAN et sur-consommation fioul." },
-            { lat: 42.7000, lng: 9.4500, title: "Bastia / Canal de Corse", text: "<b>Atterrage Câbles Sous-Marins & ZEE</b><br>Quotas halieutiques industriels et réseau fibre." },
-            { lat: 41.3883, lng: 9.1578, title: "Bonifacio / Spérone", text: "<b>Accaparement Foncier SCI</b><br>Taux de résidences secondaires à 40% et SCI non-résidentes (DVF/RBE)." },
-            { lat: 42.5667, lng: 8.7500, title: "Balagne / Calvi", text: "<b>Mitage Foncier & Emprises Défense</b><br>Camp Raffalli et spéculation sur le bâti agricole." },
-            { lat: 41.9833, lng: 9.3833, title: "Plaine Orientale", text: "<b>Cadastre BRGM & Primes PAC</b><br>400 gisements miniers et captation des aides pastorales ODARC/ASP." }
-        ];
-
-        pointsOfInterest.forEach(pt => {
-            L.marker([pt.lat, pt.lng]).addTo(map).bindPopup(`<b>${pt.title}</b><br>${pt.text}`);
-        });
-
         // 2. Base de données des 24 Fiches d'Audit Complètes
+
         const fichesData = [
             { id: 1, title: "Contribution Fiscale Nette & TVA", desc: "La TVA collectée (3M+ visiteurs) alimente l'État central, compensation figée.", details: "L'audit de la Cour des Comptes (Juin 2023) établit que le PEI n'a pas permis de rattraper les retards structurels. Les recettes de TVA alimentent le budget d'État sans rétrocession dynamique.", math: "Balance Fiscale Nette = (TVA + IS) - (DGF + DETR + DSI)", tool: "Cour des Comptes 2023" },
             { id: 2, title: "Gestion et Marchandisation de l'Eau", desc: "Captage des bassins versants par concessions privées continentales.", details: "Transfert de concession des bassins versants vers des groupes continentaux. Tarification élevée et coupures estivales orchestrées par le surdéveloppement touristique.", math: "Taux d'Évasion = (Volume x Prix) / Investissement Réseau", tool: "OFB / PNRC" },
