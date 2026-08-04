@@ -1,0 +1,7 @@
+# DOCUMENT D'AUDIT TECHNIQUE N°039 — BANQUES_EPARGNE
+Source Officielle : Banque de France, ACPR, Captation de l'Épargne Privée & Evasion du Crédit
+Référence d'Archivage : AUDIT-CORSE-2026-BANQUES_EPARGNE-039
+
+DONNÉES FACTUELLES ET PREUVES :
+- Année d'enregistrement : 2019
+- Analyse d'Écart : Documentation des flux bancaires, des dépôts d'épargne et des dotations de Sécurité Civile.
