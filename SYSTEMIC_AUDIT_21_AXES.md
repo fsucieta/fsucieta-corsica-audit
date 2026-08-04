@@ -226,7 +226,7 @@
 
 ---
 
-## 📌 FICHE 21 (NOUVEAU) : SÉCURITÉ CIVILE, RISQUES D'INCENDIES ET ÉROSION LITTORALE (SDIS / DREAL)
+## 📌 FICHE 21 : SÉCURITÉ CIVILE, RISQUES D'INCENDIES ET ÉROSION LITTORALE (SDIS / DREAL)
 * **Analyse Factuelle** : Dépendance absolue aux moyens aériens de la Sécurité Civile nationale (Canadairs, Dash) basés sur le continent (Nîmes-Garons) pour la lutte contre les feux de forêt estivaux. Sous-dotation structurelle des SDIS 2A et 2B face à la pression touristique estivale et vulnérabilité accrue du littoral face au recul du trait de côte et aux submersions marines.
 * **Sources Officielles** :
   * Ministère de l'Intérieur / DGSCGC (Direction Générale de la Sécurité Civile et de la Gestion des Crises).
@@ -234,6 +234,40 @@
   * DREAL Corse & BRGM : Observatoire Régional des Risques Naturels (ORRN) et cartes de submersion marine.
 * **Preuve Mathématique** :
   $$\text{Déficit d'Équipement de Protection} = \frac{\text{Budget de fonctionnement SDIS supporté par les communes corses en saison}}{\text{Dotations nationales d'urgence pour moyens aériens positionnés sur l'île}} \times 100$$
+
+---
+
+## 📌 FICHE 22 (NOUVEAU) : RADAR D'URBANISME ET PERMIS DE CONSTRUIRE TACITES (OUTIL BUFITONU.FR)
+* **Analyse Factuelle** : Contournement des seuils d'études d'impact environnemental par morcellement des parcelles littorales en séries de Déclarations Préalables (DP) et obtention de permis de construire tacites par dépassement des délais d'instruction administrative.
+* **Sources Officielles & Outils** :
+  * ⚙️ Tool: Bufitonu.fr (Radar de l'Urbanisme & Suivi des Permis de Construire).
+  * Code de l'Urbanisme (Articles R. 424-1 et suiv. sur les permis tacites).
+  * Services de l'Urbanisme des Communes Littorales & DREAL Corse.
+* **Preuve Mathématique** :
+  $$\text{Taux de Batissabilité Tacite} = \frac{\text{Nombre de permis d'urbanisme délivrés par absence de réponse préfectorale/municipale}}{\text{Nombre total de permis déposés en zone littorale sensible}} \times 100$$
+
+---
+
+## 📌 FICHE 23 (NOUVEAU) : TRANSPARENCE DES PÉTITIONNAIRES ET CAVIARDAGE RGPD (OUTIL BUFITONU.FR)
+* **Analyse Factuelle** : Recours à l'anonymisation et aux prête-noms pour dissimuler l'identité des promoteurs continentaux ou fonds d'investissement derrière les dépôts de permis de construire en zones littorales ou remarquables.
+* **Sources Officielles & Outils** :
+  * ⚙️ Tool: Bufitonu.fr (Algorithme de Caviardage RGPD & Détection des Personnes Morales).
+  * INPI RBE (Registre des Bénéficiaires Effectifs des SCI/SAS d'Urbanisme).
+  * Registre des Arrêtés de Permis de Construire affichés en Mairie.
+* **Preuve Mathématique** :
+  Croisement des numéros de dossier d'urbanisme affichés avec le registre RBE de la personne morale bénéficiaire.
+
+---
+
+## 📌 FICHE 24 (NOUVEAU) : CHANGEMENTS DE DESTINATION ET SPÉCULATION SUR LE BÂTI AGRICOLE (OUTIL BUFITONU.FR)
+* **Analyse Factuelle** : Détournement de la vocation agricole du bâti traditionnel (bergeries, granges, béals) réhabilité en résidences de grand luxe ou complexes gîtes par dérogations exceptionnelles d'urbanisme ("changement de destination").
+* **Sources Officielles & Outils** :
+  * ⚙️ Tool: Bufitonu.fr (Cartographie des Déclarations de Travaux sur le Bâti Ancien).
+  * Safer de Corse & ODARC (Avis sur la préservation du foncier agricole).
+  * Code de l'Urbanisme (Article L. 151-11 sur les changements de destination en zone A/N).
+* **Preuve Mathématique** :
+  $$\text{Taux de Perte du Patrimoine Agricole} = \frac{\text{Nombre de bergeries/granges reconverties en résidences secondaires}}{\text{Nombre total de bâtiments agricoles répertoriés au CVI/RGA}} \times 100$$
+
 
 
 
