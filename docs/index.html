@@ -908,6 +908,8 @@
                 </li>`;
             }).join('');
 
+            const dossierFileName = 'dossiers/dossier_audit_' + (item.id < 10 ? '0' + item.id : item.id) + '.md';
+
             body.innerHTML = `
                 <div class="fiche-number">FICHE TECHNIQUE D'AUDIT COMPLÈTE #${item.id < 10 ? '0' + item.id : item.id}</div>
                 <h3>${item.title}</h3>
@@ -921,9 +923,12 @@
                 <h4>📚 Sources Officielles d'État & Liens Directs Consultables :</h4>
                 <ul class="sources-list" style="padding-left: 0;">${sourcesListHTML}</ul>
                 
-                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <p style="font-size: 0.95rem; color: var(--accent-gold); font-weight: 700;">⚙️ Référent technique : ${item.tool}</p>
-                    <a href="https://github.com/fsucieta/fsucieta-corsica-audit" target="_blank" style="background: var(--accent-gold); color: #0b0f19; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem;">📁 Télécharger le dossier complet sur GitHub</a>
+                <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); border-radius: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem;">
+                    <div>
+                        <p style="font-size: 1.05rem; color: #fff; font-weight: 800;">📄 DOSSIER D'AUDIT COMPLET DÉDIÉ (.MD)</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Consultez ou téléchargez l'intégralité du rapport technique de preuve #${item.id < 10 ? '0' + item.id : item.id}.</p>
+                    </div>
+                    <a href="${dossierFileName}" target="_blank" style="background: linear-gradient(135deg, var(--accent-gold) 0%, #b89228 100%); color: #0b0f19; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 800; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(212,175,55,0.4);">📥 OUVRIR LE DOSSIER COMPLET (.MD) ↗</a>
                 </div>
             `;
             
