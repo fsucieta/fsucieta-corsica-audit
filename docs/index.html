@@ -373,9 +373,9 @@
         <nav>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📚 Les 24 Fiches d'Audit</a></li>
                 <li><a href="#piliers">Piliers</a></li>
                 <li><a href="#map">Carte SIG par Communes</a></li>
-                <li><a href="#fiches">Les 24 Fiches d'Audit</a></li>
             </ul>
         </nav>
     </header>
@@ -388,7 +388,7 @@
         <h1>TARRA DI U CUMUNU</h1>
         <p style="font-size: 1.4rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 0.8rem; letter-spacing: 0.5px;">The Corsican Commons Data & Audit Portal</p>
         <p>Le premier portail d'Open Data Territorial et d'Audit Systémique indépendant. Une infrastructure de transparence croisant 3 750 sources officielles d'État, les registres DVF et le radar d'urbanisme de terrain.</p>
-        <a href="#map" class="cta-btn">EXPLORER LA CARTE ET LES FICHIERS</a>
+        <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 FICHES D'AUDIT SYSTÉMIQUE</a>
     </section>
 
 
@@ -410,17 +410,6 @@
         </div>
     </section>
 
-    <!-- Carte SIG Dynamique par Communes -->
-    <section id="map" class="map-section">
-        <div class="section-header">
-            <div>
-                <h2>🗺️ Cartographie SIG Dynamique des Communes</h2>
-                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle commune ou microrégion pour afficher les données DVF et foncières associées.</p>
-            </div>
-        </div>
-        <div id="leaflet-map" class="map-container"></div>
-    </section>
-
     <!-- Audit Section (24 Fiches) -->
     <section id="fiches" class="audit-section">
         <div class="section-header">
@@ -434,6 +423,17 @@
         <div class="grid-24" id="fichesGrid">
             <!-- Fiches insérées dynamiquement via JavaScript -->
         </div>
+    </section>
+
+    <!-- Carte SIG Dynamique par Communes -->
+    <section id="map" class="map-section">
+        <div class="section-header">
+            <div>
+                <h2>🗺️ Cartographie SIG Dynamique des Communes</h2>
+                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle commune ou microrégion pour afficher les données DVF et foncières associées.</p>
+            </div>
+        </div>
+        <div id="leaflet-map" class="map-container"></div>
     </section>
 
     <!-- Modal Détaillée Intégrale -->
