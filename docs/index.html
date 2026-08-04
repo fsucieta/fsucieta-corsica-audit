@@ -534,12 +534,92 @@
             });
         }
 
-        // 4. Modal d'affichage INTÉGRAL
+        // 4. Cartographie des URLs des Sources Officielles d'État
+        const sourceUrlMap = {
+            "Cour des Comptes (Juin 2023)": "https://www.ccomptes.fr/fr/publications/la-collectivite-de-corse-et-ses-donnees-financieres",
+            "DGFiP REPAD": "https://www.impots.gouv.fr/",
+            "Insee CER Corse": "https://www.insee.fr/fr/statistiques?geo=REG-94",
+            "OFB BNPE": "https://bnpe.eaufrance.fr/",
+            "SDAGE de Corse": "https://www.eaux-de-corse.fr/",
+            "PNRC": "https://www.pnr.corsica/",
+            "DVF 2014-2025": "https://app.dvf.etalab.gouv.fr/",
+            "INPI RBE": "https://data.inpi.fr/",
+            "Cerema / Insee": "https://www.cerema.fr/",
+            "Rapport AN Loi 2021-1756": "https://www.assemblee-nationale.fr/",
+            "IFREMER Mer Tyrrhénienne": "https://wwz.ifremer.fr/",
+            "DPMA / OPAM": "https://mer.gouv.fr/",
+            "Prud'homies de Pêche de Corse": "https://www.corse.developpement-durable.gouv.fr/",
+            "BRGM InfoTerre": "https://infoterre.brgm.fr/",
+            "Programme IRM 2024": "https://www.brgm.fr/",
+            "Code Minier / DREAL": "https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006071785/",
+            "ONF Forêts Domaniales": "https://www.onf.fr/",
+            "Agreste / Insee Corse": "https://agreste.agriculture.gouv.fr/",
+            "DRAAF / CdC": "https://draaf.corse.agriculture.gouv.fr/",
+            "Insee Corse CER": "https://www.insee.fr/fr/statistiques?geo=REG-94",
+            "Banque de France": "https://www.banque-france.fr/",
+            "CCI de Corse": "https://www.corse.cci.fr/",
+            "JORF Décrets de Nomination": "https://www.legifrance.gouv.fr/jorf/jo/",
+            "Budget Général État": "https://www.budget.gouv.fr/",
+            "Ministère des Armées Cadastre": "https://www.defense.gouv.fr/",
+            "DGAC Zones P/R/D": "https://www.ecologie.gouv.fr/direction-generale-daviation-civile-dgac",
+            "Cadastre Municipal": "https://www.cadastre.gouv.fr/",
+            "ARS Corse ROB": "https://www.corse.ars.sante.fr/",
+            "Rapports PLFSS 2024-2026": "https://www.securite-sociale.fr/",
+            "Projet CHRU CdC": "https://www.isula.corsica/",
+            "Rectorat Académie de Corse": "https://www.ac-corse.fr/",
+            "MESR Budget Étudiant": "https://www.enseignementsup-recherche.gouv.fr/",
+            "CPP Art. 706-75": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006577801/",
+            "Rapports Parlementaires Sénat/AN": "https://www.senat.fr/",
+            "CdC Résolutions": "https://www.isula.corsica/",
+            "Article 72 Constitution": "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958#article-72",
+            "Avis Conseil d'État 2024": "https://www.conseil-etat.fr/",
+            "Arrêt CAA Marseille 19 nov 2024": "https://marseille.cour-administrative-appel.fr/",
+            "Commission Enquête AN Nov 1999": "https://www.assemblee-nationale.fr/11/dossiers/corse.asp",
+            "Commission Enquête Sénat Mai 1999": "https://www.senat.fr/rap/r98-069/r98-069.html",
+            "Archives Dép. 1970-1980": "https://archives.isula.corsica/",
+            "Conseil de l'Europe Experts": "https://www.coe.int/",
+            "Débats Constitutionnels AN/Sénat": "https://www.assemblee-nationale.fr/",
+            "JORF Décrets Secrétariat d'État": "https://www.legifrance.gouv.fr/",
+            "CRE Délibérations 2026": "https://www.cre.fr/",
+            "PPE de Corse AUE": "https://www.aue.corsica/",
+            "Code de l'Énergie L121-1": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000023985790/",
+            "ARCEP Cartographie": "https://www.arcep.fr/",
+            "Arrêtés DPM Atterrage": "https://www.corse-du-sud.gouv.fr/",
+            "RIP Corsica Fibra CdC": "https://www.corsicafibra.fr/",
+            "ASP / ODARC FEADER": "https://www.asp-public.fr/",
+            "Agreste RGA Corse": "https://agreste.agriculture.gouv.fr/",
+            "Safer de Corse Bilans": "https://www.safer.fr/",
+            "SYVADEC RPQS 2025": "https://www.syvadec.fr/",
+            "OEC PRPGD": "https://www.oec.corsica/",
+            "CRC Rapports d'Observation": "https://www.ccomptes.fr/fr/crc-provence-alpes-cote-dazur-corse",
+            "Banque de France / IEDOM": "https://www.iedom.fr/corse/",
+            "ACPR Encours Crédits": "https://acpr.banque-france.fr/",
+            "Bpifrance Corse": "https://www.bpifrance.fr/",
+            "DGSCGC Ministère Intérieur": "https://www.interieur.gouv.fr/",
+            "SDIS 2A / SDIS 2B Budgets": "https://www.sdis2a.fr/",
+            "DREAL / BRGM ORRN": "https://www.corse.developpement-durable.gouv.fr/",
+            "⚙️ Tool: Bufitonu.fr (Radar Urbanisme)": "https://bufitonu.fr/",
+            "⚙️ Tool: Bufitonu.fr (Caviardage RGPD)": "https://bufitonu.fr/",
+            "⚙️ Tool: Bufitonu.fr (Radar Travaux Bâti)": "https://bufitonu.fr/",
+            "Code Urbanisme R.424-1": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031721545",
+            "Code Urbanisme L.151-11": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031211181",
+            "INPI RBE Personnes Morales": "https://data.inpi.fr/",
+            "Arrêtés Affichés en Mairie": "https://www.cadastre.gouv.fr/"
+        };
+
+        // Modal d'affichage INTÉGRAL avec liens cliquables directes vers les sources
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
             
-            let sourcesListHTML = item.sources.map(s => `<li>📜 ${s}</li>`).join('');
+            let sourcesListHTML = item.sources.map(s => {
+                let targetUrl = sourceUrlMap[s] || `https://www.google.com/search?q=${encodeURIComponent(s + ' Corse site officiel')}`;
+                return `<li style="margin-bottom: 0.8rem; list-style: none;">
+                    <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 242, 254, 0.08); padding: 6px 14px; border-radius: 6px; border: 1px solid rgba(0, 242, 254, 0.2); transition: all 0.2s;">
+                        🔗 <span>${s}</span> <span style="font-size: 0.8rem; opacity: 0.8;">[Consulter la Source ↗]</span>
+                    </a>
+                </li>`;
+            }).join('');
 
             body.innerHTML = `
                 <div class="fiche-number">FICHE TECHNIQUE D'AUDIT COMPLÈTE #${item.id < 10 ? '0' + item.id : item.id}</div>
@@ -551,9 +631,13 @@
                 <h4>📐 Formule Mathématique & Preuve d'Audit :</h4>
                 <div class="equation-box">${item.math}</div>
                 
-                <h4>📚 Sources Officielles d'État & Documents Associés :</h4>
-                <ul class="sources-list">${sourcesListHTML}</ul>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-gold); font-weight: 600;">Outil / Référent : ${item.tool}</p>
+                <h4>📚 Sources Officielles d'État & Liens Directs Consultables :</h4>
+                <ul class="sources-list" style="padding-left: 0;">${sourcesListHTML}</ul>
+                
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <p style="font-size: 0.95rem; color: var(--accent-gold); font-weight: 700;">⚙️ Référent technique : ${item.tool}</p>
+                    <a href="https://github.com/fsucieta/fsucieta-corsica-audit" target="_blank" style="background: var(--accent-gold); color: #0b0f19; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.85rem;">📁 Télécharger le dossier complet sur GitHub</a>
+                </div>
             `;
             
             modal.style.display = 'flex';
