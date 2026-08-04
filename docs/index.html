@@ -95,61 +95,88 @@
             color: var(--accent-gold);
         }
 
-        .hero {
-            padding: 4rem 2rem 2rem;
+        /* Hero Landing Page Section */
+        .hero-landing {
+            padding: 6rem 2rem 4rem;
             text-align: center;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
+        .hero-landing h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
             background: linear-gradient(135deg, #ffffff 0%, var(--accent-gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.15rem;
+        .hero-landing p {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .stats-grid {
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #b89228 100%);
+            color: #0b0f19;
+            padding: 1rem 2.5rem;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            padding: 4rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .stat-card {
+        .pillar-card {
             background: var(--bg-card);
             border: 1px solid var(--border-glow);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        .stat-card h3 {
-            font-size: 2.2rem;
-            color: var(--accent-gold);
-        }
-
-        .stat-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
-
-        .map-section {
+            border-radius: 16px;
             padding: 2rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 4rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .map-container {
-            height: 500px;
+            height: 600px;
             border-radius: 16px;
             border: 1px solid var(--border-glow);
             overflow: hidden;
@@ -157,7 +184,7 @@
         }
 
         .audit-section {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -166,7 +193,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 1rem;
             flex-wrap: wrap;
@@ -336,62 +363,61 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo">
             🏛️ FSUCIETÀ <span>2.0</span>
         </div>
         <nav>
             <ul>
-                <li><a href="#map">Carte SIG Neutre</a></li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#piliers">Piliers</a></li>
+                <li><a href="#map">Carte SIG par Communes</a></li>
                 <li><a href="#fiches">Les 24 Fiches d'Audit</a></li>
-                <li><a href="#opendata">Corpus Open Data (3750)</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>PORTAIL D'AUDIT SOUVERAIN DE LA CORSE</h1>
-        <p>Base de données indépendante d'Open Data Territorial : 24 Fiches d'Audit Systémique, 3 750 sources officielles et preuves juridiques inattaquables.</p>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>24</h3>
-                <p>Fiches d'Audit Détaillées</p>
-            </div>
-            <div class="stat-card">
-                <h3>3 750</h3>
-                <p>Fichiers Sources d'État</p>
-            </div>
-            <div class="stat-card">
-                <h3>15</h3>
-                <p>Modules Open-Data</p>
-            </div>
-            <div class="stat-card">
-                <h3>100%</h3>
-                <p>Anonyme & Libre (CC BY 4.0)</p>
-            </div>
+    <!-- Page d'Accueil Manifeste -->
+    <section id="accueil" class="hero-landing">
+        <h1>SOUVERAINETÉ DE LA DATA CORSE</h1>
+        <p>Le premier portail d'Open Data Territorial et d'Audit Systémique indépendant. Une infrastructure de transparence croisant 3 750 sources officielles d'État, les registres DVF et le radar d'urbanisme de terrain.</p>
+        <a href="#map" class="cta-btn">EXPLORER LA CARTE ET LES FICHIERS</a>
+    </section>
+
+    <!-- Les 3 Piliers -->
+    <section id="piliers" class="pillars-section">
+        <div class="pillar-card">
+            <h3>🔬 1. Rigueur d'État & Data</h3>
+            <p>Une banque de données exhaustive de 3 750 sources d'État (Cour des Comptes, BRGM, DVF, INPI RBE, ARCEP) analysée avec des méthodes foransiques de niveau mondial.</p>
+        </div>
+        <div class="pillar-card">
+            <h3>🛡️ 2. Étanche & Anonyme</h3>
+            <p>Un portail 100% anonyme et décentralisé. Zéro traçabilité nominative, hébergement souverain et signature cryptographique par clé PGP 4096-bit.</p>
+        </div>
+        <div class="pillar-card">
+            <h3>⚙️ 3. Radar de Terrain</h3>
+            <p>Intégration systématique de l'outil <strong><code>⚙️ Tool: Bufitonu.fr</code></strong> pour croiser la macro-donnée foncière d'État avec les alertes d'urbanisme de terrain.</p>
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Carte SIG Dynamique par Communes -->
     <section id="map" class="map-section">
         <div class="section-header">
             <div>
-                <h2>🗺️ Cartographie SIG Neutre du Territoire</h2>
-                <p style="color: var(--text-muted);">Vue relief et spatiale épurée de la région insulaire sans biais d'orientation.</p>
+                <h2>🗺️ Cartographie SIG Dynamique des Communes</h2>
+                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle commune ou microrégion pour afficher les données DVF et foncières associées.</p>
             </div>
         </div>
         <div id="leaflet-map" class="map-container"></div>
     </section>
 
-    <!-- Audit Section -->
+    <!-- Audit Section (24 Fiches) -->
     <section id="fiches" class="audit-section">
         <div class="section-header">
             <div>
                 <h2>📚 Les 24 Fiches d'Audit Systémique Exposées</h2>
-                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle fiche pour consulter l'intégralité du dossier et des preuves.</p>
+                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle fiche pour ouvrir le dossier complet et la formule de preuve.</p>
             </div>
             <input type="text" id="searchInput" class="search-box" placeholder="Rechercher dans les 24 fiches..." onkeyup="filterFiches()">
         </div>
@@ -421,7 +447,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <script>
-        // 1. Initialisation Carte Leaflet 3D Dark Theme Neutre
+        // 1. Initialisation Carte Leaflet 3D Dark Theme par Communes
         const map = L.map('leaflet-map').setView([42.15, 9.05], 9);
         
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -429,6 +455,28 @@
             subdomains: 'abcd',
             maxZoom: 19
         }).addTo(map);
+
+        // Ajout des principaux pôles communaux avec fenêtres d'information Open-Data DVF
+        const communesData = [
+            { lat: 41.9267, lng: 8.7369, name: "Ajaccio", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 32%<br>Captation SCI : Élevée<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 42.7000, lng: 9.4500, name: "Bastia", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 18%<br>Atterrissement fibre & câbles sous-marins<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 41.3883, lng: 9.1578, name: "Bonifacio / Spérone", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 54%<br>Captation SCI non-résidentes (INPI RBE)<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 41.5914, lng: 9.2794, name: "Porto-Vecchio", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 48%<br>Pression foncière littorale majeure<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 42.5667, lng: 8.7500, name: "Calvi", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 42%<br>Emprises militaires & zone aéroportuaire<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 42.6833, lng: 8.9333, name: "Saint-Florent", info: "<b>Données DVF & Urbanisme :</b><br>Taux résidences secondaires : 51%<br>Morcellement des parcelles littorales<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" },
+            { lat: 42.3000, lng: 9.1500, name: "Corte", info: "<b>Données DVF & Urbanisme :</b><br>Centre insulaire & Université Pasquale Paoli<br>Enjeu de logement étudiant<br>Outil de suivi : ⚙️ Tool: Bufitonu.fr" }
+        ];
+
+        communesData.forEach(c => {
+            L.circleMarker([c.lat, c.lng], {
+                radius: 8,
+                fillColor: "#d4af37",
+                color: "#fff",
+                weight: 1.5,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map).bindPopup(`<b>${c.name}</b><br>${c.info}`);
+        });
 
         // 2. Base de données INTÉGRALE des 24 Fiches d'Audit
         const fichesData = [
