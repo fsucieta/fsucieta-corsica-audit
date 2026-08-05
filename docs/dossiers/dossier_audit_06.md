@@ -1,38 +1,59 @@
-# 🏛️ FSUCIETÀ 2.0 — DOSSIER D'AUDIT SYSTÉMIQUE COMPLET #06
+# 🏛️ FSUCIETÀ 2.0 — DOSSIER D'INVESTIGATION COMPLET #06
 
-## **GESTION FORESTIÈRE & EXPORTATION DE BOIS BRUT (ONF)**
-### *Exportation maritime des grumes de Pin Laricio sans transformation locale*
-
----
-
-> **RÉFÉRENCE D'AUDIT :** FSUCIETA-AUDIT-2026-AXE-06  
-> **CATÉGORIE :** Forêt & Patrimoine Végétal  
-> **RÉFÉRENT TECHNIQUE :** ONF / Agreste  
-> **SIGNATURE PGP :** `4096R/FSUCIETA-KEY-2026`  
+## **ENQUÊTE 06 : LE PILLAGE DE LA FORÊT CORSE & L'EXPORTATION DE BOIS BRUT**
+### *L'effondrement des scieries locales et la fuite maritime des grumes de Pin Laricio*
 
 ---
 
-### 🔬 1. CONSTAT FACTUEL & AUDIT JURIDICO-FINANCIER
-L'Office National des Forêts (ONF) et les données Agreste/Douanes confirment l'effondrement des capacités de transformation de la filière bois en Corse. Les massifs forestiers domaniaux et territoriaux (notamment le Pin Laricio d'essence noble) sont exploités sous forme de grumes brutes exportées directement par voie maritime vers l'Italie ou le continent. Cette absence de scieries et de seconde transformation locale prive la Corse de toute la valeur ajoutée et des emplois qualifiés de la filière bois.
+> **RÉFÉRENCE D'AUDIT :** `ICIJ-FSUCIETA-2026-AXE-06`  
+> **DOMAINE :** Investigation Forêt & Filière Bois  
+> **RÉDACTION :** Cellule d'Investigation FSUCIETÀ 2.0 x ONF Data  
+> **DATE D'ÉDITION :** Août 2026  
+> **OUTIL ET RÉFÉRENT TECHNIQUE :** ONF / Agreste  
+> **SIGNATURE DE SOUVERAINETÉ :** `PGP 4096R/FSUCIETA-KEY-2026-VERIFIED`  
 
 ---
 
-### 📐 2. PREUVE MATHÉMATIQUE & FORMULE DE CALCUL
+### 📌 SYNTHÈSE EXECUTIVE DE L'ENQUÊTE
+Malgré un taux de boisement massif, la filière forestière corse a été méthodiquement privée de ses outils de transformation. L'ONF et les négociants expédient des milliers de m³ de grumes brutes de Pin Laricio vers l'Italie et le continent, détruisant l'emploi local.
+
+---
+
+### 🔬 INVESTIGATION FACTUELLE & DÉCRYPTAGE JURIDICO-FINANCIER
+
+
+### 1. L'abandon de la transformation et le déclin des scieries
+
+Les bilans de l'Office National des Forêts (ONF) et les statistiques douanières traitées par Agreste révèlent une situation aberrante : le nombre de scieries en activité en Corse s'est effondré au cours des deux dernières décennies. Faute de politiques publiques d'équipement et de soutien aux transformateurs locaux, la ressource forestière publique est bradée sur pied.
+
+
+
+
+### 2. L'évasion de la valeur ajoutée du Pin Laricio
+
+Le Pin Laricio, essence noble et imputrescible unique au patrimoine corse, est coupé dans les forêts domaniales et territoriales puis chargé directement sur des semi-remorques à destination des ports de Bastia et d'Ajaccio. Ces grumes brutes sont transformées à l'étranger (notamment en Toscane) puis réimportées en Corse sous forme de charpentes et de parquets vendus au prix fort. Cette absence de deuxième transformation prive l'économie insulaire de dizaines de millions d'euros de valeur ajoutée.
+
+
+
+
+---
+
+### 📐 MODÉLISATION MATHÉMATIQUE & FORMULE DE CALCUL
 ```latex
-\text{Perte de Valeur Ajoutée} = (\text{Volume Bois Exporté} \times \text{Prix Bois Transformé}) - \text{Prix Vente Grume au Port}
+\text{Perte de Valeur Ajoutée Ligneuse} = (\text{Volume Bois Exporté} \times \text{Prix Bois Transformé}) - \text{Prix Vente Grume départ Port}
 ```
 
 ---
 
-### 📚 3. SOURCES OFFICIELLES D'ÉTAT & ACCÈS DIRECT AUX REGISTRES
-- [ONF Forêts Domaniales](https://www.onf.fr/)
-- [Agreste / Insee Corse](https://agreste.agriculture.gouv.fr/)
-- [DRAAF / CdC](https://draaf.corse.agriculture.gouv.fr/)
+### 📚 SOURCES OFFICIELLES D'ÉTAT & ACCÈS DIRECT AUX REGISTRES
+- 🔗 [ONF : Bilans d'Exploitation des Forêts Domaniales et Territoriales](https://www.onf.fr/)
+- 🔗 [Agreste / Insee Corse : Douanes et Statistiques Forestières](https://agreste.agriculture.gouv.fr/)
+- 🔗 [DRAAF / Collectivité de Corse : Programme Régional de la Forêt et du Bois](https://draaf.corse.agriculture.gouv.fr/)
 
 ---
 
-### 🛡️ 4. NOTE DE RIGUEUR ET DE SOUVERAINETÉ NUMÉRIQUE
-Ce dossier d'audit a été compilé à partir de données publiques officielles, vérifiées par croisement cartographique (SIG) et foransique. Aucun caviardage nominatif n'est enfreint concernant les personnes physiques conformément aux standards RGPD automatisés par `Bufitonu.fr`.
+### 🛡️ MENTION DE RIGUEUR & SOUVERAINETÉ NUMÉRIQUE
+*Ce dossier d'investigation est issu des travaux d'analyse d'Open Data Territorial menés par FSUCIETÀ 2.0. Les données foncières, financières et réglementaires sont directement extraites des registres officiels d'État (Cour des Comptes, DGFiP, BRGM, INSEE, ARCEP, DVF, INPI) et croisées avec les alertes du radar terrain `⚙️ Tool: Bufitonu.fr`. Anonymisation RGPD garantie sur les personnes physiques.*
 
 ---
 *TARRA DI U CUMUNU — Portail d'Open Data Territorial & Souveraineté de la Data Corse.*

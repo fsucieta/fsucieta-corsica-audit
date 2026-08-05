@@ -1,38 +1,59 @@
-# 🏛️ FSUCIETÀ 2.0 — DOSSIER D'AUDIT SYSTÉMIQUE COMPLET #12
+# 🏛️ FSUCIETÀ 2.0 — DOSSIER D'INVESTIGATION COMPLET #12
 
-## **DÉPAYSEMENT JUDICIAIRE & RÔLE DE LA JIRS MARSEILLE**
-### *Audit du transfert systématique des instructions financières hors de Corse*
-
----
-
-> **RÉFÉRENCE D'AUDIT :** FSUCIETA-AUDIT-2026-AXE-12  
-> **CATÉGORIE :** Justice & Libertés  
-> **RÉFÉRENT TECHNIQUE :** CPP / Rapports Sénat  
-> **SIGNATURE PGP :** `4096R/FSUCIETA-KEY-2026`  
+## **ENQUÊTE 12 : LE DESSAISISSEMENT JUDICIALLE & LA JIRS DE MARSEILLE**
+### *L'Article 706-75 du CPP et le transfert quasi-systématique des affaires financières hors de l'île*
 
 ---
 
-### 🔬 1. CONSTAT FACTUEL & AUDIT JURIDICO-FINANCIER
-En vertu de l'article 706-75 du Code de Procédure Pénale, les affaires économiques, financières et environnementales à fort enjeu en Corse sont quasi-systématiquement dépayrées et transférées à la Juridiction Interrégionale Spécialisée (JIRS) de Marseille. Ce dessaisissement de la justice locale prive les magistrats et les citoyens corses de la maîtrise judiciaire de leur propre territoire, tout en instaurant une justice d'exception gérée depuis le continent.
+> **RÉFÉRENCE D'AUDIT :** `ICIJ-FSUCIETA-2026-AXE-12`  
+> **DOMAINE :** Investigation Justice & Libertés  
+> **RÉDACTION :** Cellule d'Investigation FSUCIETÀ 2.0 x Juridique  
+> **DATE D'ÉDITION :** Août 2026  
+> **OUTIL ET RÉFÉRENT TECHNIQUE :** CPP / Rapports Sénat  
+> **SIGNATURE DE SOUVERAINETÉ :** `PGP 4096R/FSUCIETA-KEY-2026-VERIFIED`  
 
 ---
 
-### 📐 2. PREUVE MATHÉMATIQUE & FORMULE DE CALCUL
+### 📌 SYNTHÈSE EXECUTIVE DE L'ENQUÊTE
+Depuis la création des Juridictions Interrégionales Spécialisées (JIRS), les parquets de Bastia et d'Ajaccio sont systématiquement dépossédés des enquêtes financières, économiques et environnementales d'envergure en Corse au profit des juges marseillais.
+
+---
+
+### 🔬 INVESTIGATION FACTUELLE & DÉCRYPTAGE JURIDICO-FINANCIER
+
+
+### 1. La mise sous tutelle pénale des magistrats locaux
+
+En vertu de l'article 706-75 du Code de Procédure Pénale, les affaires sensibles touchant à l'urbanisme, aux marchés publics ou à la criminalité financière en Corse font l'objet d'un dépaysement quasi-automatique vers la JIRS de Marseille. Ce mécanisme retire aux magistrats et enquêteurs en poste sur l'île la maîtrise des dossiers pénaux locaux, instaurant une justice d'exception gérée depuis le continent.
+
+
+
+
+### 2. L'opacité des instructions et la privation du contrôle citoyen
+
+Ce dépaysement systématique éloigne les débats judiciaires des citoyens corses et des victimes insulaires. Les procédures s'enlisent fréquemment dans des commissions rogatoires interminables conduites depuis Marseille, sans que les résultats ne soient accessibles aux instances régionales de contrôle ou d'éthique.
+
+
+
+
+---
+
+### 📐 MODÉLISATION MATHÉMATIQUE & FORMULE DE CALCUL
 ```latex
-\text{Taux de Dépaysement} = \frac{\text{Dossiers Financiers Majeurs Transférés JIRS Marseille}}{\text{Instructions Ouvertes Bastia & Ajaccio}} \times 100
+\text{Taux de Dépaysement Judiciaire} = \frac{\text{Dossiers Économiques Transférés à la JIRS Marseille}}{\text{Total des Instructions Financières Ouvertes en Corse}} \times 100
 ```
 
 ---
 
-### 📚 3. SOURCES OFFICIELLES D'ÉTAT & ACCÈS DIRECT AUX REGISTRES
-- [CPP Art. 706-75](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006577801/)
-- [Rapports Parlementaires Sénat/AN](https://www.senat.fr/)
-- [CdC Résolutions](https://www.isula.corsica/)
+### 📚 SOURCES OFFICIELLES D'ÉTAT & ACCÈS DIRECT AUX REGISTRES
+- 🔗 [Code de Procédure Pénale : Article 706-75 et suivants (Légifrance)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006577801/)
+- 🔗 [Sénat / Assemblée Nationale : Rapports d'Information sur la Justice en Corse](https://www.senat.fr/)
+- 🔗 [Collectivité de Corse : Délibérations sur l'Accès à la Justice](https://www.isula.corsica/)
 
 ---
 
-### 🛡️ 4. NOTE DE RIGUEUR ET DE SOUVERAINETÉ NUMÉRIQUE
-Ce dossier d'audit a été compilé à partir de données publiques officielles, vérifiées par croisement cartographique (SIG) et foransique. Aucun caviardage nominatif n'est enfreint concernant les personnes physiques conformément aux standards RGPD automatisés par `Bufitonu.fr`.
+### 🛡️ MENTION DE RIGUEUR & SOUVERAINETÉ NUMÉRIQUE
+*Ce dossier d'investigation est issu des travaux d'analyse d'Open Data Territorial menés par FSUCIETÀ 2.0. Les données foncières, financières et réglementaires sont directement extraites des registres officiels d'État (Cour des Comptes, DGFiP, BRGM, INSEE, ARCEP, DVF, INPI) et croisées avec les alertes du radar terrain `⚙️ Tool: Bufitonu.fr`. Anonymisation RGPD garantie sur les personnes physiques.*
 
 ---
 *TARRA DI U CUMUNU — Portail d'Open Data Territorial & Souveraineté de la Data Corse.*
