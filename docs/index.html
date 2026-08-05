@@ -198,28 +198,44 @@
         }
 
         .section-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid rgba(184, 134, 11, 0.25);
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-radius: 16px;
+            margin-bottom: 2rem;
         }
 
         .search-box {
             padding: 0.8rem 1.5rem;
             border-radius: 30px;
-            border: 1px solid var(--border-glow);
+            border: 1px solid var(--accent-gold);
             background: #ffffff;
             color: #0f172a;
-            font-size: 1rem;
-            width: 350px;
+            font-size: 0.98rem;
+            width: 360px;
+            max-width: 100%;
+            box-sizing: border-box;
             outline: none;
+            box-shadow: 0 2px 10px rgba(184, 134, 11, 0.1);
+        }
+
+        @media (max-width: 900px) {
+            .section-header {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1.2rem;
+                text-align: center;
+            }
+
+            .search-box {
+                width: 100% !important;
+            }
         }
 
         .grid-24 {
@@ -2555,7 +2571,7 @@
             });
         }
 
-                                                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+                                                                                                                                                                                                                                                // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
