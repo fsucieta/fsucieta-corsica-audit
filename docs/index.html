@@ -373,9 +373,10 @@
         <nav>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📚 Les 24 Fiches d'Audit</a></li>
-                <li><a href="#piliers">Piliers</a></li>
-                <li><a href="#map">Carte SIG par Communes</a></li>
+                <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📜 24 Enquêtes</a></li>
+                <li><a href="#studio">🎬 Studio NotebookLM</a></li>
+                <li><a href="#action">✊ Comment Agir ?</a></li>
+                <li><a href="#map">Carte SIG</a></li>
             </ul>
         </nav>
     </header>
@@ -387,11 +388,44 @@
         </div>
         <h1>TARRA DI U CUMUNU</h1>
         <p style="font-size: 1.4rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 0.8rem; letter-spacing: 0.5px;">The Corsican Commons Data & Audit Portal</p>
-        <p>Le premier portail d'Open Data Territorial et d'Audit Systémique indépendant. Une infrastructure de transparence croisant 3 750 sources officielles d'État, les registres DVF et le radar d'urbanisme de terrain.</p>
-        <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 FICHES D'AUDIT SYSTÉMIQUE</a>
+        <p>Le premier portail d'Open Data Territorial et d'Audit Systémique indépendant de la Corse.<br>Une infrastructure transparente croisant <strong>~100 Registres d'État Mères</strong>, <strong>3 750+ Fichiers d'Extraction Bruts</strong> et <strong>+10 500 Preuves Chiffrées</strong>.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+            <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 ENQUÊTES</a>
+            <a href="#studio" class="cta-btn" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #0b0f19; box-shadow: 0 8px 24px rgba(0,242,254,0.3);">🎬 CRÉER UN PODCAST / VIDÉO (NOTEBOOKLM)</a>
+            <a href="#action" class="cta-btn" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); box-shadow: none;">✊ COMMENT AGIR SUR LE TERRAIN ?</a>
+        </div>
     </section>
 
 
+
+
+    
+    <!-- Section Transparence de l'Infrastructure Data -->
+    <section id="metrics" style="background: rgba(19, 27, 46, 0.8); border-y: 1px solid var(--border-glow); padding: 3rem 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.5rem;">📊 Transparence de l'Infrastructure de Données</h2>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Décomposition exacte des sources d'État officielles et des relevés de terrain constituant notre base d'audit.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="background: var(--bg-dark); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px; padding: 2rem;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan);">~100</div>
+                    <h3 style="font-size: 1.1rem; color: #fff; margin: 0.5rem 0;">Registres d'État Mères</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">DVF Étalab, INPI RBE, BRGM InfoTerre, INSEE CER, ARCEP, IFREMER, Code de l'Urbanisme, Légifrance, CRE, Cour des Comptes.</p>
+                </div>
+                <div style="background: var(--bg-dark); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 2rem;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-gold);">3 750+</div>
+                    <h3 style="font-size: 1.1rem; color: #fff; margin: 0.5rem 0;">Fichiers d'Extraction Bruts</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Fichiers fonciers communaux DVF, délibérations régionales, arrêtés préfectoraux du JORF et bilans hydrologiques archivés.</p>
+                </div>
+                <div style="background: var(--bg-dark); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px; padding: 2rem;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan);">+10 500</div>
+                    <h3 style="font-size: 1.1rem; color: #fff; margin: 0.5rem 0;">Preuves Chiffrées & Faits</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Relevés de transactions, permis tacites détectés, équations de fuites financières et clauses de concession audiotées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Les 3 Piliers -->
@@ -424,6 +458,115 @@
             <!-- Fiches insérées dynamiquement via JavaScript -->
         </div>
     </section>
+
+    
+    <!-- Section Studio de Création Citoyenne NotebookLM -->
+    <section id="studio" style="padding: 5rem 2rem; background: rgba(19, 27, 46, 0.6); border-top: 1px solid var(--border-glow); border-bottom: 1px solid var(--border-glow);">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">MÉDIA SOUVERAIN CITOYEN</span>
+                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.5rem;">🎬 Studio de Création Citoyenne avec NotebookLM</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.8rem auto 0;">
+                    Ne soyez plus seulement spectateur de la donnée : devenez un créateur de contenus d'investigation !<br>
+                    Transformez les 24 dossiers d'audit bruts en <strong>podcasts audio, débats oraux et vidéos virales</strong> grâce à l'IA de Google NotebookLM.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Étape 1 -->
+                <div style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
+                    <div style="width: 40px; height: 40px; background: var(--accent-gold); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">1</div>
+                    <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.8rem;">📥 1. Téléchargez la Source</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Ouvrez l'une des 24 fiches d'enquête ci-dessus et cliquez sur le bouton <code>📄 Consulter le Fichier Source Markdown Brut (.MD)</code> pour récupérer le texte d'audit certifié.
+                    </p>
+                    <a href="#fiches" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700; font-size: 0.88rem;">👉 Choisir une enquête (#01 à #24)</a>
+                </div>
+
+                <!-- Étape 2 -->
+                <div style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
+                    <div style="width: 40px; height: 40px; background: var(--accent-cyan); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">2</div>
+                    <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.8rem;">🤖 2. Glissez dans NotebookLM</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Rendez-vous sur l'outil gratuit Google NotebookLM et créez un nouveau bloc-notes. Glissez-y le fichier <code>.md</code> de l'enquête comme source principale.
+                    </p>
+                    <a href="https://notebooklm.google.com/" target="_blank" style="color: var(--accent-cyan); text-decoration: underline; font-weight: 700; font-size: 0.88rem;">👉 Ouvrir Google NotebookLM ↗</a>
+                </div>
+
+                <!-- Étape 3 -->
+                <div style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
+                    <div style="width: 40px; height: 40px; background: var(--accent-gold); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">3</div>
+                    <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.8rem;">🎙️ 3. Générez Podcast / Vidéo</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">
+                        Dans NotebookLM, cliquez sur <strong>« Audio Overview »</strong> ou <strong>« Studio Vidéo »</strong>. L'IA va créer en 2 minutes un podcast/débat oral ultra-dynamique expliquant l'enquête avec une clarté impressionnante !
+                    </p>
+                </div>
+
+                <!-- Étape 4 -->
+                <div style="background: var(--bg-dark); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
+                    <div style="width: 40px; height: 40px; background: var(--accent-cyan); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">4</div>
+                    <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 0.8rem;">🚀 4. Publiez sur les Réseaux</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
+                        Téléchargez le fichier MP3/MP4 généré et publiez-le sur TikTok, Instagram, YouTube Shorts ou X. Utilisez le hashtag <strong>#TarraDiUCumunu</strong> pour éveiller les consciences !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Guide d'Action Citoyenne & Vigilance Terrain -->
+    <section id="action" style="padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">LEVER D'ACTION INDIVIDUELLE</span>
+            <h2 style="font-size: 2.5rem; color: #fff; margin-top: 0.5rem;">✊ Comment Agir Concrètement sur le Terrain ?</h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.8rem auto 0;">
+                L'information n'est utile que si elle se transforme en action citoyenne. Voici les 5 leviers légaux et souverains à la portée de chaque habitant de Corse.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <!-- Pilier 1 -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
+                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">🛡️ 1. Vigilance Urbanisme & Recours</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                    Surveillez l'affichage des permis de construire dans votre commune. Utilisez l'outil <strong><code>⚙️ Tool: Bufitonu.fr</code></strong> pour vérifier si un permis est tacite (dépassement des délais R. 424-1), si la personne morale masque des holdings (INPI RBE) ou si une bergerie subit un dérogeant changement de destination (L. 151-11). Formulez un recours gracieux en mairie dans le délai de 2 mois.
+                </p>
+            </div>
+
+            <!-- Pilier 2 -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
+                <h3 style="font-size: 1.3rem; color: var(--accent-cyan); margin-bottom: 1rem;">📄 2. Droit d'Accès aux Documents (CADA)</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                    Exercez votre droit constitutionnel d'accès aux documents administratifs. Envoyez une demande officielle en mairie ou préfecture pour exiger la communication des études d'impact environnemental, des arrêtés de captage d'eau ou des conventions d'aménagement. En cas de refus sous 1 mois, saisissez la CADA.
+                </p>
+            </div>
+
+            <!-- Pilier 3 -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
+                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">📢 3. Contre-Information & Diffusion</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                    Ne laissez pas les affaires confidentielles s'éteindre dans le silence. Téléchargez les 24 dossiers d'investigation <code>.MD</code> et partagez-les directement avec les associations de défense de l'environnement (U Levante, Garona), les collectifs du foncier, les journalistes d'investigation et vos conseillers municipaux.
+                </p>
+            </div>
+
+            <!-- Pilier 4 -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
+                <h3 style="font-size: 1.3rem; color: var(--accent-cyan); margin-bottom: 1rem;">📥 4. Crowdsourcing Anonyme PGP</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                    Vous êtes en possession d'un document administratif occulte, d'une photo d'affichage de permis suspect ou d'une délibération contestable ? Transmettez-les de manière 100% anonyme sur le dépôt GitHub officiel via notre clé de chiffrement PGP 4096-bit.
+                </p>
+            </div>
+
+            <!-- Pilier 5 -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
+                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">💡 5. Souveraineté Économique au Quotidien</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
+                    Reprenez le contrôle sur vos choix de consommation et d'épargne. Privilégiez les circuits courts paysans corses (pour contourner le détournement des primes PAC) et exigez de votre agence bancaire des garanties écrites sur le réinvestissement de vos dépôts dans l'économie insulaire locale.
+                </p>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Carte SIG Dynamique par Communes -->
     <section id="map" class="map-section">
