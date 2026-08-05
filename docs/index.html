@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARRA DI U CUMUNU — Portail d'Audit Systémique & Souveraineté de la Data Corse</title>
-    <meta name="description" content="TARRA DI U CUMUNU : Plateforme d'Open Data et d'Audit Systémique de la Corse. 24 Fiches Techniques, 3750 sources d'État et cartographie souveraine.">
+    <title>CASA DI CRISTALE 2.0 — Portail d'Audit Systémique & Souveraineté de la Data Corse</title>
+    <meta name="description" content="CASA DI CRISTALE 2.0 : Plateforme d'Open Data et d'Audit Systémique de la Corse. 24 Fiches Techniques, 3750 sources d'État et cartographie souveraine.">
     
     <!-- OpenGraph Social Preview -->
-    <meta property="og:title" content="TARRA DI U CUMUNU — Audit Systémique de la Corse">
+    <meta property="og:title" content="CASA DI CRISTALE 2.0 — Audit Systémique de la Corse">
     <meta property="og:description" content="Portail indépendant d'Open Data Territorial : 24 Fiches d'Audit, Cartographie SIG et Preuves Officielles.">
     <meta property="og:image" content="https://raw.githubusercontent.com/fsucieta/fsucieta-corsica-audit/main/media_assets/og_social_preview.png">
     <meta property="og:type" content="website">
@@ -368,7 +368,7 @@
     <header>
         <div class="logo">
             <img src="blason_nation_corse_paoli_exact_dore.png?v=2" alt="Blason Historique Paoli Doré" style="height: 50px; filter: drop-shadow(0 0 6px rgba(212,175,55,0.5)); vertical-align: middle;">
-            TARRA DI U CUMUNU <span>2.0</span>
+            CASA DI CRISTALE <span>2.0</span>
         </div>
         <nav>
             <ul>
@@ -434,6 +434,79 @@
                     <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan);">+10 500</div>
                     <h3 style="font-size: 1.1rem; color: #fff; margin: 0.5rem 0;">Preuves Chiffrées & Faits</h3>
                     <p style="font-size: 0.88rem; color: var(--text-muted);">Relevés de transactions, permis tacites détectés, équations de fuites financières et clauses de concession audiotées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section Outil de Diagnostic Citoyen Communal (Style The Markup) -->
+    <section id="diagnostic-citoyen" style="padding: 4rem 2rem; background: rgba(11, 15, 25, 0.95); border-y: 1px solid var(--accent-gold);">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL DE DIAGNOSTIC CITOYEN (STYLE THE MARKUP)</span>
+            <h2 style="font-size: 2.3rem; color: #fff; margin-top: 0.5rem;">🔎 Quel est le Diagnostic d'Audit de Votre Commune ?</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0.8rem auto 2rem;">
+                Sélectionnez votre commune ou microrégion pour obtenir immédiatement le rapport d'impact citoyen (Logement DVF, Pression Eau, SCI Non-Résidentes et Leviers d'Action).
+            </p>
+
+            <div style="max-width: 600px; margin: 0 auto 2.5rem; display: flex; gap: 10px;">
+                <select id="communeSelector" onchange="runCitizenDiagnostic()" style="flex: 1; padding: 14px 20px; border-radius: 30px; border: 2px solid var(--accent-gold); background: var(--bg-card); color: #fff; font-size: 1.05rem; font-weight: 700; cursor: pointer;">
+                    <option value="0">📍 Sélectionnez votre commune / microrégion...</option>
+                    <option value="0">Ajaccio & Pays Ajaccien</option>
+                    <option value="1">Bastia & Grand Bastia</option>
+                    <option value="2">Bonifacio & Spérone</option>
+                    <option value="3">Porto-Vecchio & Golfe</option>
+                    <option value="4">Calvi & Balagne Littorale</option>
+                    <option value="5">Saint-Florent & Nebbio</option>
+                    <option value="6">Corte & Centre Corse</option>
+                    <option value="7">Cap Corse (Luri / Meria)</option>
+                    <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
+                    <option value="9">Propriano & Golfe de Valinco</option>
+                    <option value="10">Solenzara & Plaine Littorale</option>
+                    <option value="11">Castagniccia & Niolu</option>
+                </select>
+            </div>
+
+            <!-- Carte de Diagnostic Citoyen Instantané -->
+            <div id="diagnosticResult" style="display: none; background: rgba(19, 27, 46, 0.95); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 2.5rem; text-align: left; max-width: 900px; margin: 0 auto; box-shadow: 0 12px 40px rgba(0,0,0,0.5);">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 1px; text-transform: uppercase;">DIAGNOSTIC CITOYEN OFFICIEL</span>
+                        <h3 id="diag-name" style="font-size: 1.8rem; color: var(--accent-gold); margin: 0.2rem 0 0 0;">-</h3>
+                    </div>
+                    <span id="diag-risk" style="background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 0.88rem;">RISQUE ÉLEVÉ</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 1.8rem;">
+                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid var(--accent-gold);">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Résidences Secondaires</span>
+                        <strong id="diag-sec" style="font-size: 1.4rem; color: #fff;">-</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid var(--accent-cyan);">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Prix Moyen m² (DVF)</span>
+                        <strong id="diag-dvf" style="font-size: 1.4rem; color: var(--accent-gold);">-</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid #6d4aff;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Captation SCI Non-Résidentes</span>
+                        <strong id="diag-sci" style="font-size: 1.4rem; color: var(--accent-cyan);">-</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid #e74c3c;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Taux Fuite Réseau Eau</span>
+                        <strong id="diag-water" style="font-size: 1.4rem; color: #e74c3c;">-</strong>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.8rem;">
+                    <h4 style="color: #fff; font-size: 1.05rem; margin-bottom: 0.5rem;">🔍 Diagnostic d'Impact & Facteurs de Pression :</h4>
+                    <p id="diag-details" style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin: 0;">-</p>
+                </div>
+
+                <div style="background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <strong style="color: var(--accent-gold); font-size: 1rem; display: block;">✊ Que pouvez-vous faire dans votre commune ?</strong>
+                        <span style="color: var(--text-muted); font-size: 0.88rem;">Consultez les permis d'urbanisme en Mairie ou déposez une demande CADA.</span>
+                    </div>
+                    <a href="#action" style="background: var(--accent-gold); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.9rem;">Consulter le Guide d'Action ↗</a>
                 </div>
             </div>
         </div>
@@ -1057,6 +1130,24 @@
                     🔍 ${a}
                 </div>`;
             }).join('');
+        }
+
+        
+        function runCitizenDiagnostic() {
+            const idx = document.getElementById('communeSelector').value;
+            const item = gisPack[idx];
+            if (!item) return;
+
+            document.getElementById('diag-name').innerText = item.name;
+            document.getElementById('diag-sec').innerText = item.sec_rate;
+            document.getElementById('diag-dvf').innerText = item.dvf_m2;
+            document.getElementById('diag-sci').innerText = item.sci_rate;
+            document.getElementById('diag-water').innerText = item.water_leak;
+            document.getElementById('diag-details').innerText = item.details;
+            document.getElementById('diag-risk').innerText = 'NIVEAU ' + item.risk_level.toUpperCase();
+
+            document.getElementById('diagnosticResult').style.display = 'block';
+            document.getElementById('diagnosticResult').scrollIntoView({ behavior: 'smooth' });
         }
 
         function setMapFilter(filter) {
@@ -1740,7 +1831,7 @@
             });
         }
 
-                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
