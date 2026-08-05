@@ -580,6 +580,20 @@
         </div>
     </section>
 
+    <section id="fiches" class="audit-section">
+        <div class="section-header">
+            <div>
+                <h2>📚 Les 24 Fiches d'Audit Systémique Exposées</h2>
+                <p style="color: #475569;">Cliquez sur n'importe quelle fiche pour ouvrir le dossier complet et la formule de preuve.</p>
+            </div>
+            <input type="text" id="searchInput" class="search-box" placeholder="Rechercher dans les 24 fiches..." onkeyup="filterFiches()">
+        </div>
+
+        <div class="grid-24" id="fichesGrid">
+            <!-- Fiches insérées dynamiquement via JavaScript -->
+        </div>
+    </section>
+
 
 
 
@@ -763,19 +777,7 @@
     </section>
 
     <!-- Audit Section (24 Fiches) -->
-    <section id="fiches" class="audit-section">
-        <div class="section-header">
-            <div>
-                <h2>📚 Les 24 Fiches d'Audit Systémique Exposées</h2>
-                <p style="color: #475569;">Cliquez sur n'importe quelle fiche pour ouvrir le dossier complet et la formule de preuve.</p>
-            </div>
-            <input type="text" id="searchInput" class="search-box" placeholder="Rechercher dans les 24 fiches..." onkeyup="filterFiches()">
-        </div>
-
-        <div class="grid-24" id="fichesGrid">
-            <!-- Fiches insérées dynamiquement via JavaScript -->
-        </div>
-    </section>
+    
 
     
     <!-- Section Studio de Création Citoyenne NotebookLM -->
@@ -2417,7 +2419,7 @@
             });
         }
 
-                                                                                                                                                                                                // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
