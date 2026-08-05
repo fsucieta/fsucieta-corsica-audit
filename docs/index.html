@@ -645,15 +645,108 @@
 
 
     <!-- Carte SIG Dynamique par Communes -->
-    <section id="map" class="map-section">
-        <div class="section-header">
-            <div>
-                <h2>🗺️ Cartographie SIG Dynamique des Communes</h2>
-                <p style="color: var(--text-muted);">Cliquez sur n'importe quelle commune ou microrégion pour afficher les données DVF et foncières associées.</p>
+    
+    <!-- Cartographie SIG Dynamique & Inspecteur de Données -->
+    <section id="map" class="map-section" style="padding: 4rem 2rem; background: var(--bg-dark); border-top: 1px solid var(--border-glow);">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">SYSTÈME D'INFORMATION GÉOGRAPHIQUE SOUVERAIN</span>
+                <h2 style="font-size: 2.4rem; color: var(--accent-gold); margin-top: 0.4rem;">🗺️ Cartographie SIG & Inspecteur d'Audit Territorial</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 850px; margin: 0.5rem auto 0;">
+                    Cliquez sur n'importe quelle zone de la carte ou basculez un calque d'investigation ci-dessous pour ouvrir le <strong>Dossier d'Audit SIG Communal</strong> (DVF, SCI INPI RBE, Pression Eau et Enquêtes associées).
+                </p>
+            </div>
+
+            <!-- Barre de Filtres de Calques SIG -->
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;">
+                <button onclick="setMapFilter('all')" class="gis-filter-btn active" id="btn-all">📍 Toutes les Microrégions</button>
+                <button onclick="setMapFilter('speculation')" class="gis-filter-btn" id="btn-speculation">🔴 Calque Spéculation & SCI (DVF)</button>
+                <button onclick="setMapFilter('water')" class="gis-filter-btn" id="btn-water">💧 Calque Pression Hydraulique</button>
+                <button onclick="setMapFilter('mines')" class="gis-filter-btn" id="btn-mines">⛏️ Calque Mines & Emprises Armée</button>
+            </div>
+
+            <!-- Grille Split : Carte SIG (Gauche) + Inspecteur d'Audit (Droite) -->
+            <div style="display: grid; grid-template-columns: 1fr 420px; gap: 1.8rem; align-items: start;" class="gis-grid-layout">
+                <!-- Carte Leaflet Container -->
+                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <div id="leaflet-map" style="height: 620px; width: 100%; background: #0b0f19;"></div>
+                    <div style="position: absolute; bottom: 15px; left: 15px; z-index: 1000; background: rgba(11,15,25,0.85); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; color: #fff;">
+                        <span style="color: var(--accent-gold);">●</span> Légende : Vert (Normal) | Orange (Élevé) | Rouge/Violet (Critique)
+                    </div>
+                </div>
+
+                <!-- Panneau d'Inspection SIG Dynamique -->
+                <div id="gis-inspector" style="background: rgba(19, 27, 46, 0.95); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 2rem; min-height: 620px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 1px; text-transform: uppercase;">FICHE D'INSPECTION COMMUNE</span>
+                        <h3 id="gis-name" style="font-size: 1.6rem; color: var(--accent-gold); margin: 0.3rem 0 0 0;">Ajaccio & Pays Ajaccien</h3>
+                        <span id="gis-type" style="font-size: 0.88rem; color: var(--text-muted);">Capitale Régionale & Golfe</span>
+                    </div>
+
+                    <!-- Métriques Clés -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Résidences Secondaires</span>
+                            <strong id="gis-sec" style="font-size: 1.3rem; color: #fff;">34.2%</strong>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Prix Moyen DVF</span>
+                            <strong id="gis-dvf" style="font-size: 1.3rem; color: var(--accent-gold);">4 150 €/m²</strong>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Captation SCI (INPI RBE)</span>
+                            <strong id="gis-sci" style="font-size: 1.3rem; color: var(--accent-cyan);">52%</strong>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                            <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Fuites Réseau Eau</span>
+                            <strong id="gis-water" style="font-size: 1.3rem; color: #e74c3c;">28%</strong>
+                        </div>
+                    </div>
+
+                    <!-- Description d'Audit -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;">🔬 Constat d'Audit Territorial :</h4>
+                        <p id="gis-details" style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                            Forte captation sociétaire sur la route des Sanguinaires. Concentration des banques centrales et absence de CHRU de plein exercice.
+                        </p>
+                    </div>
+
+                    <!-- Enquêtes Liées -->
+                    <div>
+                        <h4 style="font-size: 0.95rem; color: var(--accent-gold); margin-bottom: 0.6rem;">📜 Enquêtes d'Audit Associées :</h4>
+                        <div id="gis-axes" style="display: flex; flex-direction: column; gap: 8px;">
+                            <!-- Injecté dynamiquement -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="leaflet-map" class="map-container"></div>
     </section>
+
+    <style>
+        .gis-filter-btn {
+            background: rgba(19, 27, 46, 0.8);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .gis-filter-btn:hover, .gis-filter-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.12);
+        }
+        @media (max-width: 992px) {
+            .gis-grid-layout {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+
 
     <!-- Modal Détaillée Intégrale -->
     <div id="ficheModal" class="modal-overlay" onclick="closeModal(event)">
@@ -675,44 +768,298 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     
     <script>
-        // 1. Initialisation Carte Leaflet 3D Dark Theme par Communes
+        
+        // 1. Base de Données SIG et Inspecteur d'Audit
+        const gisPack = [
+        {
+                "name": "Ajaccio & Pays Ajaccien",
+                "type": "Capitale Régionale & Golfe",
+                "lat": 41.9267,
+                "lng": 8.7369,
+                "sec_rate": "34.2%",
+                "dvf_m2": "4 150 €/m²",
+                "sci_rate": "52%",
+                "water_leak": "28%",
+                "risk_level": "Élevé",
+                "color": "#e74c3c",
+                "axes": [
+                        "#01 Évasion Fiscale",
+                        "#03 SCI Non-Résidentes",
+                        "#10 CHRU & EVASAN",
+                        "#22 Radar Urbanisme"
+                ],
+                "details": "Forte captation sociétaire sur la route des Sanguinaires. Concentration des banques centrales et absence de CHRU de plein exercice."
+        },
+        {
+                "name": "Bastia & Grand Bastia",
+                "type": "Métropole Nord & Port",
+                "lat": 42.7,
+                "lng": 9.45,
+                "sec_rate": "19.5%",
+                "dvf_m2": "3 200 €/m²",
+                "sci_rate": "38%",
+                "water_leak": "22%",
+                "risk_level": "Moyen",
+                "color": "#f39c12",
+                "axes": [
+                        "#06 Scieries & Bois",
+                        "#17 Atterrage Câble BlueMed",
+                        "#19 Fret Déchets"
+                ],
+                "details": "Atterrissement du câble sous-marin BlueMed sans Data Center souverain local. Exportation maritime des déchets vers le continent."
+        },
+        {
+                "name": "Bonifacio & Spérone",
+                "type": "Extrême Sud & Littoral",
+                "lat": 41.3883,
+                "lng": 9.1578,
+                "sec_rate": "58.4%",
+                "dvf_m2": "9 800 €/m²",
+                "sci_rate": "78%",
+                "water_leak": "35%",
+                "risk_level": "Critique",
+                "color": "#9b59b6",
+                "axes": [
+                        "#03 SCI Non-Résidentes",
+                        "#04 ZEE & Quotas Pêche",
+                        "#23 Démasquage RBE"
+                ],
+                "details": "Spéculation foncière extrême. 78% des biens de valeur détenus par des SCI et SAS non-résidentes (INPI RBE)."
+        },
+        {
+                "name": "Porto-Vecchio & Golfe",
+                "type": "Bande Littorale Sud",
+                "lat": 41.5914,
+                "lng": 9.2794,
+                "sec_rate": "54.1%",
+                "dvf_m2": "7 500 €/m²",
+                "sci_rate": "71%",
+                "water_leak": "41%",
+                "risk_level": "Critique",
+                "color": "#9b59b6",
+                "axes": [
+                        "#02 Évasion Hydraulique",
+                        "#03 Foncier",
+                        "#22 Permis Tacites"
+                ],
+                "details": "Sur-prélèvement d'eau estival pour les résidences secondaires. Accumulation de permis de construire tacites (R. 424-1)."
+        },
+        {
+                "name": "Calvi & Balagne Littorale",
+                "type": "Bande Nord-Ouest",
+                "lat": 42.5667,
+                "lng": 8.75,
+                "sec_rate": "46.8%",
+                "dvf_m2": "5 800 €/m²",
+                "sci_rate": "64%",
+                "water_leak": "31%",
+                "risk_level": "Très Élevé",
+                "color": "#e74c3c",
+                "axes": [
+                        "#09 Emprises Militaires",
+                        "#18 Primes PAC",
+                        "#24 Bergeries VIP"
+                ],
+                "details": "Emprises du 2ème REP. Détournement de bergeries historiques sous l'article L. 151-11 de l'urbanisme."
+        },
+        {
+                "name": "Saint-Florent & Nebbio",
+                "type": "Golfe & Agriate",
+                "lat": 42.6833,
+                "lng": 8.9333,
+                "sec_rate": "51.2%",
+                "dvf_m2": "6 200 €/m²",
+                "sci_rate": "68%",
+                "water_leak": "33%",
+                "risk_level": "Très Élevé",
+                "color": "#e74c3c",
+                "axes": [
+                        "#03 Accaparement Foncier",
+                        "#05 Mines & Antimoine",
+                        "#23 RGPD Bufitonu"
+                ],
+                "details": "Morcellement des parcelles littorales. Indices miniers et anciens permis d'antimoine recensés par le BRGM."
+        },
+        {
+                "name": "Corte & Centre Corse",
+                "type": "Cœur Insulaire & Université",
+                "lat": 42.3,
+                "lng": 9.15,
+                "sec_rate": "14.2%",
+                "dvf_m2": "2 100 €/m²",
+                "sci_rate": "21%",
+                "water_leak": "44%",
+                "risk_level": "Modéré",
+                "color": "#2ecc71",
+                "axes": [
+                        "#02 Eau Montagne",
+                        "#06 Pin Laricio",
+                        "#11 Université Pasquale Paoli"
+                ],
+                "details": "Sous-dotation d'État par étudiant à l'Université. Captation de l'eau de haute chute et fuite des bois bruts vers la Toscane."
+        },
+        {
+                "name": "Cap Corse (Luri / Meria)",
+                "type": "Presqu'île & Gisement",
+                "lat": 42.9,
+                "lng": 9.4167,
+                "sec_rate": "42.0%",
+                "dvf_m2": "3 900 €/m²",
+                "sci_rate": "45%",
+                "water_leak": "39%",
+                "risk_level": "Élevé",
+                "color": "#f39c12",
+                "axes": [
+                        "#05 Cadastre Minier BRGM",
+                        "#06 Forêt & Pin",
+                        "#18 PAC Pastorale"
+                ],
+                "details": "Anciennes mines d'antimoine répertoriées dans le plan IRM 2024. Pression sur le foncier pastoral."
+        },
+        {
+                "name": "Plaine Orientale (Ghisonaccia / Aléria)",
+                "type": "Bassin Agricole & Lagunes",
+                "lat": 42.0167,
+                "lng": 9.4,
+                "sec_rate": "28.5%",
+                "dvf_m2": "2 800 €/m²",
+                "sci_rate": "39%",
+                "water_leak": "46%",
+                "risk_level": "Élevé",
+                "color": "#f39c12",
+                "axes": [
+                        "#18 Captation PAC",
+                        "#14 Spéculation 1975-2026",
+                        "#19 Enfouissement Tallone"
+                ],
+                "details": "Captation des primes PAC à l'hectare par des investisseurs non-exploitants. Saturation du site d'enfouissement de Tallone."
+        },
+        {
+                "name": "Propriano & Golfe de Valinco",
+                "type": "Littoral Sud-Ouest",
+                "lat": 41.675,
+                "lng": 8.9028,
+                "sec_rate": "49.3%",
+                "dvf_m2": "5 400 €/m²",
+                "sci_rate": "62%",
+                "water_leak": "37%",
+                "risk_level": "Très Élevé",
+                "color": "#e74c3c",
+                "axes": [
+                        "#03 DVF Spéculation",
+                        "#19 Enfouissement Viggianello",
+                        "#22 Radar Urbanisme"
+                ],
+                "details": "Saturation du centre d'enfouissement de Viggianello. Forte progression des SCI holding sur la côte."
+        },
+        {
+                "name": "Solenzara & Plaine Littorale",
+                "type": "Base Aérienne & Littoral",
+                "lat": 41.8561,
+                "lng": 9.4061,
+                "sec_rate": "41.5%",
+                "dvf_m2": "4 300 €/m²",
+                "sci_rate": "48%",
+                "water_leak": "30%",
+                "risk_level": "Élevé",
+                "color": "#f39c12",
+                "axes": [
+                        "#09 Base Aérienne BA126",
+                        "#21 Sécurité Civile",
+                        "#02 SDAGE"
+                ],
+                "details": "Emprise militaire majeure de la Base Aérienne 126. Servitudes aéronautiques neutralisant le foncier civil environnant."
+        },
+        {
+                "name": "Castagniccia & Niolu",
+                "type": "Région de Montagne",
+                "lat": 42.3833,
+                "lng": 9.3,
+                "sec_rate": "38.0%",
+                "dvf_m2": "1 800 €/m²",
+                "sci_rate": "22%",
+                "water_leak": "52%",
+                "risk_level": "Modéré",
+                "color": "#2ecc71",
+                "axes": [
+                        "#02 Sécheresses & Fuites",
+                        "#06 ONF Laricio",
+                        "#24 Patrimoine Bâti"
+                ],
+                "details": "Taux de fuite sur réseaux d'eau > 50%. Patrimoine de paillers et bergeries convoité par les promoteurs."
+        }
+];
+        let mapMarkers = [];
+
         const map = L.map('leaflet-map', {
             center: [42.15, 9.05],
-            zoom: 9,
+            zoom: 8.5,
             scrollWheelZoom: false
         });
-        
-        // CartoDB Dark Tile Layer with OpenStreetMap fallback
-        const mainTileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
             subdomains: 'abcd',
             maxZoom: 19
-        });
-        
-        mainTileLayer.addTo(map);
+        }).addTo(map);
 
-        // Fallback tile layer if CartoDB is slow
-        mainTileLayer.on('tileerror', function() {
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-        });
+        function renderGisMarkers(filter = 'all') {
+            mapMarkers.forEach(m => map.removeLayer(m));
+            mapMarkers = [];
 
-        // Ensure Leaflet recalculates size properly after render
-        setTimeout(() => { map.invalidateSize(); }, 500);
-        window.addEventListener('resize', () => { map.invalidateSize(); });
+            gisPack.forEach(g => {
+                let show = true;
+                if (filter === 'speculation' && parseFloat(g.sec_rate) < 45) show = false;
+                if (filter === 'water' && parseFloat(g.water_leak) < 35) show = false;
+                if (filter === 'mines' && !g.axes.some(a => a.includes('Mines') || a.includes('Militaires'))) show = false;
 
-        // Ajout des principaux pôles communaux avec fenêtres d'information Open-Data DVF
-        communesData.forEach(c => {
-            L.circleMarker([c.lat, c.lng], {
-                radius: 8,
-                fillColor: "#d4af37",
-                color: "#fff",
-                weight: 1.5,
-                opacity: 1,
-                fillOpacity: 0.8
-            }).addTo(map).bindPopup(`<b>${c.name}</b><br>${c.info}`);
-        });
+                if (show) {
+                    const marker = L.circleMarker([g.lat, g.lng], {
+                        radius: filter === 'all' ? 10 : 13,
+                        fillColor: g.color,
+                        color: '#fff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.85
+                    }).addTo(map);
+
+                    marker.on('click', () => updateInspector(g));
+                    marker.bindTooltip(`<b>${g.name}</b><br>${g.type}`, { permanent: false, direction: 'top' });
+                    mapMarkers.push(marker);
+                }
+            });
+        }
+
+        function updateInspector(g) {
+            document.getElementById('gis-name').innerText = g.name;
+            document.getElementById('gis-type').innerText = g.type;
+            document.getElementById('gis-sec').innerText = g.sec_rate;
+            document.getElementById('gis-dvf').innerText = g.dvf_m2;
+            document.getElementById('gis-sci').innerText = g.sci_rate;
+            document.getElementById('gis-water').innerText = g.water_leak;
+            document.getElementById('gis-details').innerText = g.details;
+
+            const axesDiv = document.getElementById('gis-axes');
+            axesDiv.innerHTML = g.axes.map(a => {
+                return `<div style="background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0, 242, 254, 0.2); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; color: var(--accent-cyan); font-weight: 600;">
+                    🔍 ${a}
+                </div>`;
+            }).join('');
+        }
+
+        function setMapFilter(filter) {
+            document.querySelectorAll('.gis-filter-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + filter);
+            if (activeBtn) activeBtn.classList.add('active');
+            renderGisMarkers(filter);
+        }
+
+        // Initialisation du premier item d'inspection
+        updateInspector(gisPack[0]);
+        renderGisMarkers('all');
+
+        setTimeout(() => map.invalidateSize(), 500);
+
 
         // 2. Base de données INTÉGRALE des 24 Fiches d'Audit
         const fichesData = [
@@ -1381,7 +1728,7 @@
             });
         }
 
-                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
