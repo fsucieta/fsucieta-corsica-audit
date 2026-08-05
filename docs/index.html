@@ -382,17 +382,29 @@
     </header>
 
     <!-- Page d'Accueil Manifeste -->
-    <section id="accueil" class="hero-landing">
-        <div style="margin-bottom: 1.5rem;">
-            <img src="blason_nation_corse_paoli_exact_dore.png?v=2" alt="Blason Historique Paoli Doré" style="max-width: 600px; width: 100%; filter: drop-shadow(0 0 12px rgba(212,175,55,0.5)); display: block; margin: 0 auto;">
+    <section id="accueil" class="hero-landing" style="padding: 4rem 2rem 3rem; text-align: center;">
+        <!-- Cartouche Historique "La Maison de Cristal" -->
+        <div style="max-width: 900px; margin: 0 auto 2rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(19, 27, 46, 0.8) 100%); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 1.8rem 2.2rem; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);">
+            <p style="font-size: 1.25rem; font-style: italic; color: #fff; line-height: 1.6; margin-bottom: 0.8rem; font-family: Georgia, serif;">
+                « Il faut que notre administration ressemble à une maison de cristal où chacun puisse voir ce qui s'y passe. »
+            </p>
+            <span style="font-size: 0.95rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 1.5px; text-transform: uppercase;">
+                — Pasquale Paoli, Général de la Nation Corse (1755)
+            </span>
         </div>
-        <h1>TARRA DI U CUMUNU</h1>
-        <p style="font-size: 1.4rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 0.8rem; letter-spacing: 0.5px;">The Corsican Commons Data & Audit Portal</p>
-        <p>Le premier portail d'Open Data Territorial et d'Audit Systémique indépendant de la Corse.<br>Une infrastructure transparente croisant <strong>~100 Registres d'État Mères</strong>, <strong>3 750+ Fichiers d'Extraction Bruts</strong> et <strong>+10 500 Preuves Chiffrées</strong>.</p>
+
+        <h1 style="font-size: 3rem; color: #fff; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+            FSUCIETÀ 2.0 — La Maison de Cristal de la Corse
+        </h1>
+        <p style="font-size: 1.25rem; color: var(--text-main); font-weight: 600; max-width: 850px; margin: 0 auto 2rem; line-height: 1.6;">
+            L'Open Data et l'audit citoyen au service de notre terre, de nos logements et de l'avenir de nos enfants.<br>
+            Une plateforme transparente et fraternellement dédiée à l'intérêt commun des Corses.
+        </p>
+
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-            <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 ENQUÊTES</a>
+            <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 ENQUÊTES CITOYENNES</a>
             <a href="#studio" class="cta-btn" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #0b0f19; box-shadow: 0 8px 24px rgba(0,242,254,0.3);">🎬 CRÉER UN PODCAST / VIDÉO (NOTEBOOKLM)</a>
-            <a href="#action" class="cta-btn" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); box-shadow: none;">✊ COMMENT AGIR SUR LE TERRAIN ?</a>
+            <a href="#action" class="cta-btn" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); box-shadow: none;">✊ COMMENT AGIR POUR VOTRE COMMUNE ?</a>
         </div>
     </section>
 
@@ -1728,7 +1740,7 @@
             });
         }
 
-                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
