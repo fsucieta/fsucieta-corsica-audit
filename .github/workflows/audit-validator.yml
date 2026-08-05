@@ -1,0 +1,56 @@
+name: FSUCIETA Audit & Data Integrity Validator
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-data-integrity:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Validate Index HTML Syntax & Data Integrity
+      run: |
+        python -c "
+        import json, sys, re
+
+        with open('docs/index.html', 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # 1. Check for fichesData existence and valid JSON syntax
+        match = re.search(r'const fichesData = (\[.*?\]);', content, re.DOTALL)
+        if not match:
+            print('❌ Error: fichesData non trouvé dans index.html')
+            sys.exit(1)
+
+        try:
+            data = json.loads(match.group(1))
+            print(f'✅ Validation fichesData : {len(data)} enquêtes chargées avec succès.')
+        except Exception as e:
+            print(f'❌ Erreur de syntaxe JSON dans fichesData : {e}')
+            sys.exit(1)
+
+        # 2. Check for dossiers presence
+        for i in range(1, 25):
+            fname = f'docs/dossiers/dossier_audit_{i:02d}.md'
+            try:
+                with open(fname, 'r', encoding='utf-8') as df:
+                    d_content = df.read()
+                    if 'RÉFÉRENCE D'AUDIT' not in d_content:
+                        print(f'⚠️ Avertissement : Structure incomplète dans {fname}')
+            except FileNotFoundError:
+                print(f'❌ Dossier manquant : {fname}')
+                sys.exit(1)
+
+        print('🎉 Validation d'Intégrité FSUCIETÀ 2.0 Réussie à 100% !')
+        "
