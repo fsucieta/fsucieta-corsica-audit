@@ -360,6 +360,86 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+    
+        /* --- GLASSMORPHISM & CRISTAL PREMIUM DESIGN SYSTEM --- */
+        :root {
+            --bg-dark: #070a12;
+            --bg-glass: rgba(19, 27, 46, 0.65);
+            --bg-glass-card: rgba(255, 255, 255, 0.04);
+            --border-glass: rgba(212, 175, 55, 0.35);
+            --border-glow-cyan: rgba(0, 242, 254, 0.35);
+            --accent-gold: #d4af37;
+            --accent-gold-gradient: linear-gradient(135deg, #f39c12 0%, #d4af37 50%, #b89228 100%);
+            --accent-cyan: #00f2fe;
+            --accent-cyan-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+        }
+
+        .glass-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 45px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-gold);
+        }
+
+        .glass-card-cyan {
+            border-color: var(--border-glow-cyan);
+        }
+
+        .glass-card-cyan:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 45px rgba(0, 242, 254, 0.25);
+        }
+
+        .gis-filter-btn {
+            background: rgba(19, 27, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .gis-filter-btn:hover, .gis-filter-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Waveform Animation for Audio Player */
+        .audio-wave-bar {
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background: var(--accent-cyan);
+            border-radius: 2px;
+            animation: wave 1.2s infinite ease-in-out;
+        }
+        @keyframes wave {
+            0%, 100% { height: 6px; }
+            50% { height: 22px; }
+        }
+
+        @media (max-width: 992px) {
+            .split-2-col {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -374,9 +454,11 @@
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📜 24 Enquêtes</a></li>
+                <li><a href="#simulateur">🎛️ Simulateur</a></li>
+                <li><a href="#comparateur">📊 Comparateur</a></li>
+                <li><a href="#recours-pdf">📄 Générateur Recours</a></li>
                 <li><a href="#studio">🎬 Studio NotebookLM</a></li>
                 <li><a href="#action">✊ Comment Agir ?</a></li>
-                <li><a href="#map">Carte SIG</a></li>
             </ul>
         </nav>
     </header>
@@ -413,7 +495,120 @@
 
     
     <!-- Section Transparence de l'Infrastructure Data -->
-    <section id="metrics" style="background: rgba(19, 27, 46, 0.8); border-y: 1px solid var(--border-glow); padding: 3rem 2rem; text-align: center;">
+    
+    <!-- Section 1 : Simulateur & Calculateur d'Impact Citoyen (Feature 1) -->
+    <section id="simulateur" style="padding: 5rem 2rem; max-width: 1300px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL INTERACTIF INDIVIDUEL</span>
+            <h2 style="font-size: 2.5rem; color: #fff; margin-top: 0.4rem;">🎛️ Simulateur & Calculateur d'Accessibilité Citoyenne</h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
+                Calculez en temps réel le <strong>Score de Pression Foncère & Fiscale</strong> qui pèse sur votre situation personnelle et votre commune.
+            </p>
+        </div>
+
+        <div class="glass-card" style="padding: 3rem; max-width: 950px; margin: 0 auto;">
+            <div class="split-2-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <label style="display: block; font-weight: 700; color: var(--accent-gold); margin-bottom: 0.6rem; font-size: 0.95rem;">1. Choisissez votre Commune :</label>
+                    <select id="simCommune" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700;">
+                        <option value="0">Ajaccio & Golfe (DVF 4 150€/m²)</option>
+                        <option value="1">Bastia & Grand Bastia (DVF 3 200€/m²)</option>
+                        <option value="2">Bonifacio / Spérone (DVF 9 800€/m²)</option>
+                        <option value="3">Porto-Vecchio (DVF 7 500€/m²)</option>
+                        <option value="4">Calvi & Balagne (DVF 5 800€/m²)</option>
+                        <option value="5">Saint-Florent & Nebbio (DVF 6 200€/m²)</option>
+                        <option value="6">Corte & Centre Corse (DVF 2 100€/m²)</option>
+                        <option value="8">Plaine Orientale (DVF 2 800€/m²)</option>
+                        <option value="9">Propriano & Valinco (DVF 5 400€/m²)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.6rem; font-size: 0.95rem;">2. Votre Profil Citoyen :</label>
+                    <select id="simProfil" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-glow-cyan); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700;">
+                        <option value="jeune">Jeune Actif / Premier Achat Logement</option>
+                        <option value="famille">Famille Résidente Permanente</option>
+                        <option value="agriculteur">Éleveur / Jeune Agriculteur (Projet PAC)</option>
+                        <option value="retraite">Retraité Insulaire / Transmission Patrimoine</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button onclick="calculateSimulation()" style="background: var(--accent-gold-gradient); color: #0b0f19; border: none; padding: 14px 36px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; cursor: pointer; box-shadow: 0 8px 25px rgba(212,175,55,0.4);">
+                    🧮 Lancer le Calcul d'Impact
+                </button>
+            </div>
+
+            <!-- Résultat de Simulation -->
+            <div id="simResult" style="display: none; background: rgba(0,0,0,0.5); border: 1px dashed var(--accent-gold); border-radius: 14px; padding: 2rem; margin-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+                    <div>
+                        <span style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">DIAGNOSTIC DE PRESSION INDIVIDUEL</span>
+                        <h3 id="simResultTitle" style="color: #fff; font-size: 1.5rem; margin: 0.2rem 0 0 0;">-</h3>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Score d'Éviction Foncier :</span>
+                        <div id="simScore" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-gold);">-</div>
+                    </div>
+                </div>
+
+                <p id="simText" style="color: var(--text-main); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">-</p>
+
+                <div style="background: rgba(0, 242, 254, 0.08); border-left: 4px solid var(--accent-cyan); padding: 1.2rem; border-radius: 0 10px 10px 0;">
+                    <strong style="color: var(--accent-cyan); font-size: 0.95rem; display: block; margin-bottom: 4px;">💡 Action Recommandée :</strong>
+                    <span id="simAction" style="color: #fff; font-size: 0.92rem;">-</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Section 2 : Comparateur Multi-Communes Côtes-à-Côte (Feature 2) -->
+    <section id="comparateur" style="padding: 5rem 2rem; background: rgba(11, 15, 25, 0.8); border-top: 1px solid var(--border-glass);">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">BENCHMARK DATA CÔTE-À-CÔTE</span>
+                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.4rem;">📊 Comparateur Multi-Communes en Temps Réel</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
+                    Comparez deux microrégions pour analyser les écarts d'accaparement foncier DVF, de captation par SCI et de fuites hydrauliques.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;" class="split-2-col">
+                <div class="glass-card" style="padding: 2rem;">
+                    <label style="display: block; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune A :</label>
+                    <select id="compA" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-gold); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700; font-size: 1rem;">
+                        <option value="0">Ajaccio & Pays Ajaccien</option>
+                        <option value="2" selected>Bonifacio / Spérone</option>
+                        <option value="4">Calvi & Balagne</option>
+                        <option value="6">Corte & Centre Corse</option>
+                    </select>
+
+                    <div id="cardCompA" style="margin-top: 1.5rem;">
+                        <!-- Injecté JS -->
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-cyan" style="padding: 2rem;">
+                    <label style="display: block; font-weight: 800; color: var(--accent-cyan); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune B :</label>
+                    <select id="compB" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-cyan); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700; font-size: 1rem;">
+                        <option value="1">Bastia & Grand Bastia</option>
+                        <option value="3">Porto-Vecchio & Golfe</option>
+                        <option value="6" selected>Corte & Centre Corse</option>
+                        <option value="8">Plaine Orientale</option>
+                    </select>
+
+                    <div id="cardCompB" style="margin-top: 1.5rem;">
+                        <!-- Injecté JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section id="metrics" style="background: rgba(19, 27, 46, 0.8); border-y: 1px solid var(--border-glow); padding: 3rem 2rem; text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <h2 style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.5rem;">📊 Transparence de l'Infrastructure de Données</h2>
             <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
@@ -657,7 +852,87 @@
 
 
     <!-- Section Guide du Lanceur d'Alerte & Messagerie Chiffrée -->
-    <section id="anonymat" style="padding: 4rem 2rem; background: rgba(11, 15, 25, 0.9); border-top: 1px solid var(--accent-gold); border-bottom: 1px solid var(--border-glow);">
+    
+    <!-- Section 4 : Générateur Automatique de Courriers Légaux & CADA (Feature 4) -->
+    <section id="recours-pdf" style="padding: 5rem 2rem; max-width: 1250px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL JURIDIQUE EN 1 CLIC</span>
+            <h2 style="font-size: 2.5rem; color: #fff; margin-top: 0.4rem;">📄 Générateur de Courriers de Recours & Saisine CADA</h2>
+            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
+                Générez instantanément votre lettre type officielle de **Recours Gracieux en Mairie** (Permis tacites R. 424-1 / Bergeries L. 151-11) ou de **Saisine CADA** prête à imprimer ou à envoyer.
+            </p>
+        </div>
+
+        <div class="glass-card" style="padding: 3rem; max-width: 900px; margin: 0 auto;">
+            <div class="split-2-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-bottom: 2rem;">
+                <div>
+                    <label style="display: block; font-weight: 700; color: #fff; margin-bottom: 0.5rem; font-size: 0.95rem;">Type de Demande Légale :</label>
+                    <select id="docType" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700;">
+                        <option value="recours_tacite">Recours Gracieux : Contestation Permis Tacite (R. 424-1)</option>
+                        <option value="recours_bergerie">Recours Gracieux : Bergerie / Bâti Agricole (L. 151-11)</option>
+                        <option value="cada_eau">Saisine CADA : Communication Arrêtés & Réseaux d'Eau</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-weight: 700; color: #fff; margin-bottom: 0.5rem; font-size: 0.95rem;">Nom de votre Commune :</label>
+                    <input type="text" id="docCommune" placeholder="Ex: Bonifacio, Calvi, Ajaccio..." style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #fff; font-weight: 700;">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button onclick="generateLegalDocument()" style="background: var(--accent-cyan-gradient); color: #0b0f19; border: none; padding: 14px 36px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; cursor: pointer; box-shadow: 0 8px 25px rgba(0,242,254,0.4);">
+                    📄 Générer le Document Officiel Pré-Rempli
+                </button>
+            </div>
+
+            <div id="docOutputArea" style="display: none; background: rgba(0,0,0,0.7); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span style="font-weight: 800; color: var(--accent-gold); font-size: 0.9rem;">DOCUMENT OFFICIEL PRÊT À IMPRIMER / ENVOYER</span>
+                    <button onclick="copyLegalDoc()" style="background: rgba(212,175,55,0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">📋 Copier le texte</button>
+                </div>
+                <pre id="docText" style="white-space: pre-wrap; word-break: break-word; font-family: monospace; font-size: 0.9rem; color: #fff; line-height: 1.6; background: rgba(11,15,25,0.9); padding: 1.5rem; border-radius: 8px; max-height: 400px; overflow-y: auto;"></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6 : Hub d'Exportation des Packs de Sources pour NotebookLM (Feature 6) -->
+    <section id="export-hub" style="padding: 5rem 2rem; background: rgba(11, 15, 25, 0.9); border-top: 1px solid var(--border-glass);">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">CENTRE D'EXPORTATION DU BIEN COMMUN</span>
+                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.4rem;">📥 Hub d'Exportation des Packs d'Audit</h2>
+                <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
+                    Téléchargez en 1 clic les fichiers d'audit bruts certifiés au format Markdown (.MD) pour vos recherches ou pour injection dans <strong>Google NotebookLM</strong>.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="glass-card" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📦</div>
+                    <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Global 24 Enquêtes</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">L'intégralité des 24 dossiers d'investigation médico-légale de CASA DI CRISTALE 2.0 au format .MD.</p>
+                    <a href="dossiers/dossier_audit_01.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Source #01 (.MD) ↗</a>
+                </div>
+
+                <div class="glass-card glass-card-cyan" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">🏠</div>
+                    <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Foncier & DVF</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #03, #14, #22, #23 et #24 centrées sur la spéculation, les SCI holdings et les permis tacites.</p>
+                    <a href="dossiers/dossier_audit_03.md" target="_blank" style="display: inline-block; background: var(--accent-cyan-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Foncier (.MD) ↗</a>
+                </div>
+
+                <div class="glass-card" style="padding: 2rem; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">💧</div>
+                    <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Eau & Ressources</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #02 et #16 relatives aux concessions hydrauliques, au fioul lourd et à la péréquation tarifaire.</p>
+                    <a href="dossiers/dossier_audit_02.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Eau (.MD) ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section id="anonymat" style="padding: 4rem 2rem; background: rgba(11, 15, 25, 0.9); border-top: 1px solid var(--accent-gold); border-bottom: 1px solid var(--border-glow);">
         <div style="max-width: 1250px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 3rem;">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">PROTECTION DES LANCEURS D'ALERTE</span>
@@ -830,6 +1105,86 @@
                 grid-template-columns: 1fr !important;
             }
         }
+    
+        /* --- GLASSMORPHISM & CRISTAL PREMIUM DESIGN SYSTEM --- */
+        :root {
+            --bg-dark: #070a12;
+            --bg-glass: rgba(19, 27, 46, 0.65);
+            --bg-glass-card: rgba(255, 255, 255, 0.04);
+            --border-glass: rgba(212, 175, 55, 0.35);
+            --border-glow-cyan: rgba(0, 242, 254, 0.35);
+            --accent-gold: #d4af37;
+            --accent-gold-gradient: linear-gradient(135deg, #f39c12 0%, #d4af37 50%, #b89228 100%);
+            --accent-cyan: #00f2fe;
+            --accent-cyan-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+        }
+
+        .glass-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 45px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-gold);
+        }
+
+        .glass-card-cyan {
+            border-color: var(--border-glow-cyan);
+        }
+
+        .glass-card-cyan:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 45px rgba(0, 242, 254, 0.25);
+        }
+
+        .gis-filter-btn {
+            background: rgba(19, 27, 46, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .gis-filter-btn:hover, .gis-filter-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Waveform Animation for Audio Player */
+        .audio-wave-bar {
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background: var(--accent-cyan);
+            border-radius: 2px;
+            animation: wave 1.2s infinite ease-in-out;
+        }
+        @keyframes wave {
+            0%, 100% { height: 6px; }
+            50% { height: 22px; }
+        }
+
+        @media (max-width: 992px) {
+            .split-2-col {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
     </style>
 
 
@@ -1133,6 +1488,121 @@
         }
 
         
+        
+        // JS Feature 1 : Simulateur d'Impact Citoyen
+        function calculateSimulation() {
+            const communeIdx = document.getElementById('simCommune').value;
+            const profil = document.getElementById('simProfil').value;
+            const item = gisPack[communeIdx];
+            if (!item) return;
+
+            const resDiv = document.getElementById('simResult');
+            const scoreDiv = document.getElementById('simScore');
+            const titleDiv = document.getElementById('simResultTitle');
+            const textDiv = document.getElementById('simText');
+            const actionDiv = document.getElementById('simAction');
+
+            let score = 75;
+            if (parseFloat(item.sec_rate) > 45) score += 15;
+            if (parseFloat(item.sci_rate) > 50) score += 8;
+
+            scoreDiv.innerText = score + ' / 100';
+            titleDiv.innerText = item.name + ' (' + item.type + ')';
+
+            if (profil === 'jeune') {
+                textDiv.innerHTML = `En tant que <strong>Jeune Actif</strong> à ${item.name}, vous faites face à un prix moyen foncier DVF de <strong>${item.dvf_m2}</strong> et un taux de résidences secondaires de <strong>${item.sec_rate}</strong>. Plus de <strong>${item.sci_rate}</strong> des transactions de valeur sont captées par des SCI non-résidentes (INPI RBE).`;
+                actionDiv.innerText = "Utilisez l'outil Bufitonu.fr pour surveiller les permis de construire tacites dans votre commune et consultez notre guide de recours gracieux.";
+            } else if (profil === 'famille') {
+                textDiv.innerHTML = `Pour une <strong>Famille permanente</strong> à ${item.name}, la pression touristique s'accompagne d'un taux de fuite sur le réseau d'eau potable de <strong>${item.water_leak}</strong> et d'un surcoût de taxe TEOM.`;
+                actionDiv.innerText = "Déposez une demande CADA en mairie pour exiger la communication du bilan des fuites du réseau d'eau communale.";
+            } else {
+                textDiv.innerHTML = `Sur la zone de ${item.name}, la captation des primes pastorales PAC et le mitage sous dérogation L. 151-11 restreignent l'accès au foncier agricole.`;
+                actionDiv.innerText = "Consultez les bilans Safer et signalez toute reconversion dérogeante de bergerie auprès des syndicats agricoles locaux.";
+            }
+
+            resDiv.style.display = 'block';
+            resDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // JS Feature 2 : Comparateur Multi-Communes
+        function runComparison() {
+            const idxA = document.getElementById('compA').value;
+            const idxB = document.getElementById('compB').value;
+            const a = gisPack[idxA];
+            const b = gisPack[idxB];
+
+            if (!a || !b) return;
+
+            document.getElementById('cardCompA').innerHTML = `
+                <h4 style="color: var(--accent-gold); font-size: 1.3rem; margin-bottom: 0.8rem;">${a.name}</h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">${a.type}</p>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color:#fff;">${a.dvf_m2}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Rés. Secondaires :</span><strong style="color:var(--accent-gold);">${a.sec_rate}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Captation SCI :</span><strong style="color:var(--accent-cyan);">${a.sci_rate}</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Fuites Eau :</span><strong style="color:#e74c3c;">${a.water_leak}</strong></div>
+            `;
+
+            document.getElementById('cardCompB').innerHTML = `
+                <h4 style="color: var(--accent-cyan); font-size: 1.3rem; margin-bottom: 0.8rem;">${b.name}</h4>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">${b.type}</p>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color:#fff;">${b.dvf_m2}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Rés. Secondaires :</span><strong style="color:var(--accent-gold);">${b.sec_rate}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Captation SCI :</span><strong style="color:var(--accent-cyan);">${b.sci_rate}</strong></div>
+                <div style="display: flex; justify-content: space-between;"><span>Fuites Eau :</span><strong style="color:#e74c3c;">${b.water_leak}</strong></div>
+            `;
+        }
+
+        // JS Feature 4 : Générateur Automatique de Courriers Légaux
+        function generateLegalDocument() {
+            const type = document.getElementById('docType').value;
+            const commune = document.getElementById('docCommune').value.trim() || 'Votre Commune';
+            const outputArea = document.getElementById('docOutputArea');
+            const docText = document.getElementById('docText');
+
+            let txt = '';
+            if (type === 'recours_tacite') {
+                txt = `À l'attention de Monsieur le Maire de ${commune}\n` +
+                      `Objet : Recours gracieux préalable contre la décision implicite d'accord (Permis Tacite R. 424-1)\n\n` +
+                      `Monsieur le Maire,\n\n` +
+                      `En tant qu'habitant et citoyen de la commune de ${commune}, j'attire votre attention sur l'octroi d'une autorisation d'urbanisme par décision implicite (absence de réponse dans le délai de 2 mois, en application de l'article R. 424-1 du Code de l'Urbanisme).\n\n` +
+                      `Considérant que cette décision tacite prive la commune d'une étude d'impact préalable rigoureuse en zone littorale sensible et au vu des données d'audit CASA DI CRISTALE 2.0 (Référence FSUCIETA-AUDIT-AXE-22),\n` +
+                      `Je vous demande formellement par la présente d'user de votre pouvoir de retrait pour motif d'illégalité dans le délai réglementaire de 3 mois.\n\n` +
+                      `Dans l'attente de votre réponse, veuillez agréer, Monsieur le Maire, l'expression de ma considération citoyenne.\n\n` +
+                      `Fait le [Date du jour] à ${commune}.`;
+            } else if (type === 'recours_bergerie') {
+                txt = `À l'attention de Monsieur le Maire de ${commune}\n` +
+                      `Objet : Demande de contrôle de légalité — Changement de destination du bâti ancien (Article L. 151-11)\n\n` +
+                      `Monsieur le Maire,\n\n` +
+                      `Je sollicite par la présente la communication de l'arrêté de changement de destination accordé au titre de l'article L. 151-11 du Code de l'Urbanisme concernant la reconversion du bâtiment pastoral/bergerie situé sur la commune de ${commune}.\n\n` +
+                      `Afin de vérifier le maintien de la vocation pastorale et d'éviter tout détournement à des fins spéculatives privées, je demande formellement l'accès aux pièces justificatives et à l'avis conforme émis par la commission départementale (CDPENAF).\n\n` +
+                      `Veuillez agréer, Monsieur le Maire, mes salutations distinguées.`;
+            } else {
+                txt = `À Monsieur le Président de la CADA (Commission d'Accès aux Documents Administratifs)\n` +
+                      `Objet : Saisine CADA — Refus de communication des bilans d'eau de la commune de ${commune}\n\n` +
+                      `Monsieur le Président,\n\n` +
+                      `N'ayant obtenu aucune réponse suite à ma demande initiale déposée le [Date] auprès des services de la Mairie de ${commune} concernant la communication des bilans de prélèvements hydrauliques (BNPE/OFB) et des conventions de délégation de service public,\n` +
+                      `Je saisis votre Commission afin d'obtenir un avis favorable garantissant l'accès citoyen à ces documents administratifs communicables de plein droit (Loi CADA n° 78-753).\n\n` +
+                      `Je vous remercie par avance et vous prie d'agréer, Monsieur le Président, mes salutations respectueuses.`;
+            }
+
+            docText.innerText = txt;
+            outputArea.style.display = 'block';
+            outputArea.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyLegalDoc() {
+            const txt = document.getElementById('docText').innerText;
+            navigator.clipboard.writeText(txt);
+            alert('📋 Texte du courrier officiel copié dans le presse-papier !');
+        }
+
+        // Initialisation automatique au chargement
+        window.addEventListener('load', () => {
+            if (typeof gisPack !== 'undefined') runComparison();
+        });
+
         function runCitizenDiagnostic() {
             const idx = document.getElementById('communeSelector').value;
             const item = gisPack[idx];
@@ -1831,7 +2301,7 @@
             });
         }
 
-                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
