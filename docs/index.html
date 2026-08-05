@@ -596,6 +596,141 @@
     </section>
 
 
+    <!-- Section Créateur & Hub des Cellules d'Investigation Citoyennes avec Guide NotebookLM -->
+    <section id="cellules" style="padding: 4.5rem 2rem; background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+        <div style="max-width: 1350px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="tool-tag" style="background: rgba(184, 134, 11, 0.15); color: #b8860b; font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px;">INITIATIVE POPULAIRE & POUVOIR CITOYEN</span>
+                <h2 style="font-size: 2.5rem; color: #0f172a; font-weight: 800; margin-top: 0.8rem; margin-bottom: 1rem;">🕵️‍♂️ Lancez votre Cellule d'Investigation Citoyenne Locale</h2>
+                <p style="font-size: 1.15rem; color: #475569; max-width: 900px; margin: 0 auto; line-height: 1.7;">
+                    Fondez une <strong>Cellule d'Investigation Citoyenne</strong> dans votre commune ou microrégion. <code>CASA DI CRISTALE 2.0</code> vous fournit gratuitement l'outillage juridique (CADA), le chiffrement PGP et le <strong>Guide d'Ingestion NotebookLM (1 000+ Sources)</strong> pour transformer les registres officiels en preuves irréfutables.
+                </p>
+            </div>
+
+            <div class="split-2-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; margin-bottom: 3rem;">
+                
+                <!-- Formulaire de Constitution de Cellule -->
+                <div style="background: #f8fafc; border: 1px solid var(--accent-gold); border-radius: 20px; padding: 2.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+                    <h3 style="font-size: 1.4rem; color: #b8860b; font-weight: 800; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                        🛠️ Générateur de Kit de Cellule & Charte Paolienne
+                    </h3>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; font-size: 0.95rem;">Nom de votre Cellule Citoyenne :</label>
+                        <input type="text" id="cellName" placeholder="Ex: Cellule Citoyenne Valinco-Sartenais" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; font-size: 0.95rem;">Microrégion / Zone d'Action :</label>
+                        <select id="cellRegion" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                            <option value="Ajaccio & Pays Ajaccien">Ajaccio & Pays Ajaccien</option>
+                            <option value="Bastia & Grand Bastia">Bastia & Grand Bastia</option>
+                            <option value="Bonifacio & Spérone">Bonifacio & Spérone</option>
+                            <option value="Porto-Vecchio & Extrême-Sud">Porto-Vecchio & Extrême-Sud</option>
+                            <option value="Calvi & Balagne Littorale">Calvi & Balagne Littorale</option>
+                            <option value="Saint-Florent & Nebbio">Saint-Florent & Nebbio</option>
+                            <option value="Corte & Centre Corse">Corte & Centre Corse</option>
+                            <option value="Cap Corse & Littoral Nord">Cap Corse & Littoral Nord</option>
+                            <option value="Plaine Orientale & Ghisonaccia">Plaine Orientale & Ghisonaccia</option>
+                            <option value="Valinco & Propriano / Sartène">Valinco & Propriano / Sartène</option>
+                            <option value="Solenzara & Côte des Nacres">Solenzara & Côte des Nacres</option>
+                            <option value="Castagniccia & Casinca">Castagniccia & Casinca</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; font-size: 0.95rem;">Axe d'Investigation Prioritaire :</label>
+                        <select id="cellAxe" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                            <option value="Urbanisme & Permis Tacites (Bufitonu.fr)">Urbanisme & Permis Tacites (Bufitonu.fr)</option>
+                            <option value="Eau, Assainissement & Fuites Réseaux">Eau, Assainissement & Fuites Réseaux</option>
+                            <option value="Fiscalité, Dépôts Bancaires & Fuite des Capitales">Fiscalité, Dépôts Bancaires & Fuite des Capitales</option>
+                            <option value="Foncier Pastoral, Bergeries & Primes PAC">Foncier Pastoral, Bergeries & Primes PAC</option>
+                            <option value="Santé, Urgences & EVASAN Hospitalières">Santé, Urgences & EVASAN Hospitalières</option>
+                            <option value="Gestion des Déchets & Transports Maritimes">Gestion des Déchets & Transports Maritimes</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem; font-size: 0.95rem;">Contact Chiffré / Courriel Sécurisé (Proton / Tuta) :</label>
+                        <input type="text" id="cellContact" placeholder="Ex: cellule-valinco@proton.me" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1rem; color: #0f172a; background: #ffffff;">
+                    </div>
+
+                    <!-- Case à Cocher Obligatoire d'Allégeance aux Motivations Paoliennes -->
+                    <div style="margin-bottom: 1.8rem; background: #ffffff; border: 1px solid #e2e8f0; padding: 1rem; border-radius: 10px;">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.92rem; color: #0f172a; font-weight: 600; line-height: 1.5;">
+                            <input type="checkbox" id="cellCheckPledge" style="margin-top: 3px; width: 18px; height: 18px; accent-color: #b8860b;">
+                            <span><strong>Engagement Obligatoire :</strong> Je certifie que la cellule souscrit sans réserve aux 5 Piliers Fondateurs de la Maison de Cristal (Transparence Paolienne 1755, Open Data d'État, RGPD & Protection des Résidents).</span>
+                        </label>
+                    </div>
+
+                    <button onclick="generateCellKit()" style="width: 100%; background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%); color: #ffffff; padding: 14px 24px; border-radius: 12px; border: none; font-weight: 800; font-size: 1.05rem; cursor: pointer; box-shadow: 0 4px 15px rgba(184,134,11,0.3); transition: all 0.3s;">
+                        🚀 Générer le Kit & Télécharger la Charte
+                    </button>
+                </div>
+
+                <!-- Charte & Rendu du Kit -->
+                <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 20px; padding: 2.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+                    <h3 style="font-size: 1.4rem; color: #007791; font-weight: 800; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 10px;">
+                        📜 Les 5 Motivations Fondamentales du Projet
+                    </h3>
+
+                    <ul style="padding-left: 1.2rem; color: #0f172a; font-size: 0.98rem; line-height: 1.75; margin-bottom: 1.8rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>1. Principe Paolien (1755) :</strong> <em>« Une maison de cristal où chacun puisse voir ce qui s'y passe. »</em> Seules les preuves d'État font foi.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>2. Défense du Bien Commun Insulaire :</strong> Protéger le foncier, le littoral, la santé et l'épargne locale contre l'opacité.</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>3. Anonymisation RGPD des Résidents :</strong> Protection stricte des personnes physiques et ciblage des personnes morales (SCI/SAS non-résidentes).</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>4. Protection des Lanceurs d'Alerte :</strong> Chiffrement PGP et messageries sécurisées (Proton, Tuta, Signal).</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>5. Indépendance Totale :** Interdiction stricte de toute instrumentalisation politique, commerciale ou électorale.</li>
+                    </ul>
+
+                    <div id="cellKitOutput" style="display: none; background: rgba(0, 119, 145, 0.08); border: 1px solid #007791; border-radius: 12px; padding: 1.5rem; color: #0f172a;">
+                        <h4 id="outCellTitle" style="color: #007791; font-size: 1.15rem; font-weight: 800; margin: 0 0 0.5rem 0;"></h4>
+                        <p id="outCellDesc" style="font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0; color: #475569;"></p>
+                        <a id="outCellLink" href="#" target="_blank" style="display: inline-block; background: #007791; color: #ffffff; padding: 12px 22px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 0.92rem;">
+                            📥 Télécharger le Kit & Playbook NotebookLM (.MD)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Guide Méthodologique & Playbook NotebookLM pour les Cellules Citoyennes -->
+            <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 20px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                <span class="tool-tag" style="background: rgba(0, 119, 145, 0.15); color: #007791; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">MÉTHODOLOGIE D'EXCELLENCE</span>
+                <h3 style="font-size: 1.8rem; color: #0f172a; font-weight: 800; margin-top: 0.5rem; margin-bottom: 1.2rem;">
+                    📘 Playbook NotebookLM : Ingestion de Sources & Génération Audio
+                </h3>
+                <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 2rem;">
+                    Formez les membres de votre cellule à utiliser <strong>Google NotebookLM</strong> pour analyser des milliers de pages de rapports administratifs sans aucune hallucination d'IA, et générer des résumés audio percutants à diffuser.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    
+                    <div style="background: #ffffff; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <span style="font-size: 1.8rem; display: block; margin-bottom: 0.5rem;">📥 1. Ingestion de Registres</span>
+                        <h4 style="font-size: 1.1rem; color: #0f172a; font-weight: 800; margin-bottom: 0.4rem;">Collecte des Preuves d'État</h4>
+                        <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">Téléchargez les PDF officiels (DGFiP, DVF, Cour des Comptes, INPI RBE) et glissez-les directement dans votre Carnet NotebookLM (jusqu'à 50 sources par carnet).</p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <span style="font-size: 1.8rem; display: block; margin-bottom: 0.5rem;">🧠 2. Prompts Forensiques</span>
+                        <h4 style="font-size: 1.1rem; color: #0f172a; font-weight: 800; margin-bottom: 0.4rem;">Croisement sans Hallucination</h4>
+                        <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">Interrogez le carnet avec des consignes précises : <em>« Extrais toutes les SCI non-résidentes ayant obtenu des dérogations d'urbanisme sur ma commune. »</em></p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <span style="font-size: 1.8rem; display: block; margin-bottom: 0.5rem;">🎙️ 3. Audio Overviews</span>
+                        <h4 style="font-size: 1.1rem; color: #0f172a; font-weight: 800; margin-bottom: 0.4rem;">Podcasts d'Investigation</h4>
+                        <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">Générez en 1 clic un dialogue audio synthétique récapitulant les preuves clés de l'enquête pour une diffusion virale sur X, TikTok et Instagram.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
 
 
     
@@ -2420,7 +2555,7 @@
             });
         }
 
-                                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+                                                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
