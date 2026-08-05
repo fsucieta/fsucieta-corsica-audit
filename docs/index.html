@@ -466,7 +466,7 @@
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📜 24 Enquêtes</a></li>
-                <li><a href="#simulateur">🎛️ Simulateur</a></li>
+                
                 <li><a href="#comparateur">📊 Comparateur</a></li>
                 <li><a href="#recours-pdf">📄 Générateur Recours</a></li>
                 <li><a href="#studio">🎬 Studio NotebookLM</a></li>
@@ -508,74 +508,6 @@
     
     <!-- Section Transparence de l'Infrastructure Data -->
     
-    <!-- Section 1 : Simulateur & Calculateur d'Impact Citoyen (Feature 1) -->
-    <section id="simulateur" style="padding: 5rem 2rem; max-width: 1300px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL INTERACTIF INDIVIDUEL</span>
-            <h2 style="font-size: 2.5rem; color: #0f172a; margin-top: 0.4rem;">🎛️ Simulateur & Calculateur d'Accessibilité Citoyenne</h2>
-            <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
-                Calculez en temps réel le <strong>Score de Pression Foncère & Fiscale</strong> qui pèse sur votre situation personnelle et votre commune.
-            </p>
-        </div>
-
-        <div class="glass-card" style="padding: 3rem; max-width: 950px; margin: 0 auto;">
-            <div class="split-2-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                <div>
-                    <label style="display: block; font-weight: 700; color: var(--accent-gold); margin-bottom: 0.6rem; font-size: 0.95rem;">1. Choisissez votre Commune :</label>
-                    <select id="simCommune" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700;">
-                        <option value="0">Ajaccio & Golfe (DVF 4 150€/m²)</option>
-                        <option value="1">Bastia & Grand Bastia (DVF 3 200€/m²)</option>
-                        <option value="2">Bonifacio / Spérone (DVF 9 800€/m²)</option>
-                        <option value="3">Porto-Vecchio (DVF 7 500€/m²)</option>
-                        <option value="4">Calvi & Balagne (DVF 5 800€/m²)</option>
-                        <option value="5">Saint-Florent & Nebbio (DVF 6 200€/m²)</option>
-                        <option value="6">Corte & Centre Corse (DVF 2 100€/m²)</option>
-                        <option value="8">Plaine Orientale (DVF 2 800€/m²)</option>
-                        <option value="9">Propriano & Valinco (DVF 5 400€/m²)</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="display: block; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.6rem; font-size: 0.95rem;">2. Votre Profil Citoyen :</label>
-                    <select id="simProfil" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--border-glow-cyan); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700;">
-                        <option value="jeune">Jeune Actif / Premier Achat Logement</option>
-                        <option value="famille">Famille Résidente Permanente</option>
-                        <option value="agriculteur">Éleveur / Jeune Agriculteur (Projet PAC)</option>
-                        <option value="retraite">Retraité Insulaire / Transmission Patrimoine</option>
-                    </select>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <button onclick="calculateSimulation()" style="background: var(--accent-gold-gradient); color: #0b0f19; border: none; padding: 14px 36px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; cursor: pointer; box-shadow: 0 8px 25px rgba(212,175,55,0.4);">
-                    🧮 Lancer le Calcul d'Impact
-                </button>
-            </div>
-
-            <!-- Résultat de Simulation -->
-            <div id="simResult" style="display: none; background: #f8fafc; border: 1px dashed var(--accent-gold); border-radius: 14px; padding: 2rem; margin-top: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
-                    <div>
-                        <span style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; letter-spacing: 1px;">DIAGNOSTIC DE PRESSION INDIVIDUEL</span>
-                        <h3 id="simResultTitle" style="color: #0f172a; font-size: 1.5rem; margin: 0.2rem 0 0 0;">-</h3>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="font-size: 0.8rem; color: #475569;">Score d'Éviction Foncier :</span>
-                        <div id="simScore" style="font-size: 2.2rem; font-weight: 800; color: var(--accent-gold);">-</div>
-                    </div>
-                </div>
-
-                <p id="simText" style="color: #0f172a; font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">-</p>
-
-                <div style="background: rgba(0, 242, 254, 0.08); border-left: 4px solid var(--accent-cyan); padding: 1.2rem; border-radius: 0 10px 10px 0;">
-                    <strong style="color: var(--accent-cyan); font-size: 0.95rem; display: block; margin-bottom: 4px;">💡 Action Recommandée :</strong>
-                    <span id="simAction" style="color: #0f172a; font-size: 0.92rem;">-</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
     <!-- Section 2 : Comparateur Multi-Communes Côtes-à-Côte (Feature 2) -->
     <section id="comparateur" style="padding: 5rem 2rem; background: #f1f5f9; border-top: 1px solid var(--border-glass);">
         <div style="max-width: 1300px; margin: 0 auto;">
@@ -590,11 +522,19 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;" class="split-2-col">
                 <div class="glass-card" style="padding: 2rem;">
                     <label style="display: block; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune A :</label>
-                    <select id="compA" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-gold); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700; font-size: 1rem;">
-                        <option value="0">Ajaccio & Pays Ajaccien</option>
-                        <option value="2" selected>Bonifacio / Spérone</option>
-                        <option value="4">Calvi & Balagne</option>
+                    <select id="compA" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-gold); background: #f8fafc; color: #0f172a; font-weight: 700; font-size: 1rem;">
+                        <option value="0" selected>Ajaccio & Pays Ajaccien</option>
+                        <option value="1">Bastia & Grand Bastia</option>
+                        <option value="2">Bonifacio / Spérone</option>
+                        <option value="3">Porto-Vecchio & Golfe</option>
+                        <option value="4">Calvi & Balagne Littorale</option>
+                        <option value="5">Saint-Florent & Nebbio</option>
                         <option value="6">Corte & Centre Corse</option>
+                        <option value="7">Cap Corse (Luri / Meria)</option>
+                        <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
+                        <option value="9">Propriano & Golfe de Valinco</option>
+                        <option value="10">Solenzara & Plaine Littorale</option>
+                        <option value="11">Castagniccia & Niolu</option>
                     </select>
 
                     <div id="cardCompA" style="margin-top: 1.5rem;">
@@ -604,11 +544,19 @@
 
                 <div class="glass-card glass-card-cyan" style="padding: 2rem;">
                     <label style="display: block; font-weight: 800; color: var(--accent-cyan); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune B :</label>
-                    <select id="compB" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-cyan); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700; font-size: 1rem;">
+                    <select id="compB" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-cyan); background: #f8fafc; color: #0f172a; font-weight: 700; font-size: 1rem;">
+                        <option value="0">Ajaccio & Pays Ajaccien</option>
                         <option value="1">Bastia & Grand Bastia</option>
-                        <option value="3">Porto-Vecchio & Golfe</option>
-                        <option value="6" selected>Corte & Centre Corse</option>
-                        <option value="8">Plaine Orientale</option>
+                        <option value="2">Bonifacio / Spérone</option>
+                        <option value="3" selected>Porto-Vecchio & Golfe</option>
+                        <option value="4">Calvi & Balagne Littorale</option>
+                        <option value="5">Saint-Florent & Nebbio</option>
+                        <option value="6">Corte & Centre Corse</option>
+                        <option value="7">Cap Corse (Luri / Meria)</option>
+                        <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
+                        <option value="9">Propriano & Golfe de Valinco</option>
+                        <option value="10">Solenzara & Plaine Littorale</option>
+                        <option value="11">Castagniccia & Niolu</option>
                     </select>
 
                     <div id="cardCompB" style="margin-top: 1.5rem;">
@@ -2315,7 +2263,7 @@
             });
         }
 
-                                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
