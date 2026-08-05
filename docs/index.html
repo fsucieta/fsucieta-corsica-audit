@@ -130,8 +130,8 @@
 
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, #b89228 100%);
-            color: #0b0f19;
+            background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
+            color: #ffffff;
             padding: 1rem 2.5rem;
             border-radius: 40px;
             font-weight: 800;
@@ -363,11 +363,11 @@
         }
 
         footer {
-            background: #060911;
+            background: #0f172a;
             border-top: 1px solid var(--border-glow);
             padding: 3rem 2rem;
             text-align: center;
-            color: #475569;
+            color: #f8fafc;
             font-size: 0.9rem;
         }
     
@@ -496,8 +496,8 @@
         </p>
 
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-            <a href="#fiches" class="cta-btn">📜 CONSULTER LES 24 ENQUÊTES CITOYENNES</a>
-            <a href="#studio" class="cta-btn" style="background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #0b0f19; box-shadow: 0 8px 24px rgba(0,242,254,0.3);">🎬 CRÉER UN PODCAST / VIDÉO (NOTEBOOKLM)</a>
+            <a href="#fiches" class="cta-btn" style="background: var(--accent-gold-gradient); color: #ffffff; font-weight: 800;">📜 CONSULTER LES 24 ENQUÊTES CITOYENNES</a>
+            <a href="#studio" class="cta-btn" style="background: linear-gradient(135deg, #007791 0%, #00f2fe 100%); color: #ffffff; font-weight: 800; box-shadow: 0 8px 24px rgba(0,119,145,0.3);">🎬 CRÉER UN PODCAST / VIDÉO (NOTEBOOKLM)</a>
             <a href="#action" class="cta-btn" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); box-shadow: none;">✊ COMMENT AGIR POUR VOTRE COMMUNE ?</a>
         </div>
     </section>
@@ -869,21 +869,21 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
                 <div class="glass-card" style="padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📦</div>
-                    <h3 style="color: #0f172a; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Global 24 Enquêtes</h3>
+                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Global 24 Enquêtes</h3>
                     <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">L'intégralité des 24 dossiers d'investigation médico-légale de CASA DI CRISTALE 2.0 au format .MD.</p>
                     <a href="dossiers/dossier_audit_01.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Source #01 (.MD) ↗</a>
                 </div>
 
                 <div class="glass-card glass-card-cyan" style="padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">🏠</div>
-                    <h3 style="color: #0f172a; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Foncier & DVF</h3>
+                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Foncier & DVF</h3>
                     <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #03, #14, #22, #23 et #24 centrées sur la spéculation, les SCI holdings et les permis tacites.</p>
                     <a href="dossiers/dossier_audit_03.md" target="_blank" style="display: inline-block; background: var(--accent-cyan-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Foncier (.MD) ↗</a>
                 </div>
 
                 <div class="glass-card" style="padding: 2rem; text-align: center;">
                     <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">💧</div>
-                    <h3 style="color: #0f172a; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Eau & Ressources</h3>
+                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Eau & Ressources</h3>
                     <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #02 et #16 relatives aux concessions hydrauliques, au fioul lourd et à la péréquation tarifaire.</p>
                     <a href="dossiers/dossier_audit_02.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Eau (.MD) ↗</a>
                 </div>
@@ -1499,7 +1499,7 @@
                 <h4 style="color: var(--accent-gold); font-size: 1.3rem; margin-bottom: 0.8rem;">${a.name}</h4>
                 <p style="color: #475569; font-size: 0.88rem;">${a.type}</p>
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color:#fff;">${a.dvf_m2}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color: #0f172a;">${a.dvf_m2}</strong></div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Rés. Secondaires :</span><strong style="color:var(--accent-gold);">${a.sec_rate}</strong></div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Captation SCI :</span><strong style="color:var(--accent-cyan);">${a.sci_rate}</strong></div>
                 <div style="display: flex; justify-content: space-between;"><span>Fuites Eau :</span><strong style="color:#e74c3c;">${a.water_leak}</strong></div>
@@ -1509,7 +1509,7 @@
                 <h4 style="color: var(--accent-cyan); font-size: 1.3rem; margin-bottom: 0.8rem;">${b.name}</h4>
                 <p style="color: #475569; font-size: 0.88rem;">${b.type}</p>
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color:#fff;">${b.dvf_m2}</strong></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Prix DVF m² :</span><strong style="color: #0f172a;">${b.dvf_m2}</strong></div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Rés. Secondaires :</span><strong style="color:var(--accent-gold);">${b.sec_rate}</strong></div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem;"><span>Captation SCI :</span><strong style="color:var(--accent-cyan);">${b.sci_rate}</strong></div>
                 <div style="display: flex; justify-content: space-between;"><span>Fuites Eau :</span><strong style="color:#e74c3c;">${b.water_leak}</strong></div>
@@ -2263,7 +2263,7 @@
             });
         }
 
-                                                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
