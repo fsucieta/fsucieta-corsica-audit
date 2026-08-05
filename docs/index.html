@@ -460,17 +460,18 @@
 
     
         
-        /* --- DESKTOP HEADER & PRESS NAVIGATION STYLES --- */
+        
+        /* --- ULTRA-CLEAN HEADER & PRESS NAVIGATION (NOWRAP SINGLE LINE) --- */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(184, 134, 11, 0.25);
-            padding: 0.8rem 2rem;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+            padding: 0.6rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         .header-container {
@@ -485,48 +486,59 @@
         .logo-group {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
-        }
-
-        .logo-text-box {
-            display: flex;
-            flex-direction: column;
+            flex-shrink: 0;
         }
 
         .logo-title {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #0f172a;
             letter-spacing: -0.5px;
             line-height: 1.1;
+            white-space: nowrap;
         }
 
         .logo-subtitle {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 800;
             color: #b8860b;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        nav {
+            flex-shrink: 0;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0.8rem;
+            gap: 0.5rem;
             align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap;
+        }
+
+        nav ul li {
+            white-space: nowrap;
         }
 
         nav ul li a.nav-pill {
             color: #334155;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.92rem;
-            padding: 8px 16px;
+            font-size: 0.88rem;
+            padding: 8px 14px;
             border-radius: 20px;
             background: #f1f5f9;
             border: 1px solid #e2e8f0;
             transition: all 0.25s ease;
+            display: inline-block;
+            white-space: nowrap;
         }
 
         nav ul li a.nav-pill:hover, nav ul li a.nav-pill.active {
@@ -539,13 +551,14 @@
         .header-cta-btn {
             background: linear-gradient(135deg, #b8860b 0%, #d4af37 100%);
             color: #ffffff !important;
-            padding: 9px 20px;
+            padding: 8px 18px;
             border-radius: 25px;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+            display: inline-block;
         }
 
         .header-cta-btn:hover {
@@ -553,7 +566,6 @@
             box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
         }
 
-        /* --- MOBILE NAVIGATION RESPONSIVE STYLES --- */
         .mobile-menu-btn {
             display: none;
             background: rgba(184, 134, 11, 0.12);
@@ -562,25 +574,20 @@
             padding: 8px 16px;
             border-radius: 8px;
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
-            transition: all 0.3s;
+            white-space: nowrap;
         }
 
-        .mobile-menu-btn:hover {
-            background: var(--accent-gold-gradient);
-            color: #ffffff;
-        }
-
-        @media (max-width: 900px) {
+        @media (max-width: 1080px) {
             .mobile-menu-btn {
-                display: block;
+                display: block !important;
             }
 
             nav ul {
                 display: none;
                 position: fixed;
-                top: 70px;
+                top: 65px;
                 left: 0;
                 right: 0;
                 background: rgba(255, 255, 255, 0.98);
@@ -589,7 +596,7 @@
                 border-bottom: 2px solid var(--accent-gold);
                 flex-direction: column;
                 gap: 0;
-                padding: 1rem 0;
+                padding: 0.8rem 0;
                 box-shadow: 0 15px 35px rgba(0,0,0,0.15);
                 z-index: 9999;
             }
@@ -605,637 +612,22 @@
 
             nav ul li a {
                 display: block;
-                padding: 14px 20px;
-                font-size: 1.1rem;
+                padding: 12px 20px;
+                font-size: 1.05rem;
                 border-bottom: 1px solid #f1f5f9;
                 color: #0f172a !important;
+                background: transparent !important;
+                border-radius: 0 !important;
+                border: none !important;
             }
 
             nav ul li a:hover {
-                background: rgba(184, 134, 11, 0.08);
+                background: rgba(184, 134, 11, 0.08) !important;
             }
         }
 
-    </style>
-</head>
-<body>
 
-            <!-- Header Navigation -->
-    <header>
-        <div class="header-container">
-            <a href="#accueil" class="logo-group">
-                <img src="blason_nation_corse_paoli_exact_dore.png?v=2" alt="Blason Historique Paoli Doré" style="height: 46px; filter: drop-shadow(0 0 5px rgba(212,175,55,0.4));">
-                <div class="logo-text-box">
-                    <span class="logo-title">CASA DI CRISTALE <span style="color: #b8860b;">2.0</span></span>
-                    <span class="logo-subtitle">Maison de Cristal & Audit Citoyen</span>
-                </div>
-            </a>
-            
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
-            
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#fiches" class="nav-pill active" onclick="closeMobileMenu()">📜 24 Enquêtes</a></li>
-                    <li><a href="#metrics" class="nav-pill" onclick="closeMobileMenu()">📊 Infrastructure Data</a></li>
-                    <li><a href="#comparateur" class="nav-pill" onclick="closeMobileMenu()">🗺️ Comparateur Zones</a></li>
-                    <li><a href="#recours-pdf" class="nav-pill" onclick="closeMobileMenu()">📄 Générateur Recours</a></li>
-                    <li><a href="#studio" class="nav-pill" onclick="closeMobileMenu()">🎬 Studio NotebookLM</a></li>
-                    <li><a href="#action" class="header-cta-btn" onclick="closeMobileMenu()">✊ Agir Maintenant</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Page d'Accueil Manifeste -->
-    <section id="accueil" class="hero-landing" style="padding: 4rem 2rem 3rem; text-align: center;">
-        <!-- Cartouche Historique "La Maison de Cristal" -->
-        <div style="max-width: 900px; margin: 0 auto 2rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 255, 255, 0.95) 100%); box-shadow: 0 10px 30px rgba(184, 134, 11, 0.15); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 1.8rem 2.2rem; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);">
-            <p style="font-size: 1.25rem; font-style: italic; color: #0f172a; line-height: 1.6; margin-bottom: 0.8rem; font-family: Georgia, serif;">
-                « Il faut que notre administration ressemble à une maison de cristal où chacun puisse voir ce qui s'y passe. »
-            </p>
-            <span style="font-size: 0.95rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 1.5px; text-transform: uppercase;">
-                — Pasquale Paoli, Général de la Nation Corse (1755)
-            </span>
-        </div>
-
-        <h1 style="font-size: 3rem; color: #0f172a; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
-            CASA DI CRISTALE 2.0 — La Maison de Cristal de la Corse
-        </h1>
-        <p style="font-size: 1.25rem; color: #0f172a; font-weight: 600; max-width: 850px; margin: 0 auto 2rem; line-height: 1.6;">
-            L'Open Data et l'audit citoyen au service de notre terre, de nos logements et de l'avenir de nos enfants.<br>
-            Une plateforme transparente et fraternellement dédiée à l'intérêt commun des Corses.
-        </p>
-
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-            <a href="#fiches" class="cta-btn" style="background: var(--accent-gold-gradient); color: #ffffff; font-weight: 800;">📜 CONSULTER LES 24 ENQUÊTES CITOYENNES</a>
-            <a href="#studio" class="cta-btn" style="background: linear-gradient(135deg, #007791 0%, #00f2fe 100%); color: #ffffff; font-weight: 800; box-shadow: 0 8px 24px rgba(0,119,145,0.3);">🎬 CRÉER UN PODCAST / VIDÉO (NOTEBOOKLM)</a>
-            <a href="#action" class="cta-btn" style="background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold); box-shadow: none;">✊ COMMENT AGIR POUR VOTRE COMMUNE ?</a>
-        </div>
-    </section>
-
-    <section id="fiches" class="audit-section">
-        <div class="section-header">
-            <div>
-                <h2>📚 Les 24 Fiches d'Audit Systémique Exposées</h2>
-                <p style="color: #475569;">Cliquez sur n'importe quelle fiche pour ouvrir le dossier complet et la formule de preuve.</p>
-            </div>
-            <input type="text" id="searchInput" class="search-box" placeholder="Rechercher dans les 24 fiches..." onkeyup="filterFiches()">
-        </div>
-
-        <div class="grid-24" id="fichesGrid">
-            <!-- Fiches insérées dynamiquement via JavaScript -->
-        </div>
-    </section>
-
-    <!-- Section Transparence de l'Infrastructure Data -->
-    
-    <!-- Section 2 : Comparateur Multi-Communes Côtes-à-Côte (Feature 2) -->
-    <section id="comparateur" style="padding: 5rem 2rem; background: #f1f5f9; border-top: 1px solid var(--border-glass);">
-        <div style="max-width: 1300px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">BENCHMARK DATA CÔTE-À-CÔTE</span>
-                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.4rem;">📊 Comparateur Multi-Communes en Temps Réel</h2>
-                <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
-                    Comparez deux microrégions pour analyser les écarts d'accaparement foncier DVF, de captation par SCI et de fuites hydrauliques.
-                </p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;" class="split-2-col">
-                <div class="glass-card" style="padding: 2rem;">
-                    <label style="display: block; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune A :</label>
-                    <select id="compA" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-gold); background: #f8fafc; color: #0f172a; font-weight: 700; font-size: 1rem;">
-                        <option value="0" selected>Ajaccio & Pays Ajaccien</option>
-                        <option value="1">Bastia & Grand Bastia</option>
-                        <option value="2">Bonifacio / Spérone</option>
-                        <option value="3">Porto-Vecchio & Golfe</option>
-                        <option value="4">Calvi & Balagne Littorale</option>
-                        <option value="5">Saint-Florent & Nebbio</option>
-                        <option value="6">Corte & Centre Corse</option>
-                        <option value="7">Cap Corse (Luri / Meria)</option>
-                        <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
-                        <option value="9">Propriano & Golfe de Valinco</option>
-                        <option value="10">Solenzara & Plaine Littorale</option>
-                        <option value="11">Castagniccia & Niolu</option>
-                    </select>
-
-                    <div id="cardCompA" style="margin-top: 1.5rem;">
-                        <!-- Injecté JS -->
-                    </div>
-                </div>
-
-                <div class="glass-card glass-card-cyan" style="padding: 2rem;">
-                    <label style="display: block; font-weight: 800; color: var(--accent-cyan); margin-bottom: 0.8rem; font-size: 1.1rem;">📍 Commune B :</label>
-                    <select id="compB" onchange="runComparison()" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid var(--accent-cyan); background: #f8fafc; color: #0f172a; font-weight: 700; font-size: 1rem;">
-                        <option value="0">Ajaccio & Pays Ajaccien</option>
-                        <option value="1">Bastia & Grand Bastia</option>
-                        <option value="2">Bonifacio / Spérone</option>
-                        <option value="3" selected>Porto-Vecchio & Golfe</option>
-                        <option value="4">Calvi & Balagne Littorale</option>
-                        <option value="5">Saint-Florent & Nebbio</option>
-                        <option value="6">Corte & Centre Corse</option>
-                        <option value="7">Cap Corse (Luri / Meria)</option>
-                        <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
-                        <option value="9">Propriano & Golfe de Valinco</option>
-                        <option value="10">Solenzara & Plaine Littorale</option>
-                        <option value="11">Castagniccia & Niolu</option>
-                    </select>
-
-                    <div id="cardCompB" style="margin-top: 1.5rem;">
-                        <!-- Injecté JS -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<section id="metrics" style="background: #f1f5f9; border-y: 1px solid var(--border-glow); padding: 3rem 2rem; text-align: center;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 0.5rem;">📊 Transparence de l'Infrastructure de Données</h2>
-            <p style="color: #475569; font-size: 1rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Décomposition exacte des sources d'État officielles et des relevés de terrain constituant notre base d'audit.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                <div style="background: #f1f5f9; border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px; padding: 2rem;">
-                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan);">~100</div>
-                    <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0.5rem 0;">Registres d'État Mères</h3>
-                    <p style="font-size: 0.88rem; color: #475569;">DVF Étalab, INPI RBE, BRGM InfoTerre, INSEE CER, ARCEP, IFREMER, Code de l'Urbanisme, Légifrance, CRE, Cour des Comptes.</p>
-                </div>
-                <div style="background: #f1f5f9; border: 1px solid var(--accent-gold); border-radius: 12px; padding: 2rem;">
-                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-gold);">3 750+</div>
-                    <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0.5rem 0;">Fichiers d'Extraction Bruts</h3>
-                    <p style="font-size: 0.88rem; color: #475569;">Fichiers fonciers communaux DVF, délibérations régionales, arrêtés préfectoraux du JORF et bilans hydrologiques archivés.</p>
-                </div>
-                <div style="background: #f1f5f9; border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px; padding: 2rem;">
-                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan);">+10 500</div>
-                    <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0.5rem 0;">Preuves Chiffrées & Faits</h3>
-                    <p style="font-size: 0.88rem; color: #475569;">Relevés de transactions, permis tacites détectés, équations de fuites financières et clauses de concession audiotées.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Section Outil de Diagnostic Citoyen Communal (Style The Markup) -->
-    <section id="diagnostic-citoyen" style="padding: 4rem 2rem; background: #f8fafc; border-y: 1px solid var(--accent-gold);">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL DE DIAGNOSTIC CITOYEN (STYLE THE MARKUP)</span>
-            <h2 style="font-size: 2.3rem; color: #0f172a; margin-top: 0.5rem;">🔎 Quel est le Diagnostic d'Audit de Votre Commune ?</h2>
-            <p style="color: #475569; font-size: 1.1rem; max-width: 800px; margin: 0.8rem auto 2rem;">
-                Sélectionnez votre commune ou microrégion pour obtenir immédiatement le rapport d'impact citoyen (Logement DVF, Pression Eau, SCI Non-Résidentes et Leviers d'Action).
-            </p>
-
-            <div style="max-width: 600px; margin: 0 auto 2.5rem; display: flex; gap: 10px;">
-                <select id="communeSelector" onchange="runCitizenDiagnostic()" style="flex: 1; padding: 14px 20px; border-radius: 30px; border: 2px solid var(--accent-gold); background: #ffffff; color: #0f172a; font-size: 1.05rem; font-weight: 700; cursor: pointer;">
-                    <option value="0">📍 Sélectionnez votre commune / microrégion...</option>
-                    <option value="0">Ajaccio & Pays Ajaccien</option>
-                    <option value="1">Bastia & Grand Bastia</option>
-                    <option value="2">Bonifacio & Spérone</option>
-                    <option value="3">Porto-Vecchio & Golfe</option>
-                    <option value="4">Calvi & Balagne Littorale</option>
-                    <option value="5">Saint-Florent & Nebbio</option>
-                    <option value="6">Corte & Centre Corse</option>
-                    <option value="7">Cap Corse (Luri / Meria)</option>
-                    <option value="8">Plaine Orientale (Ghisonaccia / Aléria)</option>
-                    <option value="9">Propriano & Golfe de Valinco</option>
-                    <option value="10">Solenzara & Plaine Littorale</option>
-                    <option value="11">Castagniccia & Niolu</option>
-                </select>
-            </div>
-
-            <!-- Carte de Diagnostic Citoyen Instantané -->
-            <div id="diagnosticResult" style="display: none; background: #ffffff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 2px solid var(--accent-gold); border-radius: 16px; padding: 2.5rem; text-align: left; max-width: 900px; margin: 0 auto; box-shadow: 0 12px 40px rgba(0,0,0,0.5);">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-                    <div>
-                        <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 1px; text-transform: uppercase;">DIAGNOSTIC CITOYEN OFFICIEL</span>
-                        <h3 id="diag-name" style="font-size: 1.8rem; color: var(--accent-gold); margin: 0.2rem 0 0 0;">-</h3>
-                    </div>
-                    <span id="diag-risk" style="background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; padding: 6px 14px; border-radius: 20px; font-weight: 800; font-size: 0.88rem;">RISQUE ÉLEVÉ</span>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 1.8rem;">
-                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid var(--accent-gold);">
-                        <span style="font-size: 0.8rem; color: #475569; display: block;">Résidences Secondaires</span>
-                        <strong id="diag-sec" style="font-size: 1.4rem; color: #0f172a;">-</strong>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid var(--accent-cyan);">
-                        <span style="font-size: 0.8rem; color: #475569; display: block;">Prix Moyen m² (DVF)</span>
-                        <strong id="diag-dvf" style="font-size: 1.4rem; color: var(--accent-gold);">-</strong>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid #6d4aff;">
-                        <span style="font-size: 0.8rem; color: #475569; display: block;">Captation SCI Non-Résidentes</span>
-                        <strong id="diag-sci" style="font-size: 1.4rem; color: var(--accent-cyan);">-</strong>
-                    </div>
-                    <div style="background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; border-left: 3px solid #e74c3c;">
-                        <span style="font-size: 0.8rem; color: #475569; display: block;">Taux Fuite Réseau Eau</span>
-                        <strong id="diag-water" style="font-size: 1.4rem; color: #e74c3c;">-</strong>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 1.8rem;">
-                    <h4 style="color: #0f172a; font-size: 1.05rem; margin-bottom: 0.5rem;">🔍 Diagnostic d'Impact & Facteurs de Pression :</h4>
-                    <p id="diag-details" style="color: #475569; font-size: 0.98rem; line-height: 1.7; margin: 0;">-</p>
-                </div>
-
-                <div style="background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                    <div>
-                        <strong style="color: var(--accent-gold); font-size: 1rem; display: block;">✊ Que pouvez-vous faire dans votre commune ?</strong>
-                        <span style="color: #475569; font-size: 0.88rem;">Consultez les permis d'urbanisme en Mairie ou déposez une demande CADA.</span>
-                    </div>
-                    <a href="#action" style="background: var(--accent-gold); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.9rem;">Consulter le Guide d'Action ↗</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Les 3 Piliers -->
-    <section id="piliers" class="pillars-section">
-        <div class="pillar-card">
-            <h3>🔬 1. Rigueur d'État & Data</h3>
-            <p>Une banque de données exhaustive de 3 750 sources d'État (Cour des Comptes, BRGM, DVF, INPI RBE, ARCEP) analysée avec des méthodes foransiques de niveau mondial.</p>
-        </div>
-        <div class="pillar-card">
-            <h3>🛡️ 2. Étanche & Anonyme</h3>
-            <p>Un portail 100% anonyme et décentralisé. Zéro traçabilité nominative, hébergement souverain et signature cryptographique par clé PGP 4096-bit.</p>
-        </div>
-        <div class="pillar-card">
-            <h3>⚙️ 3. Radar de Terrain</h3>
-            <p>Intégration systématique de l'outil <strong><code>⚙️ Tool: Bufitonu.fr</code></strong> pour croiser la macro-donnée foncière d'État avec les alertes d'urbanisme de terrain.</p>
-        </div>
-    </section>
-
-    <!-- Audit Section (24 Fiches) -->
-    
-
-    
-    <!-- Section Studio de Création Citoyenne NotebookLM -->
-    <section id="studio" style="padding: 5rem 2rem; background: #f1f5f9; border-top: 1px solid var(--border-glow); border-bottom: 1px solid var(--border-glow);">
-        <div style="max-width: 1300px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">MÉDIA SOUVERAIN CITOYEN</span>
-                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.5rem;">🎬 Studio de Création Citoyenne avec NotebookLM</h2>
-                <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.8rem auto 0;">
-                    Ne soyez plus seulement spectateur de la donnée : devenez un créateur de contenus d'investigation !<br>
-                    Transformez les 24 dossiers d'audit bruts en <strong>podcasts audio, débats oraux et vidéos virales</strong> grâce à l'IA de Google NotebookLM.
-                </p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                <!-- Étape 1 -->
-                <div style="background: #f1f5f9; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
-                    <div style="width: 40px; height: 40px; background: var(--accent-gold); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">1</div>
-                    <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 0.8rem;">📥 1. Téléchargez la Source</h3>
-                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                        Ouvrez l'une des 24 fiches d'enquête ci-dessus et cliquez sur le bouton <code>📄 Consulter le Fichier Source Markdown Brut (.MD)</code> pour récupérer le texte d'audit certifié.
-                    </p>
-                    <a href="#fiches" style="color: var(--accent-gold); text-decoration: underline; font-weight: 700; font-size: 0.88rem;">👉 Choisir une enquête (#01 à #24)</a>
-                </div>
-
-                <!-- Étape 2 -->
-                <div style="background: #f1f5f9; border: 1px solid var(--accent-cyan); border-radius: 14px; padding: 2rem; position: relative;">
-                    <div style="width: 40px; height: 40px; background: var(--accent-cyan); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">2</div>
-                    <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 0.8rem;">🤖 2. Glissez + Ajoutez VOS Sources</h3>
-                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Glissez le fichier <code>.md</code> de l'enquête dans <a href="https://notebooklm.google.com/" target="_blank" style="color: var(--accent-cyan); text-decoration: underline; font-weight: 700;">Google NotebookLM ↗</a>.
-                    </p>
-                    <div style="background: rgba(0, 242, 254, 0.08); border-left: 3px solid var(--accent-cyan); padding: 0.8rem 1rem; border-radius: 4px; font-size: 0.85rem; color: #0f172a; line-height: 1.5; margin-bottom: 1.2rem;">
-                        💡 <strong>ENRICHISSEZ AVEC VOS PROPRES SOURCES !</strong><br>
-                        Ajoutez à côté vos propres documents (PLU de votre commune, arrêté municipal, réponse CADA, rapport d'association local ou notes terrain). L'IA croisera nos données d'État avec VOTRE réalité locale !
-                    </div>
-                </div>
-
-                <!-- Étape 3 -->
-                <div style="background: #f1f5f9; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
-                    <div style="width: 40px; height: 40px; background: var(--accent-gold); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">3</div>
-                    <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 0.8rem;">🎙️ 3. Générez Podcast / Vidéo</h3>
-                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.6;">
-                        Dans NotebookLM, cliquez sur <strong>« Audio Overview »</strong> ou <strong>« Studio Vidéo »</strong>. L'IA va créer en 2 minutes un podcast/débat oral ultra-dynamique expliquant l'enquête avec une clarté impressionnante !
-                    </p>
-                </div>
-
-                <!-- Étape 4 -->
-                <div style="background: #f1f5f9; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 2rem; position: relative;">
-                    <div style="width: 40px; height: 40px; background: var(--accent-cyan); color: #0b0f19; border-radius: 50%; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1.2rem;">4</div>
-                    <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 0.8rem;">🚀 4. Publiez sur les Réseaux</h3>
-                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Téléchargez le fichier MP3/MP4 généré et publiez-le sur TikTok, Instagram, YouTube Shorts ou X. Utilisez le hashtag <strong>#TarraDiUCumunu</strong> pour éveiller les consciences !
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Guide d'Action Citoyenne & Vigilance Terrain -->
-    <section id="action" style="padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">LEVER D'ACTION INDIVIDUELLE</span>
-            <h2 style="font-size: 2.5rem; color: #0f172a; margin-top: 0.5rem;">✊ Comment Agir Concrètement sur le Terrain ?</h2>
-            <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.8rem auto 0;">
-                L'information n'est utile que si elle se transforme en action citoyenne. Voici les 5 leviers légaux et souverains à la portée de chaque habitant de Corse.
-            </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-            <!-- Pilier 1 -->
-            <div style="background: #ffffff; border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
-                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">🛡️ 1. Vigilance Urbanisme & Recours</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                    Surveillez l'affichage des permis de construire dans votre commune. Utilisez l'outil <strong><code>⚙️ Tool: Bufitonu.fr</code></strong> pour vérifier si un permis est tacite (dépassement des délais R. 424-1), si la personne morale masque des holdings (INPI RBE) ou si une bergerie subit un dérogeant changement de destination (L. 151-11). Formulez un recours gracieux en mairie dans le délai de 2 mois.
-                </p>
-            </div>
-
-            <!-- Pilier 2 -->
-            <div style="background: #ffffff; border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
-                <h3 style="font-size: 1.3rem; color: var(--accent-cyan); margin-bottom: 1rem;">📄 2. Droit d'Accès aux Documents (CADA)</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                    Exercez votre droit constitutionnel d'accès aux documents administratifs. Envoyez une demande officielle en mairie ou préfecture pour exiger la communication des études d'impact environnemental, des arrêtés de captage d'eau ou des conventions d'aménagement. En cas de refus sous 1 mois, saisissez la CADA.
-                </p>
-            </div>
-
-            <!-- Pilier 3 -->
-            <div style="background: #ffffff; border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
-                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">📢 3. Contre-Information & Diffusion</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                    Ne laissez pas les affaires confidentielles s'éteindre dans le silence. Téléchargez les 24 dossiers d'investigation <code>.MD</code> et partagez-les directement avec les associations de défense de l'environnement (U Levante, Garona), les collectifs du foncier, les journalistes d'investigation et vos conseillers municipaux.
-                </p>
-            </div>
-
-            <!-- Pilier 4 -->
-            <div style="background: #ffffff; border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
-                <h3 style="font-size: 1.3rem; color: var(--accent-cyan); margin-bottom: 1rem;">📥 4. Crowdsourcing Anonyme PGP</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                    Vous êtes en possession d'un document administratif occulte, d'une photo d'affichage de permis suspect ou d'une délibération contestable ? Transmettez-les de manière 100% anonyme sur le dépôt GitHub officiel via notre clé de chiffrement PGP 4096-bit.
-                </p>
-            </div>
-
-            <!-- Pilier 5 -->
-            <div style="background: #ffffff; border: 1px solid var(--border-glow); border-radius: 16px; padding: 2.2rem;">
-                <h3 style="font-size: 1.3rem; color: var(--accent-gold); margin-bottom: 1rem;">💡 5. Souveraineté Économique au Quotidien</h3>
-                <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem;">
-                    Reprenez le contrôle sur vos choix de consommation et d'épargne. Privilégiez les circuits courts paysans corses (pour contourner le détournement des primes PAC) et exigez de votre agence bancaire des garanties écrites sur le réinvestissement de vos dépôts dans l'économie insulaire locale.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Section Guide du Lanceur d'Alerte & Messagerie Chiffrée -->
-    
-    <!-- Section 4 : Générateur Automatique de Courriers Légaux & CADA (Feature 4) -->
-    <section id="recours-pdf" style="padding: 5rem 2rem; max-width: 1250px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">OUTIL JURIDIQUE EN 1 CLIC</span>
-            <h2 style="font-size: 2.5rem; color: #0f172a; margin-top: 0.4rem;">📄 Générateur de Courriers de Recours & Saisine CADA</h2>
-            <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
-                Générez instantanément votre lettre type officielle de **Recours Gracieux en Mairie** (Permis tacites R. 424-1 / Bergeries L. 151-11) ou de **Saisine CADA** prête à imprimer ou à envoyer.
-            </p>
-        </div>
-
-        <div class="glass-card" style="padding: 3rem; max-width: 900px; margin: 0 auto;">
-            <div class="split-2-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-bottom: 2rem;">
-                <div>
-                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; font-size: 0.95rem;">Type de Demande Légale :</label>
-                    <select id="docType" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700;">
-                        <option value="recours_tacite">Recours Gracieux : Contestation Permis Tacite (R. 424-1)</option>
-                        <option value="recours_bergerie">Recours Gracieux : Bergerie / Bâti Agricole (L. 151-11)</option>
-                        <option value="cada_eau">Saisine CADA : Communication Arrêtés & Réseaux d'Eau</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; font-size: 0.95rem;">Nom de votre Commune :</label>
-                    <input type="text" id="docCommune" placeholder="Ex: Bonifacio, Calvi, Ajaccio..." style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border-glass); background: rgba(0,0,0,0.6); color: #0f172a; font-weight: 700;">
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <button onclick="generateLegalDocument()" style="background: var(--accent-cyan-gradient); color: #0b0f19; border: none; padding: 14px 36px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; cursor: pointer; box-shadow: 0 8px 25px rgba(0,242,254,0.4);">
-                    📄 Générer le Document Officiel Pré-Rempli
-                </button>
-            </div>
-
-            <div id="docOutputArea" style="display: none; background: #f8fafc; border: 1px solid var(--accent-gold); border-radius: 12px; padding: 2rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                    <span style="font-weight: 800; color: var(--accent-gold); font-size: 0.9rem;">DOCUMENT OFFICIEL PRÊT À IMPRIMER / ENVOYER</span>
-                    <button onclick="copyLegalDoc()" style="background: rgba(212,175,55,0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer;">📋 Copier le texte</button>
-                </div>
-                <pre id="docText" style="white-space: pre-wrap; word-break: break-word; font-family: monospace; font-size: 0.9rem; color: #0f172a; line-height: 1.6; background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; padding: 1.5rem; border-radius: 8px; max-height: 400px; overflow-y: auto;"></pre>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 6 : Hub d'Exportation des Packs de Sources pour NotebookLM (Feature 6) -->
-    <section id="export-hub" style="padding: 5rem 2rem; background: #f8fafc; border-top: 1px solid var(--border-glass);">
-        <div style="max-width: 1300px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">CENTRE D'EXPORTATION DU BIEN COMMUN</span>
-                <h2 style="font-size: 2.5rem; color: var(--accent-gold); margin-top: 0.4rem;">📥 Hub d'Exportation des Packs d'Audit</h2>
-                <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
-                    Téléchargez en 1 clic les fichiers d'audit bruts certifiés au format Markdown (.MD) pour vos recherches ou pour injection dans <strong>Google NotebookLM</strong>.
-                </p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                <div class="glass-card" style="padding: 2rem; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">📦</div>
-                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Global 24 Enquêtes</h3>
-                    <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">L'intégralité des 24 dossiers d'investigation médico-légale de CASA DI CRISTALE 2.0 au format .MD.</p>
-                    <a href="dossiers/dossier_audit_01.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Source #01 (.MD) ↗</a>
-                </div>
-
-                <div class="glass-card glass-card-cyan" style="padding: 2rem; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">🏠</div>
-                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Foncier & DVF</h3>
-                    <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #03, #14, #22, #23 et #24 centrées sur la spéculation, les SCI holdings et les permis tacites.</p>
-                    <a href="dossiers/dossier_audit_03.md" target="_blank" style="display: inline-block; background: var(--accent-cyan-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Foncier (.MD) ↗</a>
-                </div>
-
-                <div class="glass-card" style="padding: 2rem; text-align: center;">
-                    <div style="font-size: 2.5rem; margin-bottom: 0.8rem;">💧</div>
-                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;">Pack Eau & Ressources</h3>
-                    <p style="color: #475569; font-size: 0.88rem; margin-bottom: 1.5rem;">Les enquêtes #02 et #16 relatives aux concessions hydrauliques, au fioul lourd et à la péréquation tarifaire.</p>
-                    <a href="dossiers/dossier_audit_02.md" target="_blank" style="display: inline-block; background: var(--accent-gold-gradient); color: #0b0f19; padding: 10px 20px; border-radius: 20px; font-weight: 800; text-decoration: none; font-size: 0.88rem;">📄 Télécharger Pack Eau (.MD) ↗</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<section id="anonymat" style="padding: 4rem 2rem; background: #f8fafc; border-top: 1px solid var(--accent-gold); border-bottom: 1px solid var(--border-glow);">
-        <div style="max-width: 1250px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">PROTECTION DES LANCEURS D'ALERTE</span>
-                <h2 style="font-size: 2.3rem; color: #0f172a; margin-top: 0.5rem;">🔒 Comment Participer Anonymement (Guide Messagerie Chiffrée)</h2>
-                <p style="color: #475569; font-size: 1.1rem; max-width: 850px; margin: 0.8rem auto 0;">
-                    Pour transmettre des documents confidentiels, des photos d'affichage de permis suspect ou contribuer à l'Open Data sans risquer d'être tracé, créez une messagerie anonyme chiffrée de bout en bout en 2 minutes.
-                </p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <!-- Option 1: ProtonMail -->
-                <div style="background: rgba(19, 27, 46, 0.9); border: 1px solid #6d4aff; border-radius: 14px; padding: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
-                        <span style="font-size: 2rem;">🛡️</span>
-                        <div>
-                            <h3 style="font-size: 1.25rem; color: #0f172a; margin: 0;">ProtonMail (Suisse)</h3>
-                            <span style="font-size: 0.8rem; color: #a48eff;">Lois suisses de vie privée • Chiffrement Zero-Knowledge</span>
-                        </div>
-                    </div>
-                    <ol style="padding-left: 1.2rem; color: #475569; font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                        <li>Allez sur <a href="https://proton.me/fr/mail" target="_blank" style="color: #a48eff; text-decoration: underline; font-weight: 700;">proton.me/mail ↗</a> et cliquez sur <em>Créer un compte gratuit</em>.</li>
-                        <li>Choisissez un pseudonyme neutre (ex: <code>citoyen-vigie-2026@proton.me</code>).</li>
-                        <li>Ne fournissez <strong>ni votre vrai nom, ni votre numéro de téléphone</strong>.</li>
-                    </ol>
-                    <a href="https://proton.me/fr/mail" target="_blank" style="display: inline-block; background: #6d4aff; color: #0f172a; text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem;">Créer une adresse ProtonMail ↗</a>
-                </div>
-
-                <!-- Option 2: TutaMail -->
-                <div style="background: rgba(19, 27, 46, 0.9); border: 1px solid #00f2fe; border-radius: 14px; padding: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
-                        <span style="font-size: 2rem;">🔒</span>
-                        <div>
-                            <h3 style="font-size: 1.25rem; color: #0f172a; margin: 0;">Tuta / Tutanota (Allemagne)</h3>
-                            <span style="font-size: 0.8rem; color: var(--accent-cyan);">Open Source • Chiffrement Métadonnées Intégral</span>
-                        </div>
-                    </div>
-                    <ol style="padding-left: 1.2rem; color: #475569; font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem;">
-                        <li>Rendez-vous sur <a href="https://tuta.com/fr" target="_blank" style="color: var(--accent-cyan); text-decoration: underline; font-weight: 700;">tuta.com ↗</a>.</li>
-                        <li>Sélectionnez l'offre <em>Free / Gratuit à vie</em>.</li>
-                        <li>Aucune donnée personnelle n'est demandée lors de l'inscription.</li>
-                    </ol>
-                    <a href="https://tuta.com/fr" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); color: #0b0f19; text-decoration: none; font-weight: 800; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem;">Créer une adresse TutaMail ↗</a>
-                </div>
-
-                <!-- Canal de Transmission Anonyme -->
-                <div style="background: rgba(19, 27, 46, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;">
-                        <span style="font-size: 2rem;">📥</span>
-                        <div>
-                            <h3 style="font-size: 1.25rem; color: var(--accent-gold); margin: 0;">Canal Officiel de Réception Chiffrée</h3>
-                            <span style="font-size: 0.8rem; color: var(--accent-gold);">CASA DI CRISTALE 2.0 • Clé PGP 4096-bit Active</span>
-                        </div>
-                    </div>
-                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
-                        Notre adresse officielle de réception chiffrée TutaMail est actuellement en cours de validation de sécurité par la plateforme (délai d'approbation de 48h).
-                    </p>
-                    
-                    <div style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.92rem; color: var(--accent-gold); word-break: break-all; margin-bottom: 1rem; border: 1px solid rgba(212,175,55,0.3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                        <span>✉️ Canal TutaMail Officiel</span>
-                        <span style="font-size: 0.78rem; background: rgba(255, 193, 7, 0.2); color: #ffc107; padding: 3px 10px; border-radius: 4px; font-weight: 700;">⏳ EN COURS D'APPROBATION PAR TUTA</span>
-                    </div>
-
-                    <p style="font-size: 0.85rem; color: #475569; line-height: 1.6; margin: 0;">
-                        💡 <strong>En attendant :</strong> Créez votre propre adresse anonyme via ProtonMail ou TutaMail ci-contre et préparez vos documents. Le canal sera opérationnel dès la fin de la procédure d'approbation.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Carte SIG Dynamique par Communes -->
-    
-    <!-- Cartographie SIG Dynamique & Inspecteur de Données -->
-    <section id="map" class="map-section" style="padding: 4rem 2rem; background: #f1f5f9; border-top: 1px solid var(--border-glow);">
-        <div style="max-width: 1400px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase;">SYSTÈME D'INFORMATION GÉOGRAPHIQUE SOUVERAIN</span>
-                <h2 style="font-size: 2.4rem; color: var(--accent-gold); margin-top: 0.4rem;">🗺️ Cartographie SIG & Inspecteur d'Audit Territorial</h2>
-                <p style="color: #475569; font-size: 1.1rem; max-width: 850px; margin: 0.5rem auto 0;">
-                    Cliquez sur n'importe quelle zone de la carte ou basculez un calque d'investigation ci-dessous pour ouvrir le <strong>Dossier d'Audit SIG Communal</strong> (DVF, SCI INPI RBE, Pression Eau et Enquêtes associées).
-                </p>
-            </div>
-
-            <!-- Barre de Filtres de Calques SIG -->
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.8rem;">
-                <button onclick="setMapFilter('all')" class="gis-filter-btn active" id="btn-all">📍 Toutes les Microrégions</button>
-                <button onclick="setMapFilter('speculation')" class="gis-filter-btn" id="btn-speculation">🔴 Calque Spéculation & SCI (DVF)</button>
-                <button onclick="setMapFilter('water')" class="gis-filter-btn" id="btn-water">💧 Calque Pression Hydraulique</button>
-                <button onclick="setMapFilter('mines')" class="gis-filter-btn" id="btn-mines">⛏️ Calque Mines & Emprises Armée</button>
-            </div>
-
-            <!-- Grille Split : Carte SIG (Gauche) + Inspecteur d'Audit (Droite) -->
-            <div style="display: grid; grid-template-columns: 1fr 420px; gap: 1.8rem; align-items: start;" class="gis-grid-layout">
-                <!-- Carte Leaflet Container -->
-                <div style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glow); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    <div id="leaflet-map" style="height: 620px; width: 100%; background: #0b0f19;"></div>
-                    <div style="position: absolute; bottom: 15px; left: 15px; z-index: 1000; background: rgba(11,15,25,0.85); padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.78rem; color: #0f172a;">
-                        <span style="color: var(--accent-gold);">●</span> Légende : Vert (Normal) | Orange (Élevé) | Rouge/Violet (Critique)
-                    </div>
-                </div>
-
-                <!-- Panneau d'Inspection SIG Dynamique -->
-                <div id="gis-inspector" style="background: #ffffff; box-shadow: 0 15px 35px rgba(0,0,0,0.08); border: 1px solid var(--accent-gold); border-radius: 16px; padding: 2rem; min-height: 620px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
-                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-                        <span style="font-size: 0.78rem; font-weight: 800; color: var(--accent-cyan); letter-spacing: 1px; text-transform: uppercase;">FICHE D'INSPECTION COMMUNE</span>
-                        <h3 id="gis-name" style="font-size: 1.6rem; color: var(--accent-gold); margin: 0.3rem 0 0 0;">Ajaccio & Pays Ajaccien</h3>
-                        <span id="gis-type" style="font-size: 0.88rem; color: #475569;">Capitale Régionale & Golfe</span>
-                    </div>
-
-                    <!-- Métriques Clés -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                            <span style="font-size: 0.75rem; color: #475569; display: block;">Résidences Secondaires</span>
-                            <strong id="gis-sec" style="font-size: 1.3rem; color: #0f172a;">34.2%</strong>
-                        </div>
-                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                            <span style="font-size: 0.75rem; color: #475569; display: block;">Prix Moyen DVF</span>
-                            <strong id="gis-dvf" style="font-size: 1.3rem; color: var(--accent-gold);">4 150 €/m²</strong>
-                        </div>
-                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                            <span style="font-size: 0.75rem; color: #475569; display: block;">Captation SCI (INPI RBE)</span>
-                            <strong id="gis-sci" style="font-size: 1.3rem; color: var(--accent-cyan);">52%</strong>
-                        </div>
-                        <div style="background: rgba(0,0,0,0.4); padding: 0.9rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                            <span style="font-size: 0.75rem; color: #475569; display: block;">Fuites Réseau Eau</span>
-                            <strong id="gis-water" style="font-size: 1.3rem; color: #e74c3c;">28%</strong>
-                        </div>
-                    </div>
-
-                    <!-- Description d'Audit -->
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="font-size: 0.95rem; color: #0f172a; margin-bottom: 0.5rem;">🔬 Constat d'Audit Territorial :</h4>
-                        <p id="gis-details" style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">
-                            Forte captation sociétaire sur la route des Sanguinaires. Concentration des banques centrales et absence de CHRU de plein exercice.
-                        </p>
-                    </div>
-
-                    <!-- Enquêtes Liées -->
-                    <div>
-                        <h4 style="font-size: 0.95rem; color: var(--accent-gold); margin-bottom: 0.6rem;">📜 Enquêtes d'Audit Associées :</h4>
-                        <div id="gis-axes" style="display: flex; flex-direction: column; gap: 8px;">
-                            <!-- Injecté dynamiquement -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        .gis-filter-btn {
-            background: #f1f5f9;
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #0f172a;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .gis-filter-btn:hover, .gis-filter-btn.active {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            background: rgba(212, 175, 55, 0.12);
-        }
-        @media (max-width: 992px) {
-            .gis-grid-layout {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    
-        /* --- GLASSMORPHISM & CRISTAL PREMIUM DESIGN SYSTEM --- */
+/* --- GLASSMORPHISM & CRISTAL PREMIUM DESIGN SYSTEM --- */
         :root {
             --bg-dark: #f8fafc;
             --bg-card: #ffffff;
@@ -2602,7 +1994,7 @@
             });
         }
 
-                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+                                                                                                                                                                                                                // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
