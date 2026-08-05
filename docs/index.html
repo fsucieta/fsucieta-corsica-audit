@@ -452,25 +452,89 @@
             }
         }
 
+    
+        /* --- MOBILE NAVIGATION RESPONSIVE STYLES --- */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(184, 134, 11, 0.12);
+            border: 1px solid var(--accent-gold);
+            color: #0f172a;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--accent-gold-gradient);
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 2px solid var(--accent-gold);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+                z-index: 9999;
+            }
+
+            nav ul.mobile-open {
+                display: flex !important;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 14px 20px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid #f1f5f9;
+                color: #0f172a !important;
+            }
+
+            nav ul li a:hover {
+                background: rgba(184, 134, 11, 0.08);
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+        <!-- Header Navigation -->
     <header>
         <div class="logo">
             <img src="blason_nation_corse_paoli_exact_dore.png?v=2" alt="Blason Historique Paoli Doré" style="height: 50px; filter: drop-shadow(0 0 6px rgba(212,175,55,0.5)); vertical-align: middle;">
             CASA DI CRISTALE <span>2.0</span>
         </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰ Menu</button>
         <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#fiches" style="color: var(--accent-gold); font-weight: 700;">📜 24 Enquêtes</a></li>
-                
-                <li><a href="#comparateur">📊 Comparateur</a></li>
-                <li><a href="#recours-pdf">📄 Générateur Recours</a></li>
-                <li><a href="#studio">🎬 Studio NotebookLM</a></li>
-                <li><a href="#action">✊ Comment Agir ?</a></li>
+            <ul id="navMenu">
+                <li><a href="#accueil" onclick="closeMobileMenu()">Accueil</a></li>
+                <li><a href="#fiches" onclick="closeMobileMenu()" style="color: var(--accent-gold); font-weight: 700;">📜 24 Enquêtes</a></li>
+                <li><a href="#comparateur" onclick="closeMobileMenu()">📊 Comparateur</a></li>
+                <li><a href="#recours-pdf" onclick="closeMobileMenu()">📄 Générateur Recours</a></li>
+                <li><a href="#studio" onclick="closeMobileMenu()">🎬 Studio NotebookLM</a></li>
+                <li><a href="#action" onclick="closeMobileMenu()">✊ Comment Agir ?</a></li>
             </ul>
         </nav>
     </header>
@@ -1147,6 +1211,70 @@
             }
         }
 
+    
+        /* --- MOBILE NAVIGATION RESPONSIVE STYLES --- */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(184, 134, 11, 0.12);
+            border: 1px solid var(--accent-gold);
+            color: #0f172a;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--accent-gold-gradient);
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 2px solid var(--accent-gold);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+                z-index: 9999;
+            }
+
+            nav ul.mobile-open {
+                display: flex !important;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 14px 20px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid #f1f5f9;
+                color: #0f172a !important;
+            }
+
+            nav ul li a:hover {
+                background: rgba(184, 134, 11, 0.08);
+            }
+        }
+
     </style>
 
 
@@ -1487,6 +1615,18 @@
         }
 
         // JS Feature 2 : Comparateur Multi-Communes
+        
+        // JS Navigation Mobile Responsive
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('mobile-open');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('mobile-open');
+        }
+
         function runComparison() {
             const idxA = document.getElementById('compA').value;
             const idxB = document.getElementById('compB').value;
@@ -2263,7 +2403,7 @@
             });
         }
 
-                                                                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
