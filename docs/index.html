@@ -230,36 +230,42 @@
 
         .fiche-card {
             background: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
             padding: 1.8rem;
-            transition: transform 0.3s, border-color 0.3s;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .fiche-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-gold);
+            box-shadow: 0 12px 30px rgba(184, 134, 11, 0.2);
         }
 
         .fiche-number {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #b8860b;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.6rem;
         }
 
         .fiche-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 800;
             margin-bottom: 0.8rem;
             line-height: 1.4;
         }
 
         .fiche-card p {
-            font-size: 0.88rem;
-            color: #475569;
+            font-size: 0.95rem;
+            color: #1e293b;
+            font-weight: 500;
+            line-height: 1.6;
             margin-bottom: 1.2rem;
         }
 
@@ -2403,7 +2409,7 @@
             });
         }
 
-                                                                                                                                                // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
+                                                                                                                                                        // 4. Modal d'affichage INTEGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET)
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
