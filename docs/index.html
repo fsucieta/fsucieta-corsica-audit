@@ -614,7 +614,150 @@
         </div>
 
         <div class="grid-24" id="fichesGrid">
-            <!-- Fiches insérées dynamiquement via JavaScript -->
+        <div class="fiche-card" onclick="openModal(fichesData[0])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #01</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 01 : Le Mythe des Subventions & l'Évasion Fiscale de l'État</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Analyse médico-légale du mythe de l'assistanat : captation de la TVA, opacité des subventions d'État (DETR, DSI) et déficit de retour fiscal</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Cour des Comptes 2023</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[1])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #02</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 02 : La Marchandisation de l'Eau & l'Évasion Hydraulique</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Concessions privées, sur-tarification estivale et assèchement de l'intérieur insulaire</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">OFB / PNRC</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[2])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #03</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 03 : L'Empire des SCI Non-Résidentes & l'Accaparement Foncier</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Comment le croisement DVF x INPI RBE met à nu le mécanisme d'éviction des ménages corses</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">DVF / INPI RBE</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[3])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #04</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 04 : La Pillage des Quotas de Pêche dans la ZEE Corse</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">90% des captures de thon rouge attribuées par le Ministère aux armements industriels continentaux</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">IFREMER / DPMA</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[4])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #05</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 05 : Le Cadastre Minier Secret & le Plan IRM 2024</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Comment 400 gisements de minéraux critiques sont cartographiés par le BRGM pour des concessions privées</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">BRGM InfoTerre</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[5])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #06</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 06 : Le Pillage de la Forêt Corse & l'Exportation de Bois Brut</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">L'effondrement des scieries locales et la fuite maritime des grumes de Pin Laricio</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">ONF / Agreste</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[6])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #07</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 07 : L'Évasion des Capitaux de la Saison Touristique</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Comment 90% de la valeur générée par les 3M+ de visiteurs échappe à l'économie réelle corse</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Insee / Banque de France</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[7])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #08</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 08 : La Tutelle de la Haute Fonction Publique d'État</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Nomination centralisée du corps préfectoral et verrouillage des arbitrages stratégiques</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">JORF / Budget État</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[8])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #09</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 09 : L'Emprise & les Servitudes Militaires et Maritimes</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Inventaire des 20% du territoire insulaire neutralisé par les bases et zones de tir de la Défense</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Défense / Cadastre</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[9])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #10</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 10 : La Dépendance Sanitaire & le Coût des EVASAN</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">La Corse, seule région sans CHU : étude sur la fuite des crédits de santé vers Marseille et Nice</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">ARS / PLFSS 2024-2026</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[10])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #11</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 11 : Le Sous-Investissement Éducatif & Universitaire</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Analyse de la dotation d'État par étudiant à l'Université Pasquale Paoli vs la moyenne nationale</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Rectorat / MESR</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[11])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #12</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 12 : Le Dessaisissement Judicialle & la JIRS de Marseille</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">L'Article 706-75 du CPP et le transfert quasi-systématique des affaires financières hors de l'île</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">CPP / Rapports Sénat</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[12])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #13</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 13 : Le Contrôle de Légalité & la Censure Administrative</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Arrêt CAA Marseille du 19 nov. 2024 et l'Article 72 comme verrou normatif</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Conseil d'État / CAA 2024</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[13])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #14</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 14 : La Continuité Cinquantenaire des Archives de la Spéculation</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Des rapports d'enquête parlementaires de 1999 aux fichiers DVF 2026 : la permanence des réseaux</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Commissions 1999 / ARC</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[14])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #15</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 15 : Le Verrou de la Charte Européenne & les Vains Secrétariats d'État</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">40 ans de gestion ministérielle de façade pour esquiver le transfert du pouvoir législatif</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Conseil de l'Europe</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[15])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #16</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 16 : Le Monopole Énergétique EDF-SEI & les 180M€ de Péréquation</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Centrales thermiques au fioul lourd et réinjection massive de l'argent public chez l'opérateur national</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">CRE 2026 / PPE</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[16])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #17</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 17 : La Dépendance Numérique & les Atterrages de Câbles</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Atterrissement du câble BlueMed à Bastia et déportation des Data Centers hors de Corse</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">ARCEP / RIP Fibra</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[17])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #18</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 18 : L'Accaparement des Primes PAC & l'Éviction des Jeunes Agriculteurs</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">La captation des aides surfaciques pastorales par des investisseurs non-exploitants</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">ASP / ODARC / RGA</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[18])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #19</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 19 : Le Scandale des Déchets & le Coût des Cargos de Décharges</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">La saturation de Viggianello/Tallone et la facture d'exportation maritime des balles de tri</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">SYVADEC / CRC</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[19])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #20</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 20 : La Captation Bancaire & l'Évasion du Crédit Local</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Les statistiques IEDOM/Banque de France révèlent comment l'épargne des Corses finance les marchés financiers centraux</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">Banque de France / ACPR</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[20])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #21</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 21 : La Sous-Dotation de la Sécurité Civile face aux Incendies</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">La dépendance aux Canadairs de Nîmes et le surcoût supporté par les SDIS 2A et 2B</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">DGSCGC / DREAL</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[21])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #22</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 22 : Le Radar d'Urbanisme & les Permis de Construire Tacites</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Comment l'outil Bufitonu.fr met à nu les permis accordés par simple dépassement de délai (R. 424-1)</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">⚙️ Tool: Bufitonu.fr</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[22])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #23</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 23 : La Transparence des Pétitionnaires & le Démasquage RBE</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Algorithme RGPD Bufitonu.fr : séparer les résidents des prête-noms sociétaires</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">⚙️ Tool: Bufitonu.fr</span>
+        </div>
+        <div class="fiche-card" onclick="openModal(fichesData[23])" style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 1.8rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);">
+            <div class="fiche-number" style="font-size: 0.8rem; font-weight: 800; color: #b8860b; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Fiche Audit #24</div>
+            <h3 style="font-size: 1.25rem; color: #0f172a; font-weight: 800; margin-bottom: 0.6rem; line-height: 1.4;">Enquête 24 : La Spéculation sur le Bâti Agricole & Dérogations L. 151-11</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">Comment le radar Bufitonu.fr traque la conversion des bergeries traditionnelles en complexes VIP</p>
+            <span class="tool-tag" style="display: inline-block; background: rgba(0, 119, 145, 0.1); color: #007791; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">⚙️ Tool: Bufitonu.fr</span>
+        </div>
         </div>
     </section>
 
