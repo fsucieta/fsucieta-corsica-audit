@@ -1883,121 +1883,764 @@
     </script>
 
 
-    <!-- DYNAMIC MULTILINGUAL CARDS RE-RENDERER ENGINE -->
+    
+
+
+    <!-- NATIVE 8-LANGUAGE FULL-PAGE TRANSLATION ENGINE -->
     <script>
-        window.enFichesMap = {
-    "1": {
-        "title": "Investigation 01: The Financial Lock — How offshore capital dispossesses the Corsican people of their land",
-        "sub": "Beyond the housing crisis: the secret mechanics of bank loans and mortgages turning Corsica into a financial product"
+        window.masterFiches8Lang = {
+    "en": {
+        "1": {
+            "title": "Investigation 01: The Financial Lock — How offshore capital dispossesses the Corsican people of their land",
+            "sub": "Beyond the housing crisis: the secret mechanics of bank loans and mortgages turning Corsica into a financial product"
+        },
+        "2": {
+            "title": "Investigation 02: The Myth of Subsidies — Why Corsica does not live on 'welfare'",
+            "sub": "VAT and taxes paid by 3 million tourists flow to Paris while local public services remain underfunded"
+        },
+        "3": {
+            "title": "Investigation 03: Comparative Study — Corsica vs Overseas & European Land Regimes (Jersey, Polynesia, New Caledonia)",
+            "sub": "Why the Channel Islands and Pacific collectivities protect their soil while Corsica is trapped in legal assimilation"
+        },
+        "4": {
+            "title": "Investigation 04: The Water Commodity — When Europe's island water tower suffers drought",
+            "sub": "Why mountain villages lack water in summer while private utilities extract coastal profits"
+        },
+        "5": {
+            "title": "Investigation 05: Non-Resident SCI Corporations — The Coastal Takeover",
+            "sub": "How shell companies bypass local residency and buy up prime coastal real estate"
+        },
+        "6": {
+            "title": "Investigation 06: Tourism Monoculture & Seasonal Precariousness",
+            "sub": "The economic trap of 2-month summer hyper-activity leaving youth unemployed 10 months a year"
+        },
+        "7": {
+            "title": "Investigation 07: Freight Monopolies & Sea Transport Surcharges",
+            "sub": "How maritime transport costs artificially inflate consumer prices on essential goods"
+        },
+        "8": {
+            "title": "Investigation 08: Supermarket Margins & High Cost of Living",
+            "sub": "Retail chain price gouging: +40% food prices compared to continental mainland France"
+        },
+        "9": {
+            "title": "Investigation 09: Agricultural Land Loss & Speculative Land Banking",
+            "sub": "How fertile farmland is illegally re-zoned into luxury villa developments"
+        },
+        "10": {
+            "title": "Investigation 10: Environmental Degradation & Coastal Concrete Creep",
+            "sub": "Illegal construction in protected Natura 2000 and Padduc green zones"
+        },
+        "11": {
+            "title": "Investigation 11: Youth Brain Drain & Depopulation of the Interior",
+            "sub": "Forced emigration of young graduates due to lack of local employment and affordable housing"
+        },
+        "12": {
+            "title": "Investigation 12: Public Health Desertification & Hospital Under-Funding",
+            "sub": "Critical shortage of medical staff and emergency infrastructure in rural Corsica"
+        },
+        "13": {
+            "title": "Investigation 13: Renewable Energy Dependence & Grid Bottlenecks",
+            "sub": "Why Corsica imports heavy fuel oil energy instead of harnessing island solar and hydro potential"
+        },
+        "14": {
+            "title": "Investigation 14: Heritage Effacement & Language Suppression",
+            "sub": "The denial of co-official language status and cultural heritage protection"
+        },
+        "15": {
+            "title": "Investigation 15: 50 Years of Speculative Real Estate Archives",
+            "sub": "Continuity of speculative networks from 1999 parliamentary reports to 2026 DVF land registries"
+        },
+        "16": {
+            "title": "Investigation 16: European Charter Rejection & Facade Ministries",
+            "sub": "Four decades of central government stalling on legislative autonomy transfers"
+        },
+        "17": {
+            "title": "Investigation 17: Energy Monopoly & Heavy Oil Plant Subsidies",
+            "sub": "How public funds subsidize thermal pollution instead of green island self-sufficiency"
+        },
+        "18": {
+            "title": "Investigation 18: Digital Infrastructure & Undersea Cable Landing",
+            "sub": "Submarine fiber optic landing at Bastia with data centers diverted off-island"
+        },
+        "19": {
+            "title": "Investigation 19: PAC Agricultural Subsidy Capture by Non-Farmers",
+            "sub": "Pastoral land subsidy hoarding by absentee investors excluding young local herders"
+        },
+        "20": {
+            "title": "Investigation 20: Waste Crisis & Maritime Export Costs",
+            "sub": "Saturated landfills and multimillion-euro shipping costs to export municipal waste"
+        },
+        "21": {
+            "title": "Investigation 21: Local Savings Drainage & Offshore Banking",
+            "sub": "How local Corsican bank deposits are funneled out to central financial markets"
+        },
+        "22": {
+            "title": "Investigation 22: Civil Protection Under-Equipment & Wildfire Risks",
+            "sub": "Dependence on mainland firefighting aircraft and local fire department deficits"
+        },
+        "23": {
+            "title": "Investigation 23: Tacit Building Permit Approvals & Urban Planning Gaps",
+            "sub": "How the Bufitonu.fr radar exposes illegal permits approved by administrative delay"
+        },
+        "24": {
+            "title": "Investigation 24: Real Beneficial Owner (RBO) Unmasking & Fronts",
+            "sub": "Bufitonu.fr RGPD algorithm separating local residents from corporate proxy nominees"
+        },
+        "25": {
+            "title": "Investigation 25: Agricultural Barn Conversion Speculation (L. 151-11)",
+            "sub": "Tracking the illegal transformation of traditional shepherd huts into VIP luxury complexes"
+        },
+        "26": {
+            "title": "Investigation 26: International Comparative Audit — Land Protection Standards",
+            "sub": "Why Jersey, Isle of Man, French Polynesia and New Caledonia enforce resident land rights"
+        }
     },
-    "2": {
-        "title": "Investigation 02: The Myth of Subsidies — Why Corsica does not live on 'welfare'",
-        "sub": "VAT and taxes paid by 3 million tourists flow to Paris while local public services remain underfunded"
+    "it": {
+        "1": {
+            "title": "Inchiesta 01: Il Grande Blocco Finanziario — Come il capitale offshore espropria il popolo corso della propria terra",
+            "sub": "Oltre la crisi abitativa: la meccanica segreta dei mutui bancari e delle ipoteche che trasformano la Corsica in un prodotto finanziario"
+        },
+        "2": {
+            "title": "Inchiesta 02: Il Mito dei Sussidi — Perché la Corsica non vive di 'assistenzialismo'",
+            "sub": "L'IVA e le tasse di 3 milioni di turisti vanno a Parigi mentre i servizi pubblici locali sono sottofinanziati"
+        },
+        "3": {
+            "title": "Inchiesta 03: Studio Comparativo — Corsica vs Regimi Fondiari d'Oltremare ed Europa (Jersey, Polinesia, Nuova Caledonia)",
+            "sub": "Perché le isole del Canale e le collettività del Pacifico proteggono il loro suolo mentre la Corsica è bloccata nell'assimilazione"
+        },
+        "4": {
+            "title": "Inchiesta 04: La Risorsa Idrica — Quando il serbatoio naturale dell'isola soffre la siccità",
+            "sub": "Perché i villaggi montani mancano d'acqua in estate mentre le società private estraggono profitti sulla costa"
+        },
+        "5": {
+            "title": "Inchiesta 05: Le Società SCI Non-Residenti — L'Accaparramento del Litorale",
+            "sub": "Come le società di comodo aggirano la residenza locale e acquistano i terreni costieri più prestigiosi"
+        },
+        "6": {
+            "title": "Inchiesta 06: La Monocultura Turistica e la Precarietà Stagionale",
+            "sub": "La trappola economica di 2 mesi di iperattività estiva che lascia i giovani disoccupati 10 mesi all'anno"
+        },
+        "7": {
+            "title": "Inchiesta 07: I Monopoli del Trasporto Marittimo e i Sovrapprezzi",
+            "sub": "Come i costi di trasporto navale gonfiano artificialmente i prezzi dei beni di prima necessità"
+        },
+        "8": {
+            "title": "Inchiesta 08: I Margini dei Supermercati e l'Alto Costo della Vita",
+            "sub": "Speculazione della grande distribuzione: +40% sui prezzi alimentari rispetto alla Francia continentale"
+        },
+        "9": {
+            "title": "Inchiesta 09: La Perdita di Terreni Agricoli e la Speculazione Edilizia",
+            "sub": "Come i terreni fertili vengono rizonizzati illegalmente per fare spazio a ville di lusso"
+        },
+        "10": {
+            "title": "Inchiesta 10: Degrado Ambientale e la Cementificazione delle Coste",
+            "sub": "Costruzioni abusive nelle zone protette Natura 2000 e nelle aree verdi del Padduc"
+        },
+        "11": {
+            "title": "Inchiesta 11: La Fuga dei Cervelli e lo Spopolamento dell'Interno",
+            "sub": "Emigrazione forzata dei giovani laureati a causa della mancanza di lavoro e di alloggi accessibili"
+        },
+        "12": {
+            "title": "Inchiesta 12: La Desertificazione Sanitaria e l'Inadeguatezza degli Ospedali",
+            "sub": "Carenza critica di personale medico e infrastrutture di emergenza nella Corsica rurale"
+        },
+        "13": {
+            "title": "Inchiesta 13: Dipendenza Energetica e Colli di Bottiglia della Rete",
+            "sub": "Perché la Corsica importa olio combustibile invece di sfruttare il potenziale solare e idroelettrico dell'isola"
+        },
+        "14": {
+            "title": "Inchiesta 14: Cancellazione del Patrimonio e Soppressione della Lingua",
+            "sub": "Il rifiuto del riconoscimento della co-ufficialità della lingua corsa e della tutela culturale"
+        },
+        "15": {
+            "title": "Inchiesta 15: 50 Anni di Archivi della Speculazione Immobiliare",
+            "sub": "Continuità delle reti speculative dai rapporti parlamentari del 1999 ai registri fondiari DVF del 2026"
+        },
+        "16": {
+            "title": "Inchiesta 16: Il Rifiuto della Carta Europea e i Ministeri di Facciata",
+            "sub": "Quattro decenni di stallo del governo centrale sui trasferimenti di autonomia legislativa"
+        },
+        "17": {
+            "title": "Inchiesta 17: Il Monopolio Energetico e i Sussidi al Combustibile Pesante",
+            "sub": "Come i fondi pubblici sovvenzionano l'inquinamento termico invece dell'autosufficienza verde dell'isola"
+        },
+        "18": {
+            "title": "Inchiesta 18: Infrastrutture Digitali e Approdo dei Cavi Sottomarini",
+            "sub": "Approdo della fibra ottica sottomarina a Bastia con data center dirottati fuori isola"
+        },
+        "19": {
+            "title": "Inchiesta 19: Accaparramento dei Sussidi Agricoli PAC da Parte di Non-Agricoltori",
+            "sub": "Accumulo di sussidi per pascoli da parte di investitori assenti escludendo i giovani allevatori locali"
+        },
+        "20": {
+            "title": "Inchiesta 20: La Crisi dei Rifiuti e i Costi di Esportazione Marittima",
+            "sub": "Discariche saturate e costi milionari di spedizione per esportare i rifiuti urbani"
+        },
+        "21": {
+            "title": "Inchiesta 21: Drenaggio del Risparmio Locale e Banche Offshore",
+            "sub": "Come i depositi bancari dei corsi vengono incanalati verso i mercati finanziari centrali"
+        },
+        "22": {
+            "title": "Inchiesta 22: Sotto-Equipaggiamento della Protezione Civile e Rischi di Incendio",
+            "sub": "Dipendenza dagli aerei antincendio continentali e deficit dei vigili del fuoco locali"
+        },
+        "23": {
+            "title": "Inchiesta 23: Licenze Edilizie Tacite e Lacune Urbanistiche",
+            "sub": "Come il radar Bufitonu.fr svela le licenze abusive approvate per ritardo amministrativo"
+        },
+        "24": {
+            "title": "Inchiesta 24: Svelamento dei Titolari Effettivi Reali (RBE) e Prestanome",
+            "sub": "Algoritmo RGPD Bufitonu.fr per separare i residenti locali dai prestanome societari"
+        },
+        "25": {
+            "title": "Inchiesta 25: Speculazione sulla Riconversione dei Fienili Agricoli (L. 151-11)",
+            "sub": "Tracciamento della trasformazione illegale degli antichi ovili in complessi VIP di lusso"
+        },
+        "26": {
+            "title": "Inchiesta 26: Audit Comparativo Internazionale — Standard di Tutela del Suolo",
+            "sub": "Perché Jersey, Isola di Man, Polinesia e Nuova Caledonia applicano i diritti fondiari dei residenti"
+        }
     },
-    "3": {
-        "title": "Investigation 03: Comparative Study — Corsica vs Overseas & European Land Regimes (Jersey, Polynesia, New Caledonia)",
-        "sub": "Why the Channel Islands and Pacific collectivities protect their soil while Corsica is trapped in legal assimilation"
+    "es": {
+        "1": {
+            "title": "Investigación 01: El Gran Bloqueo Financiero — Cómo el capital offshore despoja al pueblo corso de su propia tierra",
+            "sub": "Más allá de la crisis de vivienda: la mecánica secreta de los préstamos bancarios e hipotecas que convierten a Córcega en un producto financiero"
+        },
+        "2": {
+            "title": "Investigación 02: El Mito de los Subsidios — Por qué Córcega no vive del 'asistencialismo'",
+            "sub": "El IVA y los impuestos de 3 millones de turistas van a París mientras los servicios públicos locales están subfinanciados"
+        },
+        "3": {
+            "title": "Investigación 03: Estudio Comparativo — Córcega vs Regímenes Fiduciarios de Ultramar y Europa (Jersey, Polinesia, Nueva Caledonia)",
+            "sub": "Por qué las islas del Canal y las colectividades del Pacífico protegen su suelo mientras Córcega sigue atrapada en la asimilación"
+        },
+        "4": {
+            "title": "Investigación 04: El Recurso Hídrico — Cuando el depósito natural de la isla sufre sequía",
+            "sub": "Por qué los pueblos de montaña carecen de agua en verano mientras las empresas privadas obtienen beneficios en la costa"
+        },
+        "5": {
+            "title": "Investigación 05: Sociedades SCI No Residentes — La Apropiación del Litoral",
+            "sub": "Cómo las empresas fantasma eluden la residencia local y compran los terrenos costeros más cotizados"
+        },
+        "6": {
+            "title": "Investigación 06: La Monocultura Turística y la Precarización Estacional",
+            "sub": "La trampa económica de 2 meses de hiperactividad veraniega que deja a los jóvenes desempleados 10 meses al año"
+        },
+        "7": {
+            "title": "Investigación 07: Los Monopolios del Transporte Marítimo y Sobrecargos",
+            "sub": "Cómo los costes de transporte naviero inflan artificialmente los precios de los productos básicos"
+        },
+        "8": {
+            "title": "Investigación 08: Los Márgenes de los Supermercados y el Alto Coste de Vida",
+            "sub": "Especulación de la gran distribución: +40% en precios de alimentos en comparación con la Francia continental"
+        },
+        "9": {
+            "title": "Investigación 09: La Pérdida de Suelo Agrícola y la Especulación Inmobiliaria",
+            "sub": "Cómo los terrenos fértiles son recalificados ilegalmente para construir villas de lujo"
+        },
+        "10": {
+            "title": "Investigación 10: Degradación Ambiental y la Cimentación de las Costas",
+            "sub": "Construcciones ilegales en zonas protegidas Natura 2000 y áreas verdes del Padduc"
+        },
+        "11": {
+            "title": "Investigación 11: La Fuga de Cerebros y la Despoblación del Interior",
+            "sub": "Emigración forzada de jóvenes graduados debido a la falta de empleo local y vivienda asequible"
+        },
+        "12": {
+            "title": "Investigación 12: La Desertificación Sanitaria y la Deficiencia de los Hospitales",
+            "sub": "Escasez crítica de personal médico e infraestructuras de emergencia en la Córcega rural"
+        },
+        "13": {
+            "title": "Investigación 13: Dependencia Energética y Cuellos de Botella de la Red",
+            "sub": "Por qué Córcega importa fueloil pesado en lugar de aprovechar el potencial solar e hidroeléctrico de la isla"
+        },
+        "14": {
+            "title": "Investigación 14: Borrado del Patrimonio y Supresión de la Lengua",
+            "sub": "El rechazo al reconocimiento de la cooficialidad de la lengua corsa y la protección cultural"
+        },
+        "15": {
+            "title": "Investigación 15: 50 Años de Archivos de Especulación Inmobiliaria",
+            "sub": "Continuidad de las redes especulativas desde los informes parlamentarios de 1999 hasta los registros DVF de 2026"
+        },
+        "16": {
+            "title": "Investigación 16: El Rechazo de la Carta Europea y los Ministerios de Fachada",
+            "sub": "Cuatro décadas de paralización del gobierno central en las transferencias de autonomía legislativa"
+        },
+        "17": {
+            "title": "Investigación 17: El Monopolio Energético y los Subsidios al Combustible Pesado",
+            "sub": "Cómo los fondos públicos subvencionan la contaminación térmica en lugar de la autosuficiencia verde de la isla"
+        },
+        "18": {
+            "title": "Investigación 18: Infraestructura Digital y Aterrizaje de Cables Submarinos",
+            "sub": "Aterrizaje de fibra óptica submarina en Bastia con centros de datos desviados fuera de la isla"
+        },
+        "19": {
+            "title": "Investigación 19: Captación de Subsidios Agrícolas PAC por No Agricultores",
+            "sub": "Acumulación de subsidios por inversores ausentes excluyendo a los jóvenes ganaderos locales"
+        },
+        "20": {
+            "title": "Investigación 20: La Crisis de Residuos y los Costes de Exportación Marítima",
+            "sub": "Vertederos saturados y costes millonarios de envío para exportar residuos urbanos"
+        },
+        "21": {
+            "title": "Investigación 21: Drenaje del Ahorro Local y Bancos Offshore",
+            "sub": "Cómo los depósitos bancarios de los corsos son canalizados hacia los mercados financieros centrales"
+        },
+        "22": {
+            "title": "Investigación 22: Desequipamiento de la Protección Civil y Riesgos de Incendio",
+            "sub": "Dependencia de aviones de extinción continentales y déficit de bomberos locales"
+        },
+        "23": {
+            "title": "Investigación 23: Licencias de Construcción Tácitas y Brechas Urbanísticas",
+            "sub": "Cómo el radar Bufitonu.fr revela licencias ilegales aprobadas por retraso administrativo"
+        },
+        "24": {
+            "title": "Investigación 24: Desenmascaramiento de Beneficiarios Reales (RBE) y Testiferos",
+            "sub": "Algoritmo RGPD Bufitonu.fr para separar a los residentes locales de los prestanombres societarios"
+        },
+        "25": {
+            "title": "Investigación 25: Especulación en la Conversión de Pajares Agrícolas (L. 151-11)",
+            "sub": "Rastreo de la transformación ilegal de antiguos apriscos en complejos VIP de lujo"
+        },
+        "26": {
+            "title": "Investigación 26: Auditoría Comparativa Internacional — Normas de Protección del Suelo",
+            "sub": "Por qué Jersey, Isla de Man, Polinesia y Nueva Caledonia aplican los derechos de propiedad de los residentes"
+        }
     },
-    "4": {
-        "title": "Investigation 04: The Water Commodity — When Europe's island water tower suffers drought",
-        "sub": "Why mountain villages lack water in summer while private utilities extract coastal profits"
+    "ru": {
+        "1": {
+            "title": "Расследование 01: Финансовый Замок — Как оффшорный капитал лишает корсиканский народ родной земли",
+            "sub": "За пределами жилищного кризиса: тайная механика банковских кредитов и ипотек, превращающих Корсику в финансовый продукт"
+        },
+        "2": {
+            "title": "Расследование 02: Миф о Субсидиях — Почему Корсика не живет на 'пособия'",
+            "sub": "НДС и налоги от 3 миллионов туристов уходят в Париж, пока местные социальные службы недофинансируются"
+        },
+        "3": {
+            "title": "Расследование 03: Сравнительное Исследование — Корсика против Заморских и Европейских Законов о Земле (Джерси, Полинезия, Новая Каледония)",
+            "sub": "Почему Нормандские острова и территории Тихого океана защищают свою землю, пока Корсика остается в ассимиляции"
+        },
+        "4": {
+            "title": "Расследование 04: Водный Товар — Когда островная водонапорная башня Европы страдает от засухи",
+            "sub": "Почему в горных деревнях летом нет воды, пока частные компании получают прибыль на побережье"
+        },
+        "5": {
+            "title": "Расследование 05: Нерезидентные Корпорации SCI — Захват Побережья",
+            "sub": "Как фиктивные компании обходят местную регистрацию и скупают элитную прибрежную недвижимость"
+        },
+        "6": {
+            "title": "Расследование 06: Туристическая Монокультура и Сезонная Нестабильность",
+            "sub": "Экономическая ловушка 2 месяцев летней гиперактивности, оставляющая молодежь без работы 10 месяцев в году"
+        },
+        "7": {
+            "title": "Расследование 07: Морские Монополии и Наценки на Перевозки",
+            "sub": "Как стоимость морских перевозок искусственно раздувает цены на товары первой необходимости"
+        },
+        "8": {
+            "title": "Расследование 08: Маржа Супермаркетов и Высокая Стоимость Жизни",
+            "sub": "Завышение цен розничными сетями: +40% к стоимости продуктов по сравнению с материковой Францией"
+        },
+        "9": {
+            "title": "Расследование 09: Потеря Сельскохозяйственных Земель и Спекуляция",
+            "sub": "Как плодородные земли незаконно переводятся под строительство элитных вилл"
+        },
+        "10": {
+            "title": "Расследование 10: Разрушение Окружающей Среды и Застройка Побережья",
+            "sub": "Незаконное строительство в охраняемых зонах Natura 2000 и зеленых зонах Padduc"
+        },
+        "11": {
+            "title": "Расследование 11: Утечка Мозгов Молодежи и Запустение Внутренних Районов",
+            "sub": "Вынужденная эмиграция молодых специалистов из-за отсутствия работы и доступного жилья"
+        },
+        "12": {
+            "title": "Расследование 12: Медицинская Пустыня и Недофинансирование Больниц",
+            "sub": "Критическая нехватка медицинского персонала и инфраструктуры экстренной помощи в сельской Корсике"
+        },
+        "13": {
+            "title": "Расследование 13: Энергетическая Зависимость и Проблемы Сетей",
+            "sub": "Почему Корсика импортирует мазут вместо использования солнечного и гидропотенциала острова"
+        },
+        "14": {
+            "title": "Расследование 14: Стирание Наследия и Подавление Языка",
+            "sub": "Отказ в признании официального статуса корсиканского языка и защиты культуры"
+        },
+        "15": {
+            "title": "Расследование 15: 50 Лет Архивов Недвижимой Спекуляции",
+            "sub": "Непрерывность спекулятивных сетей от парламентских отчетов 1999 года до земельных реестров DVF 2026 года"
+        },
+        "16": {
+            "title": "Расследование 16: Отказ от Европейской Хартии и Фасадные Министерства",
+            "sub": "Четыре десятилетия бездействия центрального правительства в передаче законодательной автономии"
+        },
+        "17": {
+            "title": "Расследование 17: Энергетическая Монополия и Субсидии на Мазут",
+            "sub": "Как государственные средства субсидируют загрязнение вместо зеленой независимости острова"
+        },
+        "18": {
+            "title": "Расследование 18: Цифровая Инфраструктура и Подводные Кабели",
+            "sub": "Прокладка подводного оптического кабеля в Бастии с выводом дата-центров за пределы острова"
+        },
+        "19": {
+            "title": "Расследование 19: Захват Сельхозсубсидий PAC Не-Фермерами",
+            "sub": "Присвоение пастбищных субсидий сторонними инвесторами с ущемлением местных пастухов"
+        },
+        "20": {
+            "title": "Расследование 20: Кризис Отходов и Затраты на Морской Экспорт",
+            "sub": "Переполненные свалки и миллионные затраты на вывоз городского мусора морем"
+        },
+        "21": {
+            "title": "Расследование 21: Отток Местных Сбережений и Оффшорные Банки",
+            "sub": "Как банковские депозиты жителей Корсики выводятся на центральные финансовые рынки"
+        },
+        "22": {
+            "title": "Расследование 22: Нехватка Оснащения Гражданской Обороны и Пожары",
+            "sub": "Зависимость от материковой противопожарной авиации и дефицит местной пожарной службы"
+        },
+        "23": {
+            "title": "Расследование 23: Молчаливые Разрешения на Строительство и Пробелы в Градостроительстве",
+            "sub": "Как радар Bufitonu.fr выявляет незаконные разрешения, выданные из-за административных задержек"
+        },
+        "24": {
+            "title": "Расследование 24: Разоблачение Реальных Бенефициаров (RBE) и Подставных Лиц",
+            "sub": "Алгоритм RGPD Bufitonu.fr для отделения местных жителей от корпоративных подставных лиц"
+        },
+        "25": {
+            "title": "Расследование 25: Спекуляция Переоборудованием Амбаров (L. 151-11)",
+            "sub": "Отслеживание незаконного превращения старых пастушьих хижин в VIP-комплексы"
+        },
+        "26": {
+            "title": "Расследование 26: Международный Сравнительный Аудит — Стандарты Защиты Земли",
+            "sub": "Почему Джерси, Остров Мэн, Полинезия и Новая Каледония защищают права жителей на землю"
+        }
     },
-    "5": {
-        "title": "Investigation 05: Non-Resident SCI Corporations — The Coastal Takeover",
-        "sub": "How shell companies bypass local residency and buy up prime coastal real estate"
+    "ar": {
+        "1": {
+            "title": "التحقيق 01: القفل المالي الكبير — كيف يجرّد رأس المال الخارجي الشعب الكورسيكي من أرضه",
+            "sub": "أبعد من أزمة السكن: الآلية السرية للقروض المصرفية والرهون العقارية التي تحوّل كورسيكا إلى منتج مالي"
+        },
+        "2": {
+            "title": "التحقيق 02: أسطورة الإعانات — لماذا لا تعيش كورسيكا على 'المساعدات'",
+            "sub": "ضريبة القيمة المضافة والضرائب المدفوعة من 3 ملايين سائح تذهب إلى باريس بينما الخدمات العامة محليا تعاني من نقص التمويل"
+        },
+        "3": {
+            "title": "التحقيق 03: دراسة مقارنة — كورسيكا مقابل الأنظمة العقارية في أقاليم ما وراء البحار وأوروبا (جيرزي، بولينيزيا، كاليدونيا الجديدة)",
+            "sub": "لماذا تحمي جزر القناة وأقاليم المحيط الهادئ أراضيها بينما تظل كورسيكا محاصرة في الاستيعاب القانوني"
+        },
+        "4": {
+            "title": "التحقيق 04: السلعة المائية — عندما يعاني خزان المياه الطبيعي للجزر الأوروبية من الجفاف",
+            "sub": "لماذا تفتقر القرى الجبلية إلى المياه صيفاً بينما تجني الشركات الخاصة الأرباح على الساحل"
+        },
+        "5": {
+            "title": "التحقيق 05: الشركات غير المقيمة — الاستيلاء على الشريط الساحلي",
+            "sub": "كيف تتجاوز الشركات الصورية الإقامة المحلية وتشتري أفضل الأراضي الساحلية"
+        },
+        "6": {
+            "title": "التحقيق 06: أحادية النشاط السياحي والهشاشة الموسمية",
+            "sub": "فخ اقتصادي قائم على شهرين من النشاط الصيفي الفائق يترك الشباب بلا عمل لمدة 10 أشهر في السنة"
+        },
+        "7": {
+            "title": "التحقيق 07: احتكارات النقل البحري والرسوم الإضافية",
+            "sub": "كيف ترفع تكاليف النقل البحري أسعار السلع الأساسية بشكل اصطناعي"
+        },
+        "8": {
+            "title": "التحقيق 08: هوامش المتاجر الكبرى وارتفاع تكاليف المعيشة",
+            "sub": "المضاربة في أسعار التجزئة: +40% في أسعار المواد الغذائية مقارنة بفرنسا القارية"
+        },
+        "9": {
+            "title": "التحقيق 09: فقدان الأراضي الزراعية والمضاربة العقارية",
+            "sub": "كيف يتم إعادة تصنيف الأراضي الخصبة بشكل غير قانوني لبناء فيلات فاخرة"
+        },
+        "10": {
+            "title": "التحقيق 10: التدهور البيئي وتمدد البناء الخرساني على السواحل",
+            "sub": "البناء غير القانوني في المناطق المحمية Natura 2000 والمناطق الخضراء"
+        },
+        "11": {
+            "title": "التحقيق 11: هجرة الأدمغة الشابة وإخلاء المناطق الداخلية",
+            "sub": "الهجرة القسرية للخريجين الشباب بسبب نقص الوظائف المحلية والسكن بأسعار معقولة"
+        },
+        "12": {
+            "title": "التحقيق 12: التصحر الصحي ونقص تمويل المستشفيات",
+            "sub": "نقص حاد في الكوادر الطبية وبنية الطوارئ التحتية في المناطق الريفية بكورسيكا"
+        },
+        "13": {
+            "title": "التحقيق 13: التبعية الطاقية واختناقات الشبكة",
+            "sub": "لماذا تستورد كورسيكا الوقود الثقيل بدلاً من استغلال الإمكانيات الشمسية والمائية للجزر"
+        },
+        "14": {
+            "title": "التحقيق 14: طمس التراث وقمع اللغة الكورسيكية",
+            "sub": "رفض الاعتراف بالرسمية المشتركة للغة الكورسيكية وحماية التراث الثقافي"
+        },
+        "15": {
+            "title": "التحقيق 15: 50 عاماً من أرشيفات المضاربة العقارية",
+            "sub": "استمرارية شبكات المضاربة من التقارير البرلمانية لعام 1999 إلى السجلات العقارية لعام 2026"
+        },
+        "16": {
+            "title": "التحقيق 16: رفض الميثاق الأوروبي والوزارات الصورية",
+            "sub": "أربعة عقود من المماطلة الحكومية في نقل الحكم الذاتي التشريعي"
+        },
+        "17": {
+            "title": "التحقيق 17: احتكار الطاقة وإعانات وقود الفيول الثقيل",
+            "sub": "كيف تدعم الأموال العامة التلوث الحراري بدلاً من الاستقلالية الخضراء للجزيرة"
+        },
+        "18": {
+            "title": "التحقيق 18: البنية التحتية الرقمية ومحطات الكابلات البحرية",
+            "sub": "إنزال ألياف الإنترنت البحرية في باستيا مع تحويل مراكز البيانات خارج الجزيرة"
+        },
+        "19": {
+            "title": "التحقيق 19: الاستيلاء على الدعم الزراعي من قبل غير المزارعين",
+            "sub": "احتكار دعم المراعي من قبل مستثمرين غائبين وإبعاد صغار المربين المحليين"
+        },
+        "20": {
+            "title": "التحقيق 20: أزمة النفايات وتكاليف التصدير البحري",
+            "sub": "المكبات المشبعة وتكاليف الشحن المليونية لتصدير النفايات المنزلية بحراً"
+        },
+        "21": {
+            "title": "التحقيق 21: نزيف المدخرات المحلية والبنوك الخارجية",
+            "sub": "كيف يتم تحويل الودائع المصرفية لسكان كورسيكا إلى الأسواق المالية المركزية"
+        },
+        "22": {
+            "title": "التحقيق 22: نقص تجهيزات الحماية المدنية ومخاطر الحرائق",
+            "sub": "الاعتماد على طائرات الإطفاء القارية والعجز في أجهزة الإطفاء المحلية"
+        },
+        "23": {
+            "title": "التحقيق 23: تراخيص البناء الضمنية والثغرات العمرانية",
+            "sub": "كيف يكشف رادار Bufitonu.fr التراخيص غير القانونية الممنوحة بسبب التأخير الإداري"
+        },
+        "24": {
+            "title": "التحقيق 24: كشف المستفيدين الحقيقيين (RBE) والأسماء المستعارة",
+            "sub": "خوارزمية RGPD لـ Bufitonu.fr لفصل السكان المحليين عن الأسماء المستعارة للشركات"
+        },
+        "25": {
+            "title": "Investigación 25: Especulación en la Conversión de Pajares Agrícolas (L. 151-11)",
+            "sub": "Rastreo de la transformación ilegal de antiguos apriscos en complejos VIP de lujo"
+        },
+        "26": {
+            "title": "التحقيق 26: تدقيق مقارن دولي — معايير حماية الأراضي",
+            "sub": "لماذا تطبق جيرزي، جزيرة مان، بولينيزيا وكاليدونيا الجديدة حقوق أراضي المقيمين"
+        }
     },
-    "6": {
-        "title": "Investigation 06: Tourism Monoculture & Seasonal Precariousness",
-        "sub": "The economic trap of 2-month summer hyper-activity leaving youth unemployed 10 months a year"
+    "zh-CN": {
+        "1": {
+            "title": "调查 01：金融大锁 — 离岸资本如何剥夺科西嘉人民的土地",
+            "sub": "超越住房危机：将科西嘉变成金融产品的银行贷款与抵押贷款的秘密机制"
+        },
+        "2": {
+            "title": "调查 02：补贴神话 — 为什么科西嘉不依靠'救济金'生活",
+            "sub": "300万游客支付的增值税和税款流入巴黎，而当地公共服务资金不足"
+        },
+        "3": {
+            "title": "调查 03：比较研究 — 科西嘉与海外及欧洲土地制度（泽西岛、波利尼西亚、新喀里多尼亚）",
+            "sub": "为什么英吉利海峡群岛和太平洋领地保护其土地，而科西嘉仍被困于同化制度中"
+        },
+        "4": {
+            "title": "调查 04：水资源商品化 — 当欧洲岛屿水塔遭遇干旱",
+            "sub": "为什么山区村庄夏天缺水，而私营水务公司却在沿海赚取暴利"
+        },
+        "5": {
+            "title": "调查 05：非居民SCI公司 — 沿海土地吞并",
+            "sub": "空壳公司如何绕过本地居住要求购买黄金沿海地产"
+        },
+        "6": {
+            "title": "调查 06：旅游单一文化与季节性不稳定",
+            "sub": "夏季2个月过度活跃的经济陷阱，导致青年每年有10个月处于失业状态"
+        },
+        "7": {
+            "title": "调查 07：海运垄断与附加费",
+            "sub": "海上运输成本如何人为推高基本生活用品的价格"
+        },
+        "8": {
+            "title": "调查 08：超市利润率与高生活成本",
+            "sub": "零售巨头价格加码：食品价格比法国本土高出40%"
+        },
+        "9": {
+            "title": "调查 09：农用地流失与投机性土地储备",
+            "sub": "肥沃农田如何被非法重新划定为豪华别墅开发区"
+        },
+        "10": {
+            "title": "调查 10：环境恶化与沿海混凝土化",
+            "sub": "Natura 2000保护区和Padduc绿化带内的违章建筑"
+        },
+        "11": {
+            "title": "调查 11：青年人才流失与内陆人口减少",
+            "sub": "由于缺乏本地就业机会和实惠住房，青年毕业生被迫外流"
+        },
+        "12": {
+            "title": "调查 12：医疗荒漠化与医院资金不足",
+            "sub": "科西嘉农村地区医疗人员和紧急救援设施严重短缺"
+        },
+        "13": {
+            "title": "调查 13：能源依赖与电网瓶颈",
+            "sub": "为什么科西嘉进口重油能源而不是利用岛上的太阳能和水力潜能"
+        },
+        "14": {
+            "title": "调查 14：遗产抹杀与语言压制",
+            "sub": "否认科西嘉语官方地位及文化遗产保护"
+        },
+        "15": {
+            "title": "调查 15：50年房地产投机档案",
+            "sub": "从1999年议会报告到2026年DVF土地登记册的投机网络延续性"
+        },
+        "16": {
+            "title": "调查 16：欧洲宪章否决与形式主义部门",
+            "sub": "中央政府在立法自治权移交方面停滞了四十年"
+        },
+        "17": {
+            "title": "调查 17：能源垄断与重油电厂补贴",
+            "sub": "公共资金如何补贴热污染而非岛屿绿色自给自足"
+        },
+        "18": {
+            "title": "调查 18：数字基础设施与海底光缆登陆",
+            "sub": "海底光缆在巴斯蒂亚登陆，而数据中心被转移至岛外"
+        },
+        "19": {
+            "title": "调查 19：非农户对PAC农业补贴的非法占有",
+            "sub": "缺席投资人垄断牧场补贴，排挤本地青年牧民"
+        },
+        "20": {
+            "title": "调查 20：垃圾危机与海运出口成本",
+            "sub": "垃圾填埋场饱和以及出口城市垃圾的数百万欧元海运成本"
+        },
+        "21": {
+            "title": "调查 21：本地储蓄流失与离岸银行",
+            "sub": "科西嘉居民的银行存款如何被抽走流入中央金融市场"
+        },
+        "22": {
+            "title": "调查 22：民防装备不足与森林火灾风险",
+            "sub": "依赖本土灭火飞机以及本地消防部门资金赤字"
+        },
+        "23": {
+            "title": "调查 23：默示建筑许可与城市规划漏洞",
+            "sub": "Bufitonu.fr雷达如何揭露因行政延误而获批的非法许可"
+        },
+        "24": {
+            "title": "调查 24：真实受益所有人（RBO）揭露与名义人",
+            "sub": "Bufitonu.fr RGPD算法将本地居民与企业代理名义人区分开来"
+        },
+        "25": {
+            "title": "调查 25：农用棚屋改造投机（L. 151-11）",
+            "sub": "追踪将传统羊圈非法改造为VIP豪宅建筑群的过程"
+        },
+        "26": {
+            "title": "调查 26：国际比较审计 — 土地保护标准",
+            "sub": "为什么泽西岛、马恩岛、波利尼西亚和新喀里多尼亚执行居民土地权利"
+        }
     },
-    "7": {
-        "title": "Investigation 07: Freight Monopolies & Sea Transport Surcharges",
-        "sub": "How maritime transport costs artificially inflate consumer prices on essential goods"
-    },
-    "8": {
-        "title": "Investigation 08: Supermarket Margins & High Cost of Living",
-        "sub": "Retail chain price gouging: +40% food prices compared to continental mainland France"
-    },
-    "9": {
-        "title": "Investigation 09: Agricultural Land Loss & Speculative Land Banking",
-        "sub": "How fertile farmland is illegally re-zoned into luxury villa developments"
-    },
-    "10": {
-        "title": "Investigation 10: Environmental Degradation & Coastal Concrete Creep",
-        "sub": "Illegal construction in protected Natura 2000 and Padduc green zones"
-    },
-    "11": {
-        "title": "Investigation 11: Youth Brain Drain & Depopulation of the Interior",
-        "sub": "Forced emigration of young graduates due to lack of local employment and affordable housing"
-    },
-    "12": {
-        "title": "Investigation 12: Public Health Desertification & Hospital Under-Funding",
-        "sub": "Critical shortage of medical staff and emergency infrastructure in rural Corsica"
-    },
-    "13": {
-        "title": "Investigation 13: Renewable Energy Dependence & Grid Bottlenecks",
-        "sub": "Why Corsica imports heavy fuel oil energy instead of harnessing island solar and hydro potential"
-    },
-    "14": {
-        "title": "Investigation 14: Heritage Effacement & Language Suppression",
-        "sub": "The denial of co-official language status and cultural heritage protection"
-    },
-    "15": {
-        "title": "Investigation 15: 50 Years of Speculative Real Estate Archives",
-        "sub": "Continuity of speculative networks from 1999 parliamentary reports to 2026 DVF land registries"
-    },
-    "16": {
-        "title": "Investigation 16: European Charter Rejection & Facade Ministries",
-        "sub": "Four decades of central government stalling on legislative autonomy transfers"
-    },
-    "17": {
-        "title": "Investigation 17: Energy Monopoly & Heavy Oil Plant Subsidies",
-        "sub": "How public funds subsidize thermal pollution instead of green island self-sufficiency"
-    },
-    "18": {
-        "title": "Investigation 18: Digital Infrastructure & Undersea Cable Landing",
-        "sub": "Submarine fiber optic landing at Bastia with data centers diverted off-island"
-    },
-    "19": {
-        "title": "Investigation 19: PAC Agricultural Subsidy Capture by Non-Farmers",
-        "sub": "Pastoral land subsidy hoarding by absentee investors excluding young local herders"
-    },
-    "20": {
-        "title": "Investigation 20: Waste Crisis & Maritime Export Costs",
-        "sub": "Saturated landfills and multimillion-euro shipping costs to export municipal waste"
-    },
-    "21": {
-        "title": "Investigation 21: Local Savings Drainage & Offshore Banking",
-        "sub": "How local Corsican bank deposits are funneled out to central financial markets"
-    },
-    "22": {
-        "title": "Investigation 22: Civil Protection Under-Equipment & Wildfire Risks",
-        "sub": "Dependence on mainland firefighting aircraft and local fire department deficits"
-    },
-    "23": {
-        "title": "Investigation 23: Tacit Building Permit Approvals & Urban Planning Gaps",
-        "sub": "How the Bufitonu.fr radar exposes illegal permits approved by administrative delay"
-    },
-    "24": {
-        "title": "Investigation 24: Real Beneficial Owner (RBO) Unmasking & Fronts",
-        "sub": "Bufitonu.fr RGPD algorithm separating local residents from corporate proxy nominees"
-    },
-    "25": {
-        "title": "Investigation 25: Agricultural Barn Conversion Speculation (L. 151-11)",
-        "sub": "Tracking the illegal transformation of traditional shepherd huts into VIP luxury complexes"
-    },
-    "26": {
-        "title": "Investigation 26: International Comparative Audit — Land Protection Standards",
-        "sub": "Why Jersey, Isle of Man, French Polynesia and New Caledonia enforce resident land rights"
+    "ja": {
+        "1": {
+            "title": "調査 01：金融のロック — オフショア資本がいかにしてコルシカの人々から土地を奪うか",
+            "sub": "住宅危機を超えて：コルシカを金融商品に変える銀行ローンと担保の秘密のメカニズム"
+        },
+        "2": {
+            "title": "調査 02：補助金の神話 — なぜコルシカは'生活保護'で生きていないのか",
+            "sub": "300万人の観光客が支払う消費税と税金はパリに流れ、地元の公共サービスは資金不足に陥っている"
+        },
+        "3": {
+            "title": "調査 03：比較研究 — コルシカ対海外・欧州の土地制度（ジャージー、ポリネシア、ニューカレドニア）",
+            "sub": "なぜチャンネル諸島と太平洋の自治体は土地を守り、コルシカは同化に閉じ込められているのか"
+        },
+        "4": {
+            "title": "調査 04：水資源の供給 — 欧州の島状給水塔が日照りに苦しむ時",
+            "sub": "なぜ山間の村々が夏に水不足に陥る一方で、民間企業が沿岸部で利益を上げるのか"
+        },
+        "5": {
+            "title": "調査 05：非居住者SCI法人 — 沿岸部の乗っ取り",
+            "sub": "ペーパーカンパニーがいかに地元の居住条件を回避し、最高級の沿岸不動産を買い占めるか"
+        },
+        "6": {
+            "title": "調査 06：観光モノカルチャーと季節的雇用不安",
+            "sub": "夏の2ヶ月間の過剰な経済活動の罠が、若者を年間10ヶ月間失業状態に置く"
+        },
+        "7": {
+            "title": "調査 07：海上輸送の独占と割増料金",
+            "sub": "海上輸送コストがいかにして生活必需品の価格を人工的に吊り上げているか"
+        },
+        "8": {
+            "title": "調査 08：スーパーマーケットの利益率と高い生活費",
+            "sub": "小売大手の価格吊り上げ：フランス本土と比較して食品価格が40%高い"
+        },
+        "9": {
+            "title": "調査 09：農地の喪失と投機的土地保有",
+            "sub": "肥沃な農地がいかにして違法に高級ヴィラ開発用に用途変更されるか"
+        },
+        "10": {
+            "title": "調査 10：環境破壊と沿岸部のコンクリート化",
+            "sub": "Natura 2000保護区およびPadduc緑地ゾーンでの違法建築"
+        },
+        "11": {
+            "title": "調査 11：若者の頭脳流出と内陸部の人口減少",
+            "sub": "地元の雇用機会と手頃な住宅の不足による若手卒業生の強制的な流出"
+        },
+        "12": {
+            "title": "調査 12：医療砂漠化と病院の資金不足",
+            "sub": "コルシカ農村部における医療従事者および緊急インフラの深刻な不足"
+        },
+        "13": {
+            "title": "調査 13：エネルギー依存と送電網のボトルネック",
+            "sub": "なぜコルシカは島の太陽光や水力の可能性を活用せず、重油エネルギーを輸入するのか"
+        },
+        "14": {
+            "title": "調査 14：遺産の消去と言語の抑圧",
+            "sub": "コルシカ語の公用語化および文化遺産保護の拒否"
+        },
+        "15": {
+            "title": "調査 15：不動産投機アーカイブの50年",
+            "sub": "1999年の議会報告書から2026年のDVF登記簿までの投機ネットワークの継続性"
+        },
+        "16": {
+            "title": "調査 16：欧州憲章の拒否と形骸化した省庁",
+            "sub": "立法自治権の移譲に関する中央政府の4年間にわたる停滞"
+        },
+        "17": {
+            "title": "調査 17：エネルギー独占と重油発電への補助金",
+            "sub": "公的資金がいかにして島の自給自足ではなく熱汚染を補助しているか"
+        },
+        "18": {
+            "title": "調査 18：デジタルインフラと海底ケーブルの陸揚げ",
+            "sub": "バスティアへの海底光ファイバー陸揚げと島外へのデータセンター迂回"
+        },
+        "19": {
+            "title": "調査 19：非農家によるPAC農業補助金の占有",
+            "sub": "地元の若手 livestock 飼育者を排除した不在投資家による牧草地補助金の独占"
+        },
+        "20": {
+            "title": "調査 20：ゴミ危機と海上輸出コスト",
+            "sub": "飽和した埋立地と都市ゴミを海上輸出するための数百万ユーロの輸送コスト"
+        },
+        "21": {
+            "title": "調査 21：地元貯蓄の流出とオフショア銀行",
+            "sub": "コルシカ住民の銀行預金がいかにして中央金融市場に吸い上げられているか"
+        },
+        "22": {
+            "title": "調査 22：民間防衛の装備不足と山火事リスク",
+            "sub": "本土の消火航空機への依存と地元消防署の赤字"
+        },
+        "23": {
+            "title": "調査 23：黙示的建築許可と都市計画の抜け穴",
+            "sub": "Bufitonu.frレーダーがいかに行政の遅延によって承認された違法許可をあばくか"
+        },
+        "24": {
+            "title": "調査 24：実質的支配者（RBO）の暴露と名義人",
+            "sub": "Bufitonu.fr RGPDアルゴリズムによる地元住民と名義人の分離"
+        },
+        "25": {
+            "title": "調査 25：農家小屋改造の投機（L. 151-11）",
+            "sub": "伝統的な羊小屋のVIP高級コンプレックスへの違法な改造の追跡"
+        },
+        "26": {
+            "title": "調査 26：国際比較監査 — 土地保護基準",
+            "sub": "ジャージー、マン島、ポリネシア、ニューカレドニアが住民の土地権利を適用する理由"
+        }
     }
 };
 
-        window.applyFullLanguageTranslation = function(langCode) {
-            console.log('Applying FULL page translation to:', langCode);
+        window.applyNative8LangTranslation = function(langCode) {
+            console.log('Applying native 8-language full translation for:', langCode);
 
-            // 1. Trigger top bar dictionary UI labels
-            if (window.triggerFullPageTranslation) {
-                window.triggerFullPageTranslation(langCode);
+            // Handle RTL direction for Arabic
+            if (langCode === 'ar') {
+                document.body.dir = 'rtl';
+            } else {
+                document.body.dir = 'ltr';
             }
 
             if (langCode === 'fr') {
@@ -2005,58 +2648,78 @@
                 return;
             }
 
-            // 2. Translate all 26 static cards in DOM
-            if (langCode === 'en' && window.enFichesMap) {
-                const cards = document.querySelectorAll('#fichesGrid .fiche-card');
-                cards.forEach((card, index) => {
-                    const ficheId = index + 1;
-                    const mapData = window.enFichesMap[ficheId];
-                    if (mapData) {
-                        const h3 = card.querySelector('h3');
-                        if (h3) h3.innerText = mapData.title;
-                        const p = card.querySelector('p');
-                        if (p) p.innerText = mapData.sub;
-                        const num = card.querySelector('.fiche-number');
-                        if (num) num.innerText = 'Audit Dossier #' + (ficheId < 10 ? '0' + ficheId : ficheId);
-                    }
-                });
-
-                // Also update window.fichesData objects for Modal rendering
-                if (window.fichesData) {
-                    window.fichesData.forEach(f => {
-                        const m = window.enFichesMap[f.id];
-                        if (m) {
-                            f.title = m.title;
-                            f.subtitle = m.sub;
-                            f.chapeau = m.sub;
-                        }
-                    });
-                }
-            } else {
-                // For IT, ES, RU, AR, ZH, JA: apply client-side text translation on titles
-                const prefixMap = {
-                    'it': 'Inchiesta Audit #',
-                    'es': 'Ficha Auditoría #',
-                    'ru': 'Аудит Досье #',
-                    'ar': 'ملف التدقيق #',
-                    'zh-CN': '审计报告 #',
-                    'ja': '監査報告 #'
+            // 1. Translate UI Header, Navigation & Search Elements
+            if (window.i18nMaster && window.i18nMaster[langCode]) {
+                const dict = window.i18nMaster[langCode];
+                const setHtml = (selector, val) => {
+                    const el = document.querySelector(selector);
+                    if (el && val) el.innerHTML = val;
                 };
-                const prefix = prefixMap[langCode] || 'Audit #';
-                document.querySelectorAll('#fichesGrid .fiche-number').forEach(el => {
-                    const txt = el.innerText;
-                    const m = txt.match(/#(\d+)/);
-                    if (m) el.innerText = prefix + m[1];
+
+                setHtml('a[href="#fiches"]', dict.nav_fiches);
+                setHtml('a[href="#metrics"]', dict.nav_metrics);
+                setHtml('a[href="#comparateur"]', dict.nav_comparateur);
+                setHtml('a[href="#recours-pdf"]', dict.nav_recours);
+                setHtml('a[href="#studio"]', dict.nav_studio);
+                setHtml('a[href="#cellules"]', dict.nav_cellules);
+                setHtml('a[href="#action"]', dict.nav_agir);
+                setHtml('#accueil h1', dict.hero_title);
+                setHtml('#accueil p', dict.hero_subtitle);
+                setHtml('#fiches h2', dict.fiches_title);
+                setHtml('#fiches p', dict.fiches_desc);
+
+                const elSearch = document.getElementById('searchInput');
+                if (elSearch) elSearch.placeholder = dict.search_placeholder;
+            }
+
+            // 2. Translate all 26 static cards in DOM
+            const langMap = window.masterFiches8Lang[langCode];
+            const prefixMap = {
+                'en': 'Audit Dossier #',
+                'it': 'Inchiesta Audit #',
+                'es': 'Ficha Auditoría #',
+                'ru': 'Аудит Досье #',
+                'ar': 'ملف التدقيق #',
+                'zh-CN': '审计报告 #',
+                'ja': '監査報告 #'
+            };
+            const prefix = prefixMap[langCode] || 'Audit #';
+
+            const cards = document.querySelectorAll('#fichesGrid .fiche-card');
+            cards.forEach((card, index) => {
+                const ficheId = index + 1;
+                const numStr = ficheId < 10 ? '0' + ficheId : '' + ficheId;
+
+                const numEl = card.querySelector('.fiche-number');
+                if (numEl) numEl.innerText = prefix + numStr;
+
+                if (langMap && langMap[ficheId]) {
+                    const itemData = langMap[ficheId];
+                    const h3 = card.querySelector('h3');
+                    if (h3) h3.innerText = itemData.title;
+                    const p = card.querySelector('p');
+                    if (p) p.innerText = itemData.sub;
+                }
+            });
+
+            // 3. Update window.fichesData for dynamic Modals
+            if (window.fichesData && langMap) {
+                window.fichesData.forEach(f => {
+                    if (langMap[f.id]) {
+                        f.title = langMap[f.id].title;
+                        f.subtitle = langMap[f.id].sub;
+                        f.chapeau = langMap[f.id].sub;
+                    }
                 });
             }
         };
 
-        // Attach event listener directly to select element
+        // Attach listener to selector
         document.addEventListener('DOMContentLoaded', () => {
             const selectEl = document.getElementById('globalLangSelect');
             if (selectEl) {
                 selectEl.addEventListener('change', (e) => {
-                    window.applyFullLanguageTranslation(e.target.value);
+                    window.applyNative8LangTranslation(e.target.value);
                 });
             }
         });
