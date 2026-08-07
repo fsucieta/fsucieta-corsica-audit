@@ -3031,17 +3031,159 @@
                 const card = document.createElement('div');
                 card.className = 'fiche-card';
                 card.onclick = () => openModal(item);
+                const descText = item.subtitle || item.chapeau || item.desc || '';
                 card.innerHTML = `
                     <div class="fiche-number">Fiche Audit #${item.id < 10 ? '0' + item.id : item.id}</div>
                     <h3>${item.title}</h3>
-                    <p>${item.desc}</p>
+                    <p style="color: #475569; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem;">${descText}</p>
                     <span class="tool-tag">${item.tool}</span>
                 `;
                 grid.appendChild(card);
             });
         }
 
-                                                                                                                                                                                                                                                                                                                                // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+                                                                                                                                                                                                                                                                                                                                        // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
+        function updateModalCommuneData(idx, ficheId) {
+            const out = document.getElementById('modalCommuneOutput');
+            if (idx === "" || !gisPack[idx]) {
+                out.style.display = 'none';
+                return;
+            }
+            const c = gisPack[idx];
+            let contentHTML = "";
+
+            switch(parseInt(ficheId)) {
+                case 1:
+                    contentHTML = `<strong>📊 Déclinaison Enquête 01 — ${c.name} :</strong><br>
+                    • <strong>Prix Foncier DVF :</strong> ${c.dvf_m2} | <strong>Captation Sociétaire :</strong> ${c.sci_rate}<br>
+                    • <strong>Bilan Fiscale Nette :</strong> Répartition de la TVA commerciale perçue sur la commune vers le Trésor Central sans restitution proportionnelle en DGF.`;
+                    break;
+                case 2:
+                    contentHTML = `<strong>💧 Déclinaison Enquête 02 — ${c.name} :</strong><br>
+                    • <strong>Taux de Fuite Réseau Potable :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.water_leak}</span> | <strong>Tension Estivale :</strong> ${c.sec_rate} de résidences secondaires<br>
+                    • <strong>Action CADA :</strong> Exiger du gestionnaire d'eau de ${c.name} la communication du bilan des pertes et du tarif au m³ facturé aux permanents.`;
+                    break;
+                case 3:
+                    contentHTML = `<strong>🏠 Déclinaison Enquête 03 — ${c.name} :</strong><br>
+                    • <strong>Prix Moyen DVF Notaires :</strong> <span style="color: #b8860b; font-weight: 800;">${c.dvf_m2}</span> | <strong>Taux de Résidences Secondaires :</strong> ${c.sec_rate}<br>
+                    • <strong>Sociétés Non-Résidentes (INPI) :</strong> ${c.sci_rate} des achats d'exception sont réalisés sous couvert de SCI/SAS.`;
+                    break;
+                case 4:
+                    contentHTML = `<strong>🐟 Déclinaison Enquête 04 — ${c.name} :</strong><br>
+                    • <strong>Façade Maritime :</strong> ${c.type} | <strong>Pression Halieutique :</strong> Contrôle des licences par la ZEE.<br>
+                    • <strong>Action Citoyenne :</strong> Soutien à la flottille artisanale locale et contrôle des préemptions de récifs.`;
+                    break;
+                case 5:
+                    contentHTML = `<strong>⛏️ Déclinaison Enquête 05 — ${c.name} :</strong><br>
+                    • <strong>Inventaire BRGM / IRM :</strong> ${c.axes.some(a => a.includes('Mines')) ? '⚠️ Commune recensée au cadastre minier avec vestiges d'antimoine/arsenic.' : 'Zone hors risque minier lourd répertorié.'}<br>
+                    • <strong>Action Terrain :</strong> Consultation des cartes de risque de sol BRGM InfoTerre.`;
+                    break;
+                case 6:
+                    contentHTML = `<strong>🌲 Déclinaison Enquête 06 — ${c.name} :</strong><br>
+                    • <strong>Ressource Forestière :</strong> Massif pastoral et communal.<br>
+                    • <strong>Action Bois :</strong> Exiger la traçabilité des coupes de Pin Laricio vers les scieries locales au lieu de l'exportation brute.`;
+                    break;
+                case 7:
+                    contentHTML = `<strong>🌾 Déclinaison Enquête 07 — ${c.name} :</strong><br>
+                    • <strong>Foncier Nourricier :</strong> Menacé par un prix du m² de ${c.dvf_m2}.<br>
+                    • <strong>Action SAFER :</strong> Contrôler les préemptions sur les terres arables communales pour les jeunes agriculteurs.`;
+                    break;
+                case 8:
+                    contentHTML = `<strong>🛡️ Déclinaison Enquête 08 — ${c.name} :</strong><br>
+                    • <strong>Taux d'Urbanisation Littorale :</strong> ${c.sec_rate} de résidences secondaires.<br>
+                    • <strong>Vigilance PLU :</strong> Vérification de la conformité du Plan Local d'Urbanisme avec la Loi Littoral et le Padduc.`;
+                    break;
+                case 9:
+                    contentHTML = `<strong>🎖️ Déclinaison Enquête 09 — ${c.name} :</strong><br>
+                    • <strong>Servitudes de Défense :</strong> ${c.axes.some(a => a.includes('Militaires')) ? '⚠️ Zone sous servitude d'emprise militaire stratégique.' : 'Zone hors emprise militaire directe.'}<br>
+                    • <strong>Impact :</strong> Neutralisation du foncier civil environnant.`;
+                    break;
+                case 10:
+                    contentHTML = `<strong>🏥 Déclinaison Enquête 10 — ${c.name} :</strong><br>
+                    • <strong>Délai d'Accès Urgences (Isochrone IGN) :</strong> ${c.risk_level === 'Critique' || c.risk_level === 'Très Élevé' ? '> 45 minutes vers un bloc opératoire' : '~ 25-35 minutes'}<br>
+                    • <strong>Action Santé :</strong> Réclamations pour le maintien des gardes médicales et des secours de proximité.`;
+                    break;
+                case 11:
+                    contentHTML = `<strong>🎓 Déclinaison Enquête 11 — ${c.name} :</strong><br>
+                    • <strong>Pression du Logement Étudiant/Jeunes :</strong> Prix moyen au m² de ${c.dvf_m2}.<br>
+                    • <strong>Exil des Compétences :</strong> Absence d'offres d'emploi qualifiées dans la commune.`;
+                    break;
+                case 12:
+                    contentHTML = `<strong>🏦 Déclinaison Enquête 12 — ${c.name} :</strong><br>
+                    • <strong>Ratio Dépôts / Crédits Locaux :</strong> Épargne captée par les réseaux bancaires.<br>
+                    • <strong>Action PME :</strong> Mobiliser la Bpifrance pour garantir les prêts des commerçants et artisans locaux.`;
+                    break;
+                case 13:
+                    contentHTML = `<strong>⚡ Déclinaison Enquête 13 — ${c.name} :</strong><br>
+                    • <strong>Ressource Énergétique :</strong> Production hydraulique du bassin.<br>
+                    • <strong>Action Taxe :</strong> Réclamer la réinjection des redevances de concession hydroélectrique dans le budget communal.`;
+                    break;
+                case 14:
+                    contentHTML = `<strong>📜 Déclinaison Enquête 14 — ${c.name} :</strong><br>
+                    • <strong>Évolution 50 ans :</strong> Part des résidences secondaires atteignant <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span> en 2026.<br>
+                    • <strong>Bilan Historique :</strong> Doublement de la part des logements occasionnels depuis 1975.`;
+                    break;
+                case 15:
+                    contentHTML = `<strong>🔌 Déclinaison Enquête 15 — ${c.name} :</strong><br>
+                    • <strong>Vulnérabilité Réseau :</strong> Risque de micro-coupures en pointe estivale (${c.sec_rate} res. sec.).<br>
+                    • <strong>Action EDF/Enedis :</strong> Renforcement de la ligne de distribution locale.`;
+                    break;
+                case 16:
+                    contentHTML = `<strong>🚢 Déclinaison Enquête 16 — ${c.name} :</strong><br>
+                    • <strong>Surcoût de la Continuité Territoriale :</strong> Impact sur le prix des marchandises et matériaux à ${c.name}.`;
+                    break;
+                case 17:
+                    contentHTML = `<strong>🌐 Déclinaison Enquête 17 — ${c.name} :</strong><br>
+                    • <strong>Souveraineté Numérique :</strong> Données publiques communales hébergées hors de Corse.<br>
+                    • <strong>Action RIP :</strong> Exiger un stockage souverain local des données administratives de la mairie.`;
+                    break;
+                case 18:
+                    contentHTML = `<strong>🐐 Déclinaison Enquête 18 — ${c.name} :</strong><br>
+                    • <strong>Foncier Pastoral :</strong> Pression des déclarations de surfaces par des exploitants virtuels.<br>
+                    • <strong>Action ODARC/ASP :</strong> Contrôle de l'activité réelle des cheptels sur les parcelles de la commune.`;
+                    break;
+                case 19:
+                    contentHTML = `<strong>🗑️ Déclinaison Enquête 19 — ${c.name} :</strong><br>
+                    • <strong>Surcoût Traitement Déchets :</strong> Transport vers les centres d'enfouissement (Tallone/Viggianello).<br>
+                    • <strong>Action SYVADEC :</strong> Mise en place de la collecte sélective à la source.`;
+                    break;
+                case 20:
+                    contentHTML = `<strong>💶 Déclinaison Enquête 20 — ${c.name} :</strong><br>
+                    • <strong>Fuite Financière :</strong> L'épargne déposée à ${c.name} est rapatriée vers les sièges centraux.<br>
+                    • <strong>Action Citoyenne :</strong> Exiger la transparence du ratio crédits/dépôts des agences bancaires locales.`;
+                    break;
+                case 21:
+                    contentHTML = `<strong>🔥 Déclinaison Enquête 21 — ${c.name} :</strong><br>
+                    • <strong>Délai de Franchise Canadair (Nîmes) :</strong> > 45 minutes.<br>
+                    • <strong>Action SDIS :</strong> Demander le positionnement permanent de moyens aériens sur les bases insulaires.`;
+                    break;
+                case 22:
+                    contentHTML = `<strong>📐 Déclinaison Enquête 22 — ${c.name} :</strong><br>
+                    • <strong>Radar Bufitonu.fr :</strong> Surveillance des permis tacites accordés par silence de la mairie de ${c.name}.<br>
+                    • <strong>Action Urgente :</strong> Consulter le registre des déclarations préalables et permis tacites (R. 424-1).`;
+                    break;
+                case 23:
+                    contentHTML = `<strong>🔍 Déclinaison Enquête 23 — ${c.name} :</strong><br>
+                    • <strong>Holdings Sociétaires INPI RBE :</strong> <span style="color: #b8860b; font-weight: 800;">${c.sci_rate}</span> des projets immobiliers de valeur à ${c.name}.<br>
+                    • <strong>Action RBE :</strong> Requête automatisée Bufitonu.fr pour lever l'anonymat des SCI pétitionnaires.`;
+                    break;
+                case 24:
+                    contentHTML = `<strong>🏚️ Déclinaison Enquête 24 — ${c.name} :</strong><br>
+                    • <strong>Patrimoine Bâti Pastoral :</strong> Risque de reconversion sous dérogation L. 151-11.<br>
+                    • <strong>Action Patrimoine :</strong> Recensement des bergeries traditionnelles et refus des permis dérogeants VIP.`;
+                    break;
+                default:
+                    contentHTML = `<strong>📍 Données Communales pour ${c.name} :</strong> Prix DVF: ${c.dvf_m2} | Res. Sec: ${c.sec_rate} | SCI: ${c.sci_rate}`;
+            }
+
+            out.innerHTML = `
+                <div style="background: #ffffff; padding: 1.2rem; border-radius: 10px; border: 1px solid #007791; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    ${contentHTML}
+                </div>
+            `;
+            out.style.display = 'block';
+        }
+
         function openModal(item) {
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
@@ -3072,6 +3214,24 @@
 
                 <h1 style="font-size: 2.2rem; color: #b8860b; margin-bottom: 0.6rem; line-height: 1.3; font-weight: 800;">${item.title}</h1>
                 <p style="font-size: 1.2rem; color: #0f172a; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.5; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">${item.subtitle}</p>
+
+                <!-- Module de Déclinaison Communale Granulaire (Code INSEE) -->
+                <div style="background: linear-gradient(135deg, rgba(0, 119, 145, 0.1) 0%, rgba(248, 250, 252, 1) 100%); border: 1px solid #007791; border-radius: 12px; padding: 1.2rem 1.6rem; margin-bottom: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #007791; letter-spacing: 1.2px; text-transform: uppercase;">🎯 APPLICATION COMMUNALE GRANULAIRE</span>
+                            <h4 style="margin: 0.2rem 0 0 0; padding: 0; border: none; font-size: 1.1rem; color: #0f172a; font-weight: 800;">Décliner cette enquête sur votre commune</h4>
+                        </div>
+                        <div style="min-width: 260px;">
+                            <select id="modalCommuneSelect" onchange="updateModalCommuneData(this.value, ${item.id})" style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #007791; font-weight: 700; color: #0f172a; background: #ffffff;">
+                                <option value="">🔍 Sélectionner une commune (ex: Piana, Cargèse, Bonifacio...)</option>
+                                ${gisPack.map((c, i) => `<option value="${i}">${c.name} (${c.dep}) — ${c.dvf_m2}</option>`).join('')}
+                            </select>
+                        </div>
+                    </div>
+                    <div id="modalCommuneOutput" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1; font-size: 0.95rem; color: #0f172a; line-height: 1.6;">
+                    </div>
+                </div>
 
                 <!-- Métadonnées Journalistiques -->
                 <div style="display: flex; gap: 1.5rem; color: #475569; font-size: 0.9rem; margin-bottom: 2rem; font-weight: 600; background: #f8fafc; padding: 10px 16px; border-radius: 8px; border: 1px solid #e2e8f0;">
