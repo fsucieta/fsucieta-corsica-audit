@@ -1882,6 +1882,186 @@
         };
     </script>
 
+
+    <!-- DYNAMIC MULTILINGUAL CARDS RE-RENDERER ENGINE -->
+    <script>
+        window.enFichesMap = {
+    "1": {
+        "title": "Investigation 01: The Financial Lock — How offshore capital dispossesses the Corsican people of their land",
+        "sub": "Beyond the housing crisis: the secret mechanics of bank loans and mortgages turning Corsica into a financial product"
+    },
+    "2": {
+        "title": "Investigation 02: The Myth of Subsidies — Why Corsica does not live on 'welfare'",
+        "sub": "VAT and taxes paid by 3 million tourists flow to Paris while local public services remain underfunded"
+    },
+    "3": {
+        "title": "Investigation 03: Comparative Study — Corsica vs Overseas & European Land Regimes (Jersey, Polynesia, New Caledonia)",
+        "sub": "Why the Channel Islands and Pacific collectivities protect their soil while Corsica is trapped in legal assimilation"
+    },
+    "4": {
+        "title": "Investigation 04: The Water Commodity — When Europe's island water tower suffers drought",
+        "sub": "Why mountain villages lack water in summer while private utilities extract coastal profits"
+    },
+    "5": {
+        "title": "Investigation 05: Non-Resident SCI Corporations — The Coastal Takeover",
+        "sub": "How shell companies bypass local residency and buy up prime coastal real estate"
+    },
+    "6": {
+        "title": "Investigation 06: Tourism Monoculture & Seasonal Precariousness",
+        "sub": "The economic trap of 2-month summer hyper-activity leaving youth unemployed 10 months a year"
+    },
+    "7": {
+        "title": "Investigation 07: Freight Monopolies & Sea Transport Surcharges",
+        "sub": "How maritime transport costs artificially inflate consumer prices on essential goods"
+    },
+    "8": {
+        "title": "Investigation 08: Supermarket Margins & High Cost of Living",
+        "sub": "Retail chain price gouging: +40% food prices compared to continental mainland France"
+    },
+    "9": {
+        "title": "Investigation 09: Agricultural Land Loss & Speculative Land Banking",
+        "sub": "How fertile farmland is illegally re-zoned into luxury villa developments"
+    },
+    "10": {
+        "title": "Investigation 10: Environmental Degradation & Coastal Concrete Creep",
+        "sub": "Illegal construction in protected Natura 2000 and Padduc green zones"
+    },
+    "11": {
+        "title": "Investigation 11: Youth Brain Drain & Depopulation of the Interior",
+        "sub": "Forced emigration of young graduates due to lack of local employment and affordable housing"
+    },
+    "12": {
+        "title": "Investigation 12: Public Health Desertification & Hospital Under-Funding",
+        "sub": "Critical shortage of medical staff and emergency infrastructure in rural Corsica"
+    },
+    "13": {
+        "title": "Investigation 13: Renewable Energy Dependence & Grid Bottlenecks",
+        "sub": "Why Corsica imports heavy fuel oil energy instead of harnessing island solar and hydro potential"
+    },
+    "14": {
+        "title": "Investigation 14: Heritage Effacement & Language Suppression",
+        "sub": "The denial of co-official language status and cultural heritage protection"
+    },
+    "15": {
+        "title": "Investigation 15: 50 Years of Speculative Real Estate Archives",
+        "sub": "Continuity of speculative networks from 1999 parliamentary reports to 2026 DVF land registries"
+    },
+    "16": {
+        "title": "Investigation 16: European Charter Rejection & Facade Ministries",
+        "sub": "Four decades of central government stalling on legislative autonomy transfers"
+    },
+    "17": {
+        "title": "Investigation 17: Energy Monopoly & Heavy Oil Plant Subsidies",
+        "sub": "How public funds subsidize thermal pollution instead of green island self-sufficiency"
+    },
+    "18": {
+        "title": "Investigation 18: Digital Infrastructure & Undersea Cable Landing",
+        "sub": "Submarine fiber optic landing at Bastia with data centers diverted off-island"
+    },
+    "19": {
+        "title": "Investigation 19: PAC Agricultural Subsidy Capture by Non-Farmers",
+        "sub": "Pastoral land subsidy hoarding by absentee investors excluding young local herders"
+    },
+    "20": {
+        "title": "Investigation 20: Waste Crisis & Maritime Export Costs",
+        "sub": "Saturated landfills and multimillion-euro shipping costs to export municipal waste"
+    },
+    "21": {
+        "title": "Investigation 21: Local Savings Drainage & Offshore Banking",
+        "sub": "How local Corsican bank deposits are funneled out to central financial markets"
+    },
+    "22": {
+        "title": "Investigation 22: Civil Protection Under-Equipment & Wildfire Risks",
+        "sub": "Dependence on mainland firefighting aircraft and local fire department deficits"
+    },
+    "23": {
+        "title": "Investigation 23: Tacit Building Permit Approvals & Urban Planning Gaps",
+        "sub": "How the Bufitonu.fr radar exposes illegal permits approved by administrative delay"
+    },
+    "24": {
+        "title": "Investigation 24: Real Beneficial Owner (RBO) Unmasking & Fronts",
+        "sub": "Bufitonu.fr RGPD algorithm separating local residents from corporate proxy nominees"
+    },
+    "25": {
+        "title": "Investigation 25: Agricultural Barn Conversion Speculation (L. 151-11)",
+        "sub": "Tracking the illegal transformation of traditional shepherd huts into VIP luxury complexes"
+    },
+    "26": {
+        "title": "Investigation 26: International Comparative Audit — Land Protection Standards",
+        "sub": "Why Jersey, Isle of Man, French Polynesia and New Caledonia enforce resident land rights"
+    }
+};
+
+        window.applyFullLanguageTranslation = function(langCode) {
+            console.log('Applying FULL page translation to:', langCode);
+
+            // 1. Trigger top bar dictionary UI labels
+            if (window.triggerFullPageTranslation) {
+                window.triggerFullPageTranslation(langCode);
+            }
+
+            if (langCode === 'fr') {
+                location.reload();
+                return;
+            }
+
+            // 2. Translate all 26 static cards in DOM
+            if (langCode === 'en' && window.enFichesMap) {
+                const cards = document.querySelectorAll('#fichesGrid .fiche-card');
+                cards.forEach((card, index) => {
+                    const ficheId = index + 1;
+                    const mapData = window.enFichesMap[ficheId];
+                    if (mapData) {
+                        const h3 = card.querySelector('h3');
+                        if (h3) h3.innerText = mapData.title;
+                        const p = card.querySelector('p');
+                        if (p) p.innerText = mapData.sub;
+                        const num = card.querySelector('.fiche-number');
+                        if (num) num.innerText = 'Audit Dossier #' + (ficheId < 10 ? '0' + ficheId : ficheId);
+                    }
+                });
+
+                // Also update window.fichesData objects for Modal rendering
+                if (window.fichesData) {
+                    window.fichesData.forEach(f => {
+                        const m = window.enFichesMap[f.id];
+                        if (m) {
+                            f.title = m.title;
+                            f.subtitle = m.sub;
+                            f.chapeau = m.sub;
+                        }
+                    });
+                }
+            } else {
+                // For IT, ES, RU, AR, ZH, JA: apply client-side text translation on titles
+                const prefixMap = {
+                    'it': 'Inchiesta Audit #',
+                    'es': 'Ficha Auditoría #',
+                    'ru': 'Аудит Досье #',
+                    'ar': 'ملف التدقيق #',
+                    'zh-CN': '审计报告 #',
+                    'ja': '監査報告 #'
+                };
+                const prefix = prefixMap[langCode] || 'Audit #';
+                document.querySelectorAll('#fichesGrid .fiche-number').forEach(el => {
+                    const txt = el.innerText;
+                    const m = txt.match(/#(\d+)/);
+                    if (m) el.innerText = prefix + m[1];
+                });
+            }
+        };
+
+        // Attach event listener directly to select element
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectEl = document.getElementById('globalLangSelect');
+            if (selectEl) {
+                selectEl.addEventListener('change', (e) => {
+                    window.applyFullLanguageTranslation(e.target.value);
+                });
+            }
+        });
+    </script>
+
 </head>
 <body>
 
