@@ -3299,8 +3299,8 @@
             const query = document.getElementById('searchInput').value.toLowerCase();
             const filtered = fichesData.filter(item => 
                 item.title.toLowerCase().includes(query) || 
-                item.desc.toLowerCase().includes(query) ||
-                item.details.toLowerCase().includes(query) ||
+                (item.subtitle || '').toLowerCase().includes(query) ||
+                (item.chapeau || '').toLowerCase().includes(query) ||
                 item.tool.toLowerCase().includes(query)
             );
             renderFiches(filtered);
