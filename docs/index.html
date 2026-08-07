@@ -1639,6 +1639,37 @@
         };
     </script>
 
+
+    <!-- FULL-PAGE GOOGLE TRANSLATE ENGINE INTEGRATION -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'en,it,es,ru,ar,zh-CN,ja',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        /* Hide Google Translate top banner & style wrapper */
+        .goog-te-banner-frame.skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+        #google_translate_element { display: inline-block; }
+        .goog-te-gadget-simple {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(212, 175, 55, 0.6) !important;
+            padding: 4px 8px !important;
+            border-radius: 14px !important;
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+        }
+        .goog-te-gadget-simple span { color: #ffffff !important; }
+        .goog-te-menu-value span { color: #ffffff !important; font-weight: 700; }
+    </style>
+
 </head>
 <body>
 
@@ -1656,16 +1687,17 @@
             <!-- Sleek Premium Language Switcher Pill -->
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="color: #cbd5e1; font-weight: 600; font-size: 0.78rem;">🌍 Langue / Language:</span>
-                <select id="globalLangSelect" onchange="switchGlobalLanguage(this.value)" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.6); color: #ffffff; padding: 3px 10px; border-radius: 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; outline: none; transition: all 0.2s ease;">
+                <select id="globalLangSelect" onchange="triggerFullPageTranslation(this.value)" style="background: rgba(255, 255, 255, 0.15); border: 1.5px solid #d4af37; color: #ffffff; padding: 4px 12px; border-radius: 16px; font-weight: 800; font-size: 0.82rem; cursor: pointer; outline: none; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
                     <option value="fr" style="color: #0f172a;">🇫🇷 FR — Français</option>
                     <option value="en" style="color: #0f172a;">🇬🇧 EN — English</option>
                     <option value="it" style="color: #0f172a;">🇮🇹 IT — Italiano</option>
                     <option value="es" style="color: #0f172a;">🇪🇸 ES — Español</option>
                     <option value="ru" style="color: #0f172a;">🇷🇺 RU — Русский</option>
                     <option value="ar" style="color: #0f172a;">🇸🇦 AR — العربية</option>
-                    <option value="zh" style="color: #0f172a;">🇨🇳 ZH — 中文</option>
+                    <option value="zh-CN" style="color: #0f172a;">🇨🇳 ZH — 中文</option>
                     <option value="ja" style="color: #0f172a;">🇯🇵 JA — 日本語</option>
                 </select>
+                <div id="google_translate_element" style="display:none;"></div>
             </div>
         </div>
     </div>
