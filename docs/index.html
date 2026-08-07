@@ -1034,23 +1034,6 @@
         </div>
     </section>
 
-        <!-- Audit Section (24 Fiches d'Investigation) -->
-    <section id="fiches" style="padding: 5rem 2rem; max-width: 1400px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 3.5rem;">
-            <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase;">DONNÉES BLINDÉES & PREUVES D'ÉTAT</span>
-            <h2 style="font-size: 2.5rem; color: #0f172a; margin-top: 0.4rem;">🏛️ 24 Fiches d'Audit d'Investigation Souveraines</h2>
-            <p style="color: #475569; font-size: 1.15rem; max-width: 850px; margin: 0.6rem auto 0;">
-                Parcourez les 24 axes d'audit systémiques documentés par croisement des registres officiels (Cour des Comptes, DVF, BRGM, INPI, INSEE, ARCEP).
-            </p>
-            <div class="search-box" style="max-width: 600px; margin: 2rem auto 0;">
-                <input type="text" id="searchInput" onkeyup="filterFiches()" placeholder="🔍 Rechercher une preuve, un axe ou une loi (ex: DVF, SCI, Eau, BRGM, Padduc...)" style="width: 100%; padding: 16px 24px; border-radius: 30px; border: 2px solid var(--accent-gold); background: #ffffff; color: #0f172a; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-            </div>
-        </div>
-
-        <div class="fiches-grid" id="fichesGrid">
-            <!-- 24 Fiches d'Investigation injectées dynamiquement par JS -->
-        </div>
-    </section>
 
     
 
@@ -3316,8 +3299,8 @@
             const query = document.getElementById('searchInput').value.toLowerCase();
             const filtered = fichesData.filter(item => 
                 item.title.toLowerCase().includes(query) || 
-                item.desc.toLowerCase().includes(query) ||
-                item.details.toLowerCase().includes(query) ||
+                (item.subtitle || '').toLowerCase().includes(query) ||
+                (item.chapeau || '').toLowerCase().includes(query) ||
                 item.tool.toLowerCase().includes(query)
             );
             renderFiches(filtered);
