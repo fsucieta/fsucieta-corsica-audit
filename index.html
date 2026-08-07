@@ -2339,18 +2339,27 @@
         // Initialize async fetch
         document.addEventListener('DOMContentLoaded', loadCommunesData);
         let mapMarkers = [];
+        let map = null;
 
-        const map = L.map('leaflet-map', {
-            center: [42.15, 9.05],
-            zoom: 8.5,
-            scrollWheelZoom: false
-        });
+        function initMap() {
+            const container = document.getElementById('leaflet-map');
+            if (!container || map) return;
+            try {
+                map = L.map('leaflet-map', {
+                    center: [42.15, 9.05],
+                    zoom: 8.5,
+                    scrollWheelZoom: false
+                });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(map);
+            } catch(e) {
+                console.warn('Map initialization deferred or silent:', e);
+            }
+        }
 
         function renderGisMarkers(filter = 'all') {
             mapMarkers.forEach(m => map.removeLayer(m));
@@ -3537,8 +3546,12 @@
             outputDiv.style.display = 'block';
         }
 
-        // Initialisation
-        renderFiches(fichesData);
+        // Bulletproof Initialization on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderFiches === 'function' && typeof fichesData !== 'undefined') {
+                renderFiches(fichesData);
+            }
+        });
     </script>
 </body>
 </html>
