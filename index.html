@@ -1788,6 +1788,94 @@
         iframe.skiptranslate { display: none !important; }
     </style>
 
+
+    <!-- UNIVERSAL REAL-TIME FULL-PAGE TRANSLATION WITH SELECT STATE PERSISTENCE -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'fr',
+                includedLanguages: 'en,it,es,ru,ar,zh-CN,ja',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function getActiveLanguageFromCookie() {
+            const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+            if (match && match[1]) {
+                const val = match[1];
+                if (val.includes('/en')) return 'en';
+                if (val.includes('/it')) return 'it';
+                if (val.includes('/es')) return 'es';
+                if (val.includes('/ru')) return 'ru';
+                if (val.includes('/ar')) return 'ar';
+                if (val.includes('/zh')) return 'zh';
+                if (val.includes('/ja')) return 'ja';
+            }
+            return 'fr';
+        }
+
+        window.resetToOriginalFrench = function() {
+            const domains = ['', location.hostname, '.' + location.hostname, 'fsucieta.github.io', '.github.io'];
+            const paths = ['/', '/docs', location.pathname];
+
+            domains.forEach(d => {
+                paths.forEach(p => {
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + p + (d ? '; domain=' + d : '') + ';';
+                });
+            });
+
+            document.body.dir = 'ltr';
+            location.href = location.protocol + '//' + location.host + location.pathname;
+        };
+
+        window.switchGlobalLanguage = function(langCode) {
+            console.log('Switching full-page language to:', langCode);
+
+            if (langCode === 'fr') {
+                window.resetToOriginalFrench();
+                return;
+            }
+
+            if (langCode === 'ar') {
+                document.body.dir = 'rtl';
+            } else {
+                document.body.dir = 'ltr';
+            }
+
+            const langMap = {
+                'en': '/fr/en',
+                'it': '/fr/it',
+                'es': '/fr/es',
+                'ru': '/fr/ru',
+                'ar': '/fr/ar',
+                'zh': '/fr/zh-CN',
+                'ja': '/fr/ja'
+            };
+
+            const targetCookie = langMap[langCode] || ('/fr/' + langCode);
+
+            document.cookie = "googtrans=" + targetCookie + "; path=/;";
+            document.cookie = "googtrans=" + targetCookie + "; domain=" + location.hostname + "; path=/;";
+            document.cookie = "googtrans=" + targetCookie + "; domain=." + location.hostname + "; path=/;";
+
+            // Instant reload to apply full-page translation cleanly without resetting dropdown state
+            location.reload();
+        };
+
+        // Sync dropdown selected option on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeLang = getActiveLanguageFromCookie();
+            const selectEl = document.getElementById('globalLangSelect');
+            if (selectEl) {
+                selectEl.value = activeLang;
+            }
+            if (activeLang === 'ar') {
+                document.body.dir = 'rtl';
+            }
+        });
+    </script>
+
 </head>
 <body>
 
