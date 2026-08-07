@@ -2626,13 +2626,75 @@
             const selectEl = document.getElementById('globalLangSelect');
             if (selectEl) selectEl.value = langCode;
 
+            // Normalize lang code for dictionaries
+            const normalizedLang = (langCode === 'zh-CN') ? 'zh' : langCode;
+
             // 1. UI Elements Translation
-            if (window.nasaUIDict && window.nasaUIDict[langCode]) {
-                const dict = window.nasaUIDict[langCode];
+            if (window.nasaUIDict && (window.nasaUIDict[normalizedLang] || window.nasaUIDict[langCode])) {
+                const dict = window.nasaUIDict[normalizedLang] || window.nasaUIDict[langCode];
                 const setHtml = (selector, val) => {
                     const el = document.querySelector(selector);
                     if (el && val) el.innerHTML = val;
                 };
+
+                setHtml('a[href="#fiches"]', dict.nav_fiches);
+                setHtml('a[href="#metrics"]', dict.nav_metrics);
+                setHtml('a[href="#comparateur"]', dict.nav_comparateur);
+                setHtml('a[href="#recours-pdf"]', dict.nav_recours);
+                setHtml('a[href="#studio"]', dict.nav_studio);
+                setHtml('a[href="#cellules"]', dict.nav_cellules);
+                setHtml('a[href="#action"]', dict.nav_agir);
+                setHtml('#accueil p', dict.hero_subtitle);
+                setHtml('#fiches h2', dict.fiches_h2);
+                setHtml('#fiches p', dict.fiches_desc);
+
+                const elSearch = document.getElementById('searchInput');
+                if (elSearch) elSearch.placeholder = dict.search_placeholder;
+            }
+
+            // 2. Full 26 Static Cards Titles & Subtitles Translation in DOM
+            const fichesDict = window.fullFichesI18n[normalizedLang] || window.fullFichesI18n[langCode];
+            const prefixMap = {
+                'fr': 'Fiche Audit #',
+                'en': 'Audit Dossier #',
+                'it': 'Inchiesta Audit #',
+                'es': 'Ficha Auditoría #',
+                'ru': 'Аудит Досье #',
+                'ar': 'ملف التدقيق #',
+                'zh': '审计报告 #',
+                'zh-CN': '审计报告 #',
+                'ja': '監査報告 #'
+            };
+            const prefix = prefixMap[normalizedLang] || prefixMap[langCode] || 'Audit #';
+
+            const cards = document.querySelectorAll('#fichesGrid .fiche-card');
+            cards.forEach((card, index) => {
+                const id = index + 1;
+                const numStr = id < 10 ? '0' + id : '' + id;
+
+                const numEl = card.querySelector('.fiche-number');
+                if (numEl) numEl.innerText = prefix + numStr;
+
+                if (fichesDict && fichesDict[id]) {
+                    const data = fichesDict[id];
+                    const h3 = card.querySelector('h3');
+                    if (h3 && data.t) h3.innerText = data.t;
+                    const p = card.querySelector('p');
+                    if (p && data.s) p.innerText = data.s;
+                }
+            });
+
+            // 3. Update window.fichesData for dynamic Modals
+            if (window.fichesData && fichesDict) {
+                window.fichesData.forEach(f => {
+                    if (fichesDict[f.id]) {
+                        f.title = fichesDict[f.id].t;
+                        f.subtitle = fichesDict[f.id].s;
+                        f.chapeau = fichesDict[f.id].s;
+                    }
+                });
+            }
+        };
 
                 setHtml('a[href="#fiches"]', dict.nav_fiches);
                 setHtml('a[href="#metrics"]', dict.nav_metrics);
