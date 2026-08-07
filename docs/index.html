@@ -1614,6 +1614,33 @@
 
         <!-- Header Navigation -->
         <!-- Header Navigation -->
+        <!-- Top Mini-Bar Utility Bar (Languages & Status) -->
+    <div style="background: #0f172a; color: #ffffff; padding: 0.35rem 1.5rem; font-size: 0.82rem; border-bottom: 1px solid rgba(184, 134, 11, 0.4);">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span style="color: #d4af37; font-weight: 700; letter-spacing: 0.5px;">🌐 CASA DI CRISTALE 2.0 — PORTAIL INTERNATIONAL</span>
+                <span style="color: #64748b;">|</span>
+                <span style="color: #94a3b8;">PGP: 4096R/SOUVERAINETÉ-2026</span>
+            </div>
+            
+            <!-- Sleek Premium Language Switcher Pill -->
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #cbd5e1; font-weight: 600; font-size: 0.78rem;">🌍 Langue / Language:</span>
+                <select id="globalLangSelect" onchange="switchGlobalLanguage(this.value)" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(212, 175, 55, 0.6); color: #ffffff; padding: 3px 10px; border-radius: 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; outline: none; transition: all 0.2s ease;">
+                    <option value="fr" style="color: #0f172a;">🇫🇷 FR — Français</option>
+                    <option value="en" style="color: #0f172a;">🇬🇧 EN — English</option>
+                    <option value="it" style="color: #0f172a;">🇮🇹 IT — Italiano</option>
+                    <option value="es" style="color: #0f172a;">🇪🇸 ES — Español</option>
+                    <option value="ru" style="color: #0f172a;">🇷🇺 RU — Русский</option>
+                    <option value="ar" style="color: #0f172a;">🇸🇦 AR — العربية</option>
+                    <option value="zh" style="color: #0f172a;">🇨🇳 ZH — 中文</option>
+                    <option value="ja" style="color: #0f172a;">🇯🇵 JA — 日本語</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
     <header style="position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(184, 134, 11, 0.25); padding: 0.6rem 1.5rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);">
         <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <a href="#accueil" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0;">
@@ -1628,27 +1655,12 @@
             
             <nav>
                 <ul id="navMenu" style="margin: 0; padding: 0; list-style: none;">
-                    <li style="display: inline-flex; align-items: center;">
-            <!-- 8-Language Dynamic Selector Dropdown -->
-            <div class="lang-selector-wrapper" style="position: relative; display: inline-flex; align-items: center; margin-left: 1rem;">
-                <select id="globalLangSelect" onchange="switchGlobalLanguage(this.value)" style="background: rgba(184, 134, 11, 0.12); border: 1.5px solid var(--accent-gold); color: #0f172a; padding: 6px 12px; border-radius: 20px; font-weight: 800; font-size: 0.88rem; cursor: pointer; outline: none; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(184,134,11,0.15);">
-                    <option value="fr">🇫🇷 FR — Français</option>
-                    <option value="en">🇬🇧 EN — English</option>
-                    <option value="it">🇮🇹 IT — Italiano</option>
-                    <option value="es">🇪🇸 ES — Español</option>
-                    <option value="ru">🇷🇺 RU — Русский</option>
-                    <option value="ar">🇸🇦 AR — العربية</option>
-                    <option value="zh">🇨🇳 ZH — 中文</option>
-                    <option value="ja">🇯🇵 JA — 日本語</option>
-                </select>
-            </div>
-</li>
-                    <li><a href="#fiches" class="nav-pill active" onclick="closeMobileMenu()">📜 24 Enquêtes</a></li>
+                    <li><a href="#fiches" class="nav-pill active" onclick="closeMobileMenu()">📜 25 Enquêtes</a></li>
                     <li><a href="#metrics" class="nav-pill" onclick="closeMobileMenu()">📊 Données</a></li>
                     <li><a href="#comparateur" class="nav-pill" onclick="closeMobileMenu()">🗺️ Comparateur</a></li>
                     <li><a href="#recours-pdf" class="nav-pill" onclick="closeMobileMenu()">📄 Recours</a></li>
                     <li><a href="#studio" class="nav-pill" onclick="closeMobileMenu()">🎬 Studio</a></li>
-                    <li><a href="#cellules" class="nav-pill" onclick="closeMobileMenu()">🕵️‍♂️ Créer une Cellule</a></li>
+                    <li><a href="#cellules" class="nav-pill" onclick="closeMobileMenu()">🕵️‍♂️ Cellules</a></li>
                     <li><a href="#action" class="header-cta-btn" onclick="closeMobileMenu()">✊ Agir</a></li>
                 </ul>
             </nav>
