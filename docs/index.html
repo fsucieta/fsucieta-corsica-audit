@@ -1681,8 +1681,39 @@
             }, 'google_translate_element');
         }
 
+        
+        window.resetToOriginalFrench = function() {
+            // Clear all possible googtrans cookies across all domain paths
+            const domains = ['', location.hostname, '.' + location.hostname, 'fsucieta.github.io', '.github.io'];
+            const paths = ['/', '/docs', location.pathname];
+
+            domains.forEach(d => {
+                paths.forEach(p => {
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=' + p + (d ? '; domain=' + d : '') + ';';
+                });
+            });
+
+            // Trigger Google Translate iframe restore if active
+            try {
+                const iframe = document.querySelector('iframe.goog-te-menu-frame');
+                if (iframe) {
+                    const doc = iframe.contentDocument || iframe.contentWindow.document;
+                    const restoreBtn = doc.querySelector('.goog-te-menu2-item span.text');
+                    if (restoreBtn) restoreBtn.click();
+                }
+            } catch(e) {}
+
+            document.body.dir = 'ltr';
+            location.href = location.protocol + '//' + location.host + location.pathname;
+        };
+
         window.switchGlobalLanguage = function(langCode) {
             console.log('Switching full-page language to:', langCode);
+
+            if (langCode === 'fr') {
+                window.resetToOriginalFrench();
+                return;
+            }
 
             // Handle RTL direction for Arabic
             if (langCode === 'ar') {
@@ -1691,16 +1722,7 @@
                 document.body.dir = 'ltr';
             }
 
-            if (langCode === 'fr') {
-                // Clear googtrans cookies and reload to original French
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + location.hostname + "; path=/;";
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + location.hostname + "; path=/;";
-                location.reload();
-                return;
-            }
-
-            // Map code for Google Translate
+            // Map language code for Google Translate
             const langMap = {
                 'en': '/fr/en',
                 'it': '/fr/it',
@@ -1711,6 +1733,28 @@
                 'zh-CN': '/fr/zh-CN',
                 'ja': '/fr/ja'
             };
+
+            const targetCookie = langMap[langCode] || ('/fr/' + langCode);
+
+            // Set googtrans cookie
+            document.cookie = "googtrans=" + targetCookie + "; path=/;";
+            document.cookie = "googtrans=" + targetCookie + "; domain=" + location.hostname + "; path=/;";
+            document.cookie = "googtrans=" + targetCookie + "; domain=." + location.hostname + "; path=/;";
+
+            // Trigger Google Translate widget dropdown
+            try {
+                const selectEl = document.querySelector('.goog-te-combo');
+                if (selectEl) {
+                    selectEl.value = langCode === 'zh' ? 'zh-CN' : langCode;
+                    selectEl.dispatchEvent(new Event('change'));
+                } else {
+                    location.reload();
+                }
+            } catch (e) {
+                location.reload();
+            }
+        };
+
 
             const targetCookie = langMap[langCode] || ('/fr/' + langCode);
 
