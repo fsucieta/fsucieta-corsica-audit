@@ -1670,6 +1670,218 @@
         .goog-te-menu-value span { color: #ffffff !important; font-weight: 700; }
     </style>
 
+
+    <!-- MASTER CLIENT-SIDE REAL-TIME TRANSLATION ENGINE -->
+    <script>
+        window.i18nMaster = {
+    "en": {
+        "nav_fiches": "📜 26 Investigations",
+        "nav_metrics": "📊 Data Metrics",
+        "nav_comparateur": "🗺️ Comparator",
+        "nav_recours": "📄 Appeals",
+        "nav_studio": "🎬 Studio",
+        "nav_cellules": "🕵️‍♂️ Citizen Cells",
+        "nav_agir": "✊ Take Action",
+        "hero_title": "CASA DI CRISTALE 2.0 — The Corsica Glass House",
+        "hero_subtitle": "Open Data and citizen auditing serving our land, housing, and children's future.",
+        "fiches_title": "📚 26 Systemic Audit Dossiers Exposed",
+        "fiches_desc": "Click on any dossier to view full investigation and mathematical proof.",
+        "search_placeholder": "Search across 26 dossiers...",
+        "fiche_prefix": "Audit Dossier #",
+        "read_proof": "Consult Official Proof ↗",
+        "dossier_btn": "📄 View Raw Markdown Source File (.MD) ↗"
+    },
+    "it": {
+        "nav_fiches": "📜 26 Inchieste",
+        "nav_metrics": "📊 Dati",
+        "nav_comparateur": "🗺️ Comparatore",
+        "nav_recours": "📄 Ricorsi",
+        "nav_studio": "🎬 Studio",
+        "nav_cellules": "🕵️‍♂️ Celle Cittadine",
+        "nav_agir": "✊ Agire",
+        "hero_title": "CASA DI CRISTALE 2.0 — La Casa di Cristallo della Corsica",
+        "hero_subtitle": "Open Data e audit cittadino al servizio della nostra terra e del futuro dei nostri figli.",
+        "fiches_title": "📚 Le 26 Inchieste di Audit Sistemico",
+        "fiches_desc": "Clicca su qualsiasi scheda per aprire il dossier completo e la formula di prova.",
+        "search_placeholder": "Cerca tra le 26 inchieste...",
+        "fiche_prefix": "Inchiesta Audit #",
+        "read_proof": "Consulta la Prova Ufficiale ↗",
+        "dossier_btn": "📄 Scarica il File Sorgente Markdown (.MD) ↗"
+    },
+    "es": {
+        "nav_fiches": "📜 26 Investigaciones",
+        "nav_metrics": "📊 Datos",
+        "nav_comparateur": "🗺️ Comparador",
+        "nav_recours": "📄 Recursos",
+        "nav_studio": "🎬 Estudio",
+        "nav_cellules": "🕵️‍♂️ Células Ciudadanas",
+        "nav_agir": "✊ Actuar",
+        "hero_title": "CASA DI CRISTALE 2.0 — La Casa de Cristal de Córcega",
+        "hero_subtitle": "Open Data y auditoría ciudadana al servicio de nuestra tierra y el futuro de nuestros hijos.",
+        "fiches_title": "📚 25 Expedientes de Auditoría Sistémica",
+        "fiches_desc": "Haga clic en cualquier ficha para ver la investigación completa y la fórmula de prueba.",
+        "search_placeholder": "Buscar en las 26 fichas...",
+        "fiche_prefix": "Ficha Auditoría #",
+        "read_proof": "Consultar Prueba Oficial ↗",
+        "dossier_btn": "📄 Ver Archivo Fuente Markdown (.MD) ↗"
+    },
+    "ru": {
+        "nav_fiches": "📜 26 Расследований",
+        "nav_metrics": "📊 Данные",
+        "nav_comparateur": "🗺️ Сравнение",
+        "nav_recours": "📄 Жалобы",
+        "nav_studio": "🎬 Студия",
+        "nav_cellules": "🕵️‍♂️ Гражданские ячейки",
+        "nav_agir": "✊ Действовать",
+        "hero_title": "CASA DI CRISTALE 2.0 — Хрустальный Дом Корсики",
+        "hero_subtitle": "Открытые данные и гражданский аудит на службе нашей земли и будущего наших детей.",
+        "fiches_title": "📚 26 Досье системного аудита",
+        "fiches_desc": "Нажмите на любое досье, чтобы открыть полное расследование и доказательство.",
+        "search_placeholder": "Поиск по 26 досье...",
+        "fiche_prefix": "Аудит Досье #",
+        "read_proof": "Официальное Доказательство ↗",
+        "dossier_btn": "📄 Открыть Исходный Файл Markdown (.MD) ↗"
+    },
+    "ar": {
+        "nav_fiches": "📜 26 تحقيقًا",
+        "nav_metrics": "📊 البيانات",
+        "nav_comparateur": "🗺️ أداة المقارنة",
+        "nav_recours": "📄 الطعون",
+        "nav_studio": "🎬 الاستوديو",
+        "nav_cellules": "🕵️‍♂️ الخلايا المواطنة",
+        "nav_agir": "✊ التحرك",
+        "hero_title": "CASA DI CRISTALE 2.0 — البيت الزجاجي لكورسيكا",
+        "hero_subtitle": "البيانات المفتوحة والتدقيق المواطني في خدمة أرضنا ومستقبل أطفالنا.",
+        "fiches_title": "📚 26 ملف تدقيق منهجي مكشوف",
+        "fiches_desc": "انقر على أي ملف لفتح التحقيق الكامل ومعادلة الإثبات.",
+        "search_placeholder": "البحث في 26 ملفًا...",
+        "fiche_prefix": "ملف التدقيق #",
+        "read_proof": "الاطلاع على الإثبات الرسمي ↗",
+        "dossier_btn": "📄 عرض ملف المصدر الخام (.MD) ↗"
+    },
+    "zh-CN": {
+        "nav_fiches": "📜 26项调查",
+        "nav_metrics": "📊 数据指标",
+        "nav_comparateur": "🗺️ 对比工具",
+        "nav_recours": "📄 申诉文件",
+        "nav_studio": "🎬 工作室",
+        "nav_cellules": "🕵️‍♂️ 公民小组",
+        "nav_agir": "✊ 采取行动",
+        "hero_title": "CASA DI CRISTALE 2.0 — 科西嘉水晶之屋",
+        "hero_subtitle": "开放数据与公民审计，服务于我们的土地与下一代的未来。",
+        "fiches_title": "📚 26份系统审计公开调查报告",
+        "fiches_desc": "点击任意报告查看完整调查与数学证明公式。",
+        "search_placeholder": "搜索26份报告...",
+        "fiche_prefix": "审计报告 #",
+        "read_proof": "查看官方证明 ↗",
+        "dossier_btn": "📄 查看Markdown源文件 (.MD) ↗"
+    },
+    "ja": {
+        "nav_fiches": "📜 26の調査報告",
+        "nav_metrics": "📊 データ",
+        "nav_comparateur": "🗺️ 比較ツール",
+        "nav_recours": "📄 異議申し立て",
+        "nav_studio": "🎬 スタジオ",
+        "nav_cellules": "🕵️‍♂️ 市民セル",
+        "nav_agir": "✊ 行動を起こす",
+        "hero_title": "CASA DI CRISTALE 2.0 — コルシカ・クリスタルの家",
+        "hero_subtitle": "オープンデータと市民監査で、私たちの土地と子供たちの未来を守る。",
+        "fiches_title": "📚 公開された26のシステム監査報告書",
+        "fiches_desc": "クリックすると完全な調査報告と証明式が閲覧できます。",
+        "search_placeholder": "26の報告書から検索...",
+        "fiche_prefix": "監査報告 #",
+        "read_proof": "公式証明を閲覧 ↗",
+        "dossier_btn": "📄 Markdownソースファイルを閲覧 (.MD) ↗"
+    }
+};
+
+        window.triggerFullPageTranslation = function(langCode) {
+            console.log('Switching client language to:', langCode);
+            
+            // Handle RTL direction for Arabic
+            if (langCode === 'ar') {
+                document.body.dir = 'rtl';
+            } else {
+                document.body.dir = 'ltr';
+            }
+
+            if (langCode === 'fr') {
+                location.reload();
+                return;
+            }
+
+            const dict = window.i18nMaster[langCode];
+            if (!dict) {
+                // Fallback Google Translate widget trigger if available
+                if (window.google && google.translate) {
+                    const selectEl = document.querySelector('.goog-te-combo');
+                    if (selectEl) {
+                        selectEl.value = langCode;
+                        selectEl.dispatchEvent(new Event('change'));
+                    }
+                }
+                return;
+            }
+
+            // 1. Translate UI Header & Hero Elements
+            const elNavFiches = document.querySelector('a[href="#fiches"]');
+            if (elNavFiches) elNavFiches.innerHTML = dict.nav_fiches;
+            
+            const elNavMetrics = document.querySelector('a[href="#metrics"]');
+            if (elNavMetrics) elNavMetrics.innerHTML = dict.nav_metrics;
+            
+            const elNavComp = document.querySelector('a[href="#comparateur"]');
+            if (elNavComp) elNavComp.innerHTML = dict.nav_comparateur;
+
+            const elNavRecours = document.querySelector('a[href="#recours-pdf"]');
+            if (elNavRecours) elNavRecours.innerHTML = dict.nav_recours;
+
+            const elNavStudio = document.querySelector('a[href="#studio"]');
+            if (elNavStudio) elNavStudio.innerHTML = dict.nav_studio;
+
+            const elNavCellules = document.querySelector('a[href="#cellules"]');
+            if (elNavCellules) elNavCellules.innerHTML = dict.nav_cellules;
+
+            const elNavAgir = document.querySelector('a[href="#action"]');
+            if (elNavAgir) elNavAgir.innerHTML = dict.nav_agir;
+
+            const elHeroH1 = document.querySelector('#accueil h1');
+            if (elHeroH1) elHeroH1.innerHTML = dict.hero_title;
+
+            const elHeroP = document.querySelector('#accueil p');
+            if (elHeroP && dict.hero_subtitle) elHeroP.innerHTML = dict.hero_subtitle;
+
+            const elFichesH2 = document.querySelector('#fiches h2');
+            if (elFichesH2) elFichesH2.innerHTML = dict.fiches_title;
+
+            const elFichesP = document.querySelector('#fiches p');
+            if (elFichesP) elFichesP.innerHTML = dict.fiches_desc;
+
+            const elSearch = document.getElementById('searchInput');
+            if (elSearch) elSearch.placeholder = dict.search_placeholder;
+
+            // 2. Update all card badge prefixes statically
+            document.querySelectorAll('.fiche-number').forEach(el => {
+                const txt = el.innerText;
+                const numMatch = txt.match(/#(\d+)/);
+                if (numMatch) {
+                    el.innerText = dict.fiche_prefix + numMatch[1];
+                }
+            });
+
+            // 3. Fallback Google Translate Trigger to translate body paragraphs
+            try {
+                let googleSelect = document.querySelector('.goog-te-combo');
+                if (googleSelect) {
+                    googleSelect.value = langCode;
+                    googleSelect.dispatchEvent(new Event('change'));
+                }
+            } catch(e) {
+                console.warn('Google translate trigger deferred:', e);
+            }
+        };
+    </script>
+
 </head>
 <body>
 
