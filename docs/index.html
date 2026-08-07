@@ -10684,148 +10684,145 @@
         }
 
                                                                                                                                                                                                                                                                                                                                         // 4. Modal d'affichage INTÉGRAL DU DOSSIER D'INVESTIGATION (ARTICLE COMPLET HIGH CONTRAST)
-        function updateModalCommuneData() {
+        let currentFicheId = 1;
+
+        function updateModalCommuneData(val, explicitFicheId) {
             const sel = document.getElementById('modalCommuneSelect');
             const out = document.getElementById('modalCommuneOutput');
-            const ficheTitleElem = document.getElementById('modalTitle');
             if (!sel || !out) return;
             
-            const idx = parseInt(sel.value);
+            const idx = parseInt(val !== undefined ? val : sel.value);
             if (isNaN(idx) || !gisPack[idx]) {
                 out.style.display = 'none';
                 return;
             }
             
             const c = gisPack[idx];
-            let ficheId = 1;
-            if (ficheTitleElem) {
-                const m = ficheTitleElem.innerText.match(/Enquête (\d+)/i) || ficheTitleElem.innerText.match(/#(\d+)/);
-                if (m) ficheId = parseInt(m[1]);
-            }
+            const activeId = explicitFicheId ? parseInt(explicitFicheId) : currentFicheId;
             
             let contentHTML = '';
-            switch(ficheId) {
+            switch(activeId) {
                 case 1:
-                    contentHTML = `<strong>💶 Déclinaison Enquête 01 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Captation Fiscale vs Subventions d&apos;État :</strong> ${c.sci_rate} des acquisitions immobilières à ${c.name} s&apos;effectuent sous SCI/SAS anonymes. La valeur ajoutée fiscale (TVA/IS) échappe au budget communal au profit du Trésor central.<br>
-                    • <strong>Audit Subventions & Dotations (DETR / DSI / DSIL) :</strong> Les enveloppes de subventions d&apos;équipement versées à la mairie de ${c.name} restent calculées sur la population permanente sans compenser la charge des infrastructures estivales.<br>
-                    • <strong>Action Citoyenne CADA :</strong> Demander le tableau récapitulatif des subventions d&apos;État reçues par la commune et le montant exact de la taxe de séjour collectée.`;
+                    contentHTML = `<strong>💶 Déclinaison Enquête 01 (Fiscalité & Subventions) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Captation Fiscale & TVA :</strong> ${c.sci_rate} des transactions immobilières de valeur à ${c.name} s&apos;opèrent via des SCI/SAS anonymes. La valeur ajoutée échappe aux caisses communales.<br>
+                    • <strong>Audit Dotations d&apos;Équipement (DETR / DSI) :</strong> Les subventions d&apos;État accordées à la mairie de ${c.name} ne couvrent pas le surcoût de la charge touristique estivale.<br>
+                    • <strong>Action CADA :</strong> Exiger le bilan des subventions d&apos;État perçues et le montant collecté de taxe de séjour.`;
                     break;
                 case 2:
-                    contentHTML = `<strong>💧 Déclinaison Enquête 02 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Taux de Fuite Réseau Potable (SISPEA/BRGM) :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.water_leak}</span> d&apos;eau potable perdue dans le sol communal.<br>
-                    • <strong>Tension Estivale & Prélèvements :</strong> ${c.sec_rate} de résidences secondaires créant des sur-prélèvements en pointe juillet/août.<br>
-                    • <strong>Action Citoyenne CADA :</strong> Demander le bilan comptable de l&apos;eau et le compte d&apos;exploitation du fermier à ${c.name}.`;
+                    contentHTML = `<strong>💧 Déclinaison Enquête 02 (Eau & Assainissement) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Taux de Fuite Réseau Potable (SISPEA) :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.water_leak}</span> d&apos;eau potable s&apos;évaporent dans les réseaux vétustes de la commune.<br>
+                    • <strong>Pression Estivale :</strong> ${c.sec_rate} de résidences secondaires provoquent des pics de consommation critique en juillet/août.<br>
+                    • <strong>Action Citoyenne CADA :</strong> Exiger la convention de délégation d&apos;eau potable de ${c.name} et le détail du tarif au m³.`;
                     break;
                 case 3:
-                    contentHTML = `<strong>🏠 Déclinaison Enquête 03 — ${c.name} (${c.dep}) :</strong><br>
+                    contentHTML = `<strong>🏠 Déclinaison Enquête 03 (Spéculation DVF & SCI) — ${c.name} (${c.dep}) :</strong><br>
                     • <strong>Prix Moyen DVF Notaires :</strong> <span style="color: #b8860b; font-weight: 800;">${c.dvf_m2}</span> | <strong>Taux de Résidences Secondaires :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span>.<br>
-                    • <strong>Sociétés Non-Résidentes (INPI RBE) :</strong> ${c.sci_rate} des achats de valeur réalisés sous couvert de SCI/SAS anonymes.<br>
-                    • <strong>Impact Social :</strong> Éviction totale des jeunes actifs permanents de ${c.name} du marché de l&apos;accédance à la propriété.`;
+                    • <strong>Holdings Sociétaires (INPI RBE) :</strong> ${c.sci_rate} des achats de luxe réalisés sous couvert de SCI/SAS anonymes.<br>
+                    • <strong>Impact Habitant :</strong> Éviction totale des jeunes ménages de ${c.name} de l&apos;accès à la résidence principale.`;
                     break;
                 case 4:
-                    contentHTML = `<strong>🐟 Déclinaison Enquête 04 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Façade Maritime & Ressources Halieutiques :</strong> Typologie : <em>${c.type}</em> | Pression sur les bandes côtières et récifs.<br>
-                    • <strong>Action Pêcheurs Artisanaux :</strong> Contrôle du respect de la ZEE et préemption citoyenne des concessions de mouillages privés.`;
+                    contentHTML = `<strong>🐟 Déclinaison Enquête 04 (Mer, ZEE & Pêche) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Façade Maritime :</strong> Typologie <em>${c.type}</em> | Surveillance des périmètres de mouillages et récifs.<br>
+                    • <strong>Action Pêcheurs :</strong> Contrôle du respect des préemptions maritimes et soutien à la flottille artisanale locale de ${c.name}.`;
                     break;
                 case 5:
-                    contentHTML = `<strong>⛏️ Déclinaison Enquête 05 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Cadastre Minier & Risques BRGM :</strong> ${c.axes.some(a => a.includes('Mines') || a.includes('Antimoine')) ? "⚠️ Commune recensée au cadastre minier BRGM (vestiges d'antimoine/arsenic)." : "Cadastre minier : Zone hors risque d'extraction lourde directe répertoriée."}<br>
-                    • <strong>Vigilance Sols :</strong> Consultation des relevés géologiques InfoTerre pour les permis de construire à ${c.name}.`;
+                    contentHTML = `<strong>⛏️ Déclinaison Enquête 05 (Mines & Cadastre BRGM) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Relevés Géologiques BRGM :</strong> ${c.axes.some(a => a.includes('Mines') || a.includes('Antimoine')) ? "⚠️ Zone communale recensée au cadastre minier avec vestiges d'antimoine/arsenic." : "Cadastre minier : Zone hors risque d'extraction lourde répertoriée."}<br>
+                    • <strong>Vigilance Sols :</strong> Saisine CADA des cartographies InfoTerre sur les zones à bâtir de ${c.name}.`;
                     break;
                 case 6:
-                    contentHTML = `<strong>🌲 Déclinaison Enquête 06 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Ressource Forestière & Pin Laricio :</strong> Massifs communaux et pastoraux de ${c.name}.<br>
-                    • <strong>Action Filiaire Bois :</strong> Obligation de transformation locale et traçabilité pour stopper l&apos;exportation brute de grumes.`;
+                    contentHTML = `<strong>🌲 Déclinaison Enquête 06 (Forêt & Bois Laricio) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Ressource Forestière :</strong> Massifs boisés communaux et pastoraux de ${c.name}.<br>
+                    • <strong>Action Filiaire :</strong> Traçabilité obligatoire des coupes de bois vers les scieries locales au lieu de l&apos;exportation brute de grumes.`;
                     break;
                 case 7:
-                    contentHTML = `<strong>🌾 Déclinaison Enquête 07 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Foncier Nourricier & Terres Cultivables :</strong> Prix du m² sous pression immobilière (${c.dvf_m2}).<br>
-                    • <strong>Vigilance SAFER :</strong> Saisine citoyenne pour bloquer la spéculation sur les parcelles agricoles de ${c.name}.`;
+                    contentHTML = `<strong>🌾 Déclinaison Enquête 07 (Foncier Agricole & SAFER) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Pression Immobilière Agricole :</strong> Prix du m² s&apos;élevant à ${c.dvf_m2} menaçant les terres nourricières.<br>
+                    • <strong>Action SAFER :</strong> Recours citoyen pour préempter les terres arables de ${c.name} au profit des jeunes agriculteurs.`;
                     break;
                 case 8:
-                    contentHTML = `<strong>🛡️ Déclinaison Enquête 08 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Taux d&apos;Urbanisation & Loi Littoral :</strong> Taux de résidences secondaires à <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span>.<br>
-                    • <strong>Conformité PLU / Padduc :</strong> Audit des révisions simplifiées de PLU autorisant le mitage en zone remarquable à ${c.name}.`;
+                    contentHTML = `<strong>🛡️ Déclinaison Enquête 08 (Loi Littoral & Urbanisme) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Taux d&apos;Urbanisation Littorale :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span> de logements occasionnels.<br>
+                    • <strong>Conformité PLU / Padduc :</strong> Vérification de la légalité des ouvertures à l&apos;urbanisation en zones remarquables de ${c.name}.`;
                     break;
                 case 9:
-                    contentHTML = `<strong>🎖️ Déclinaison Enquête 09 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Servitudes Militaires & Défense :</strong> ${c.axes.some(a => a.includes('Militaires')) ? "⚠️ Emprise foncière militaire stratégique identifiée." : "Commune hors zone d'emprise militaire directe."}<br>
-                    • <strong>Impact Régalien :</strong> Neutralisation des règles d&apos;urbanisme civiles sur les périmètres de sécurité.`;
+                    contentHTML = `<strong>🎖️ Déclinaison Enquête 09 (Défense & Servitudes Militaires) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Servitudes Militaires :</strong> ${c.axes.some(a => a.includes('Militaires')) ? "⚠️ Emprise foncière militaire stratégique identifiée." : "Commune hors zone d'emprise militaire directe."}<br>
+                    • <strong>Impact Urbanistique :</strong> Neutralisation du droit du sol civil sur les zones de sécurité régalienne de ${c.name}.`;
                     break;
                 case 10:
-                    contentHTML = `<strong>🏥 Déclinaison Enquête 10 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Délai d&apos;Accès aux Urgences (IGN Isochrone) :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.risk_level === 'Critique' || c.risk_level === 'Très Élevé' ? "> 45 minutes d'un hôpital/CHRU" : "~ 20-35 minutes"}</span>.<br>
-                    • <strong>Urgence Santé :</strong> Exiger le maintien des ambulances de proximité et la couverture SAMU sur ${c.name}.`;
+                    contentHTML = `<strong>🏥 Déclinaison Enquête 10 (Santé & Urgences Hôpital) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Accès aux Urgences (Isochrone IGN) :</strong> <span style="color: #e74c3c; font-weight: 800;">${c.risk_level === 'Critique' || c.risk_level === 'Très Élevé' ? "> 45 minutes d'un plateau technique hospitalier" : "~ 20-35 minutes"}</span>.<br>
+                    • <strong>Urgence Santé :</strong> Pétition communale pour la permanence des soins et des secours de proximité à ${c.name}.`;
                     break;
                 case 11:
-                    contentHTML = `<strong>🎓 Déclinaison Enquête 11 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Pression du Logement pour les Jeunes :</strong> Prix moyen DVF : ${c.dvf_m2}.<br>
-                    • <strong>Fuite des Cervaux :</strong> Absence d&apos;infrastructures d&apos;incubation et de logements étudiants accessibles à ${c.name}.`;
+                    contentHTML = `<strong>🎓 Déclinaison Enquête 11 (Éducation & Logement Étudiant) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Tension Immobilière Étudiante :</strong> Coût du m² DVF (${c.dvf_m2}) bloquant la jeunesse.<br>
+                    • <strong>Action Formation :</strong> Exiger des résidences publiques abordables et des aides à l&apos;installation locale.`;
                     break;
                 case 12:
-                    contentHTML = `<strong>🏦 Déclinaison Enquête 12 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Drainage de l&apos;Épargne Locale :</strong> Ratio dépôts/crédits défavorable aux TPE/PME de ${c.name}.<br>
-                    • <strong>Action Financière :</strong> Exiger la transparence des banques sur le financement de l&apos;économie réelle locale.`;
+                    contentHTML = `<strong>🏦 Déclinaison Enquête 12 (Justice, JIRS & Transparence) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Réseaux Banques / Crédits :</strong> Épargne des habitants de ${c.name} captée au profit des marchés financiers centraux.<br>
+                    • <strong>Action Transparence :</strong> Saisine des juridictions administratives pour l&apos;accès aux comptes publics locaux.`;
                     break;
                 case 13:
-                    contentHTML = `<strong>⚡ Déclinaison Enquête 13 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Concessions Hydroélectriques & Réseau :</strong> Production et potentiel d&apos;énergie renouvelable du bassin de ${c.name}.<br>
-                    • <strong>Action Fiscale :</strong> Récupération des redevances d&apos;eau d&apos;énergie au bénéfice direct du budget municipal.`;
+                    contentHTML = `<strong>⚡ Déclinaison Enquête 13 (Énergie & Barrages Hydro) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Potentiel Énergétique Communal :</strong> Production hydraulique et renouvelable du bassin de ${c.name}.<br>
+                    • <strong>Redevances Hydro :</strong> Exiger le reversement direct des taxes de concession d&apos;eau au budget de ${c.name}.`;
                     break;
                 case 14:
-                    contentHTML = `<strong>📜 Déclinaison Enquête 14 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Évolution Historique 1975-2026 :</strong> Explosion des résidences secondaires passées à <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span>.<br>
-                    • <strong>Bilan 50 Ans :</strong> Dépossession progressive du patrimoine immobilier familial permanent de ${c.name}.`;
+                    contentHTML = `<strong>📜 Déclinaison Enquête 14 (Historique 50 Ans Spéculation) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Évolution 1975-2026 :</strong> Part des résidences secondaires grimpant à <span style="color: #e74c3c; font-weight: 800;">${c.sec_rate}</span>.<br>
+                    • <strong>Bilan Patrimonial :</strong> Dépossession progressive du foncier familial historique des habitants de ${c.name}.`;
                     break;
                 case 15:
-                    contentHTML = `<strong>🔌 Déclinaison Enquête 15 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Vulnérabilité Électrique :</strong> Pic de consommation estival dû aux résidences secondaires (${c.sec_rate}).<br>
-                    • <strong>Audit Enedis :</strong> Demander le plan de renforcement des transformateurs et câblages locaux à ${c.name}.`;
+                    contentHTML = `<strong>🔌 Déclinaison Enquête 15 (Réseau Électrique & Pic Estival) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Surconsommation Saisonnière :</strong> Risque de saturation sous la pression des résidences secondaires (${c.sec_rate}).<br>
+                    • <strong>Audit Enedis :</strong> Demander l&apos;accès au plan d&apos;investissement et de sécurisation du réseau de ${c.name}.`;
                     break;
                 case 16:
-                    contentHTML = `<strong>🚢 Déclinaison Enquête 16 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Surcoût Fret & Continuité Territoriale :</strong> Impact direct sur le coût de la vie et le prix du panier de la ménagère à ${c.name}.`;
+                    contentHTML = `<strong>🚢 Déclinaison Enquête 16 (Transport & Surcoût Fret) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Impact Vie Chère :</strong> Surcoût maritime répercuté sur le prix des matériaux et des denrées vendus à ${c.name}.`;
                     break;
                 case 17:
-                    contentHTML = `<strong>🌐 Déclinaison Enquête 17 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Hébergement des Données Municipales :</strong> Dépendance envers des serveurs distants hors de Corse.<br>
-                    • <strong>Souveraineté Numérique :</strong> Exiger la relocalisation des registres citoyens de ${c.name} sur infrastructure souveraine.`;
+                    contentHTML = `<strong>🌐 Déclinaison Enquête 17 (Numérique & Souveraineté Données) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Stockage Serveurs Mairie :</strong> Registres administratifs de ${c.name} hébergés sur cloud étranger.<br>
+                    • <strong>Souveraineté :</strong> Exiger le rapatriement des données communales sur serveurs souverains insulaires.`;
                     break;
                 case 18:
-                    contentHTML = `<strong>🐐 Déclinaison Enquête 18 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Primes PAC & Foncier Pastoral :</strong> Pression des déclarations de surfaces sur les parcours de ${c.name}.<br>
-                    • <strong>Contrôle ASP / ODARC :</strong> Vérification de l&apos;activité pastorale réelle et de la présence effective de cheptel.`;
+                    contentHTML = `<strong>🐐 Déclinaison Enquête 18 (Primes PAC & Foncier Virtuel) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Contrôle Surfacique PAC :</strong> Risque de spéculation d&apos;aides sur les parcours pastoraux de ${c.name}.<br>
+                    • <strong>Action ASP / ODARC :</strong> Vérification sur le terrain du cheptel réel de la commune.`;
                     break;
                 case 19:
-                    contentHTML = `<strong>🗑️ Déclinaison Enquête 19 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Gestion des Déchets & Transfert :</strong> Coût d&apos;évacuation vers les sites d&apos;enfouissement régionaux.<br>
-                    • <strong>Action SYVADEC :</strong> Exiger la mise en place de la tarification incitative et de la revalorisation bio à ${c.name}.`;
+                    contentHTML = `<strong>🗑️ Déclinaison Enquête 19 (Déchets & Transports Cargos) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Coût de Traitement :</strong> Facturation de l&apos;enfouissement et transfert des ordures ménagères de ${c.name}.<br>
+                    • <strong>Tri à la Source :</strong> Saisine SYVADEC pour la généralisation de la tarification incitative.`;
                     break;
                 case 20:
-                    contentHTML = `<strong>💶 Déclinaison Enquête 20 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Fuite des Capitaux & Banques :</strong> Fuite du produit de l&apos;impôt et des liquidités vers les maisons mères continentales.<br>
-                    • <strong>Vigilance Citoyenne :</strong> Audit du compte de gestion comptable du trésorier public local de ${c.name}.`;
+                    contentHTML = `<strong>💶 Déclinaison Enquête 20 (Système Bancaire & Fuite Capitaux) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Fuite des Liquidités :</strong> Drainage des dépôts de ${c.name} vers les banques continentales.<br>
+                    • <strong>Contrôle Citoyen :</strong> Exiger la publication du ratio prêts/dépôts par les agences locales.`;
                     break;
                 case 21:
-                    contentHTML = `<strong>🔥 Déclinaison Enquête 21 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Couverture Incendie & Sécurité Civile :</strong> Niveau de risque feu de forêt : <span style="color: #e74c3c; font-weight: 800;">${c.risk_level}</span>.<br>
-                    • <strong>Temps d&apos;Intervention SDIS :</strong> Exiger le débroussaillement obligatoire (OLD) et des réserves d&apos;eau sous pression à ${c.name}.`;
+                    contentHTML = `<strong>🔥 Déclinaison Enquête 21 (Incendies & Protection Civile) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Niveau de Risque Feu :</strong> Évalué comme <span style="color: #e74c3c; font-weight: 800;">${c.risk_level}</span> sur le massif de ${c.name}.<br>
+                    • <strong>Moyens SDIS :</strong> Audit de la conformité des obligations légales de débroussaillement (OLD) et réserves d&apos;eau.`;
                     break;
                 case 22:
-                    contentHTML = `<strong>📐 Déclinaison Enquête 22 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Radar Bufitonu.fr & Permis Tacites :</strong> Surveillance de la délivrance des permis par silence valant accord (R. 424-1) en mairie de ${c.name}.<br>
-                    • <strong>Action Urgente :</strong> Exiger la publication du registre d&apos;affichage des permis de construire à ${c.name}.`;
+                    contentHTML = `<strong>📐 Déclinaison Enquête 22 (Radar Urbanisme & Permis Tacites) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Permis par Silence Tacite (R. 424-1) :</strong> Surveillance automatisée Bufitonu.fr des permis accordés tacitement à ${c.name}.<br>
+                    • <strong>Action Urgente :</strong> Consultation immédiate du registre des permis de construire délivrés en mairie.`;
                     break;
                 case 23:
-                    contentHTML = `<strong>🔍 Déclinaison Enquête 23 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Sociétés Ecrans & Registre RBE :</strong> <span style="color: #b8860b; font-weight: 800;">${c.sci_rate}</span> des projets immobiliers sous SCI/SAS anonymes.<br>
-                    • <strong>Action Levée d&apos;Anonymat :</strong> Utiliser le scraper RBE INPI Bufitonu.fr pour identifier les bénéficiaires effectifs à ${c.name}.`;
+                    contentHTML = `<strong>🔍 Déclinaison Enquête 23 (Sociétés Écrans & Registre RBE) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Anonymat Immobilier INPI :</strong> <span style="color: #b8860b; font-weight: 800;">${c.sci_rate}</span> des transactions via des SCI/SAS non-résidentes.<br>
+                    • <strong>Scraper RBE Bufitonu.fr :</strong> Identification automatisée des vrais bénéficiaires effectifs à ${c.name}.`;
                     break;
                 case 24:
-                    contentHTML = `<strong>🏚️ Déclinaison Enquête 24 — ${c.name} (${c.dep}) :</strong><br>
-                    • <strong>Détournement du Patrimoine Pastoral :</strong> Risque d&apos;extension / conversion de bergeries ancestrales sous l&apos;article L. 151-11.<br>
-                    • <strong>Action Protection Bâti :</strong> Recensement citoyen du petit patrimoine rural et blocage des dérogations VIP à ${c.name}.`;
+                    contentHTML = `<strong>🏚️ Déclinaison Enquête 24 (Patrimoine & Bergeries L. 151-11) — ${c.name} (${c.dep}) :</strong><br>
+                    • <strong>Patrimoine Bâti Rural :</strong> Risque de reconversion spéculative de bergeries sous dérogations d&apos;urbanisme.<br>
+                    • <strong>Action Protection :</strong> Inventaire citoyen du bâti patrimonial de ${c.name} et refus des dérogations VIP.`;
                     break;
                 default:
                     contentHTML = `<strong>📍 Données Communales pour ${c.name} (${c.dep}) :</strong> Prix DVF : ${c.dvf_m2} | Res. Sec : ${c.sec_rate} | SCI : ${c.sci_rate}`;
@@ -10840,6 +10837,7 @@
         }
 
         function openModal(item) {
+            currentFicheId = item.id || 1;
             const modal = document.getElementById('ficheModal');
             const body = document.getElementById('modalBody');
             
